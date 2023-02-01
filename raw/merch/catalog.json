@@ -6,5 +6,9 @@
     {
         "slug": "iphone-xr",
         "title": "iPhone XR"
+    },
+    {
+        "slug": "iphone-xs",
+        "title": "iPhone XS"
     }
 ]
