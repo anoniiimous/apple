@@ -26,5 +26,9 @@
     {
         "slug": "iphone-se",
         "title": "iPhone SE"
+    },
+    {
+        "slug": "iphone-13",
+        "title": "iPhone 13"
     }
 ]
