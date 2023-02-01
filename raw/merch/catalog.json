@@ -18,5 +18,9 @@
     {
         "slug": "iphone-11",
         "title": "iPhone 11"
+    },
+    {
+        "slug": "iphone-12",
+        "title": "iPhone 12"
     }
 ]
