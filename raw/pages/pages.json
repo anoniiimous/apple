@@ -14,5 +14,9 @@
     {
         "page": "/watch/",
         "path": "/watch/"
+    },
+    {
+        "page": "/airpods/",
+        "path": "/airpods/"
     }
 ]
