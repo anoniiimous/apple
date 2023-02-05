@@ -6,5 +6,9 @@
     {
         "page": "/ipad/",
         "path": "/ipad/"
+    },
+    {
+        "page": "/iphone/",
+        "path": "/iphone/"
     }
 ]
