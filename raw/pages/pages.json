@@ -10,5 +10,9 @@
     {
         "page": "/iphone/",
         "path": "/iphone/"
+    },
+    {
+        "page": "/watch/",
+        "path": "/watch/"
     }
 ]
