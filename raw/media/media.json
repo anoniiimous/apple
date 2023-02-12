@@ -21,5 +21,11 @@
         "slug": "jungle-street",
         "title": "Jungle Street",
         "description": "Outside broad day with it."
+    },
+    {
+        "format": "audio",
+        "slug": "cap-music",
+        "title": "Cap Music",
+        "description": "Track 01\nDJ Mute"
     }
 ]
