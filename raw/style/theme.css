@@ -51,6 +51,12 @@
     .display-inline-flex {
         display: inline-flex;
     }
+
+    @media screen {
+        .-dw640px-display-none {
+            display: none;
+        }
+    }
 }
 
 @media {
