@@ -33,5 +33,35 @@
         ],
         "slug": "iphone-11",
         "title": "iPhone 11"
+    },
+    {
+        "category": "Cell Phones & Accesories",
+        "dimensions": [
+            {
+                "name": "Size",
+                "values": [
+                    "64GB",
+                    "256GB"
+                ]
+            },
+            {
+                "name": "Color",
+                "values": [
+                    "Silver",
+                    "Space Gray"
+                ]
+            },
+            {
+                "name": "Carrier",
+                "values": [
+                    "AT&T",
+                    "T-Mobile",
+                    "Unlocked",
+                    "Verizon"
+                ]
+            }
+        ],
+        "slug": "iphone-x",
+        "title": "iPhone X"
     }
 ]
