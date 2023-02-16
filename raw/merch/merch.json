@@ -4,6 +4,7 @@
         "dimensions": [
             {
                 "name": "Size",
+                "slug": "size",
                 "values": [
                     "32GB",
                     "64GB",
@@ -12,6 +13,7 @@
             },
             {
                 "name": "Color",
+                "slug": "color",
                 "values": [
                     "Black",
                     "Green",
@@ -23,6 +25,7 @@
             },
             {
                 "name": "Carrier",
+                "slug": "carrier",
                 "values": [
                     "AT&T",
                     "T-Mobile",
@@ -39,6 +42,7 @@
         "dimensions": [
             {
                 "name": "Size",
+                "slug": "size",
                 "values": [
                     "64GB",
                     "256GB"
@@ -46,6 +50,7 @@
             },
             {
                 "name": "Color",
+                "slug": "color",
                 "values": [
                     "Silver",
                     "Space Gray"
@@ -53,6 +58,7 @@
             },
             {
                 "name": "Carrier",
+                "slug": "carrier",
                 "values": [
                     "AT&T",
                     "T-Mobile",
