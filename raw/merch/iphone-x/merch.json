@@ -2,21 +2,24 @@
     "category": "Cell Phones & Accesories",
     "dimensions": [
         {
-            "name": "Size",
+            "display": "Size",
+            "name": "size",
             "values": [
                 "64GB",
                 "256GB"
             ]
         },
         {
-            "name": "Color",
+            "display": "Color",
+            "name": "color",
             "values": [
                 "Silver",
                 "Space Gray"
             ]
         },
         {
-            "name": "Carrier",
+            "display": "Carrier",
+            "name": "carrier",
             "values": [
                 "AT&T",
                 "T-Mobile",
