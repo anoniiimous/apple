@@ -4,7 +4,7 @@
     "title": "iPhone 11",
     "dimensions": [
         {
-            "name": "Size",
+            "name": "",
             "values": [
                 "32GB",
                 "64GB",
@@ -12,7 +12,7 @@
             ]
         },
         {
-            "name": "Color",
+            "name": "",
             "values": [
                 "Black",
                 "Green",
@@ -23,7 +23,7 @@
             ]
         },
         {
-            "name": "Carrier",
+            "name": "",
             "values": [
                 "AT&T",
                 "T-Mobile",
