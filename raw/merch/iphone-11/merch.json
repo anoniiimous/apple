@@ -9,7 +9,7 @@
     ],
     "dimensions": [
         {
-            "name": "",
+            "name": "Size",
             "values": [
                 "32GB",
                 "64GB",
@@ -17,7 +17,7 @@
             ]
         },
         {
-            "name": "",
+            "name": "Color",
             "values": [
                 "Black",
                 "Green",
@@ -28,7 +28,7 @@
             ]
         },
         {
-            "name": "",
+            "name": "Carrier",
             "values": [
                 "AT&T",
                 "T-Mobile",
