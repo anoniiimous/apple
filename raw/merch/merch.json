@@ -1,0 +1,66 @@
+[
+    {
+        "format": "photo",
+        "slug": "laptops-on-desk",
+        "title": "Laptops on Desk",
+        "description": "Mackbooks on wooden office desk."
+    },
+    {
+        "format": "photo",
+        "slug": "astronaut-photo",
+        "title": "Astronaut Photo"
+    },
+    {
+        "format": "video",
+        "slug": "hand-washing",
+        "title": "Hand Washing",
+        "description": "How to wash hands thoroughly."
+    },
+    {
+        "format": "video",
+        "slug": "jungle-street",
+        "title": "Jungle Street",
+        "description": "Outside broad day with it."
+    },
+    {
+        "format": "audio",
+        "slug": "cap-music",
+        "title": "Cap Music",
+        "description": "Track 01\nDJ Mute"
+    },
+    {
+        "category": "Cell Phones & Accesories",
+        "name": "iPhone 11",
+        "dimensions": [
+            {
+                "name": "Size",
+                "values": [
+                    "32GB",
+                    "64GB",
+                    "128GB"
+                ]
+            },
+            {
+                "name": "Color",
+                "values": [
+                    "Black",
+                    "Green",
+                    "Purple",
+                    "Red",
+                    "White",
+                    "Yellow"
+                ]
+            },
+            {
+                "name": "Carrier",
+                "values": [
+                    "AT&T",
+                    "T-Mobile",
+                    "Unlocked",
+                    "Verizon"
+                ]
+            }
+        ],
+        "slug": "iphone-11"
+    }
+]
