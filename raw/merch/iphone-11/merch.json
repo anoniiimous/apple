@@ -2,7 +2,8 @@
     "category": "Cell Phones & Accesories",
     "dimensions": [
         {
-            "name": "Size",
+            "display": "Size",
+            "name": "size",
             "values": [
                 "32GB",
                 "64GB",
@@ -10,7 +11,8 @@
             ]
         },
         {
-            "name": "Color",
+            "display": "Color",
+            "name": "color",
             "values": [
                 "Black",
                 "Green",
@@ -21,7 +23,8 @@
             ]
         },
         {
-            "name": "Carrier",
+            "display": "Carrier",
+            "name": "carrier",
             "values": [
                 "AT&T",
                 "T-Mobile",
