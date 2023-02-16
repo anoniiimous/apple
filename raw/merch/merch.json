@@ -33,5 +33,40 @@
             }
         ],
         "slug": "iphone-11"
+    },
+    {
+        "category": "Cell Phones & Accesories",
+        "dimensions": [
+            {
+                "name": "Size",
+                "values": [
+                    "32GB",
+                    "64GB",
+                    "128GB"
+                ]
+            },
+            {
+                "name": "Color",
+                "values": [
+                    "Black",
+                    "Green",
+                    "Purple",
+                    "Red",
+                    "White",
+                    "Yellow"
+                ]
+            },
+            {
+                "name": "Carrier",
+                "values": [
+                    "AT&T",
+                    "T-Mobile",
+                    "Unlocked",
+                    "Verizon"
+                ]
+            }
+        ],
+        "slug": "iphone-11",
+        "title": "iPhone 11"
     }
 ]

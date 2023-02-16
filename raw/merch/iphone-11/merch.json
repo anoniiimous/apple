@@ -1,6 +1,5 @@
 {
     "category": "Cell Phones & Accesories",
-    "name": "iPhone 11",
     "dimensions": [
         {
             "name": "Size",
@@ -31,5 +30,6 @@
             ]
         }
     ],
-    "slug": "iphone-11"
+    "slug": "iphone-11",
+    "title": "iPhone 11"
 }
