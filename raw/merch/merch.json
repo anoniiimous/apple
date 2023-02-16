@@ -3,8 +3,8 @@
         "category": "Cell Phones & Accesories",
         "dimensions": [
             {
-                "name": "Size",
-                "slug": "size",
+                "display": "Size",
+                "name": "size",
                 "values": [
                     "32GB",
                     "64GB",
@@ -12,8 +12,8 @@
                 ]
             },
             {
-                "name": "Color",
-                "slug": "color",
+                "display": "Color",
+                "name": "color",
                 "values": [
                     "Black",
                     "Green",
@@ -24,8 +24,8 @@
                 ]
             },
             {
-                "name": "Carrier",
-                "slug": "carrier",
+                "display": "Carrier",
+                "name": "carrier",
                 "values": [
                     "AT&T",
                     "T-Mobile",
@@ -41,24 +41,24 @@
         "category": "Cell Phones & Accesories",
         "dimensions": [
             {
-                "name": "Size",
-                "slug": "size",
+                "display": "Size",
+                "name": "size",
                 "values": [
                     "64GB",
                     "256GB"
                 ]
             },
             {
-                "name": "Color",
-                "slug": "color",
+                "display": "Color",
+                "name": "color",
                 "values": [
                     "Silver",
                     "Space Gray"
                 ]
             },
             {
-                "name": "Carrier",
-                "slug": "carrier",
+                "display": "Carrier",
+                "name": "carrier",
                 "values": [
                     "AT&T",
                     "T-Mobile",
