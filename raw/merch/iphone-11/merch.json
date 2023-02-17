@@ -28,20 +28,6 @@
         "slug": "iphone-11",
         "title": "iPhone 11",
         "images": [],
-        "attributes": [
-            {
-                "name": "Size",
-                "value": "64GB"
-            },
-            {
-                "name": "Color",
-                "value": "Black"
-            },
-            {
-                "name": "Carrier",
-                "value": "Unlocked"
-            }
-        ],
         "dimensions": [
             {
                 "name": "Size",
