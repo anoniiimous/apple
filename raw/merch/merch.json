@@ -19,7 +19,8 @@
             }
         ],
         "pricing": {
-            "ListPrice": "328.95"
+            "ListPrice": "328.95",
+            "SalePrice": "299.99"
         }
     },
     {
