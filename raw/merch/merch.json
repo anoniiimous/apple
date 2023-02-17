@@ -17,11 +17,7 @@
                 "name": "Carrier",
                 "value": "Unlocked"
             }
-        ],
-        "pricing": {
-            "ListPrice": "328.95",
-            "SalePrice": "299.99"
-        }
+        ]
     },
     {
         "category": "Cell Phones & Accesories",
@@ -46,10 +42,6 @@
                 "name": "Carrier",
                 "value": "Unlocked"
             }
-        ],
-        "pricing": {
-            "ListPrice": "328.95",
-            "SalePrice": "299.99"
-        }
+        ]
     }
 ]
