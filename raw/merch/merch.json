@@ -7,68 +7,10 @@
             "/raw/merch/iphone-11/image.0.jpeg",
             "/raw/merch/iphone-11/image.1.jpeg",
             "/raw/merch/iphone-11/image.2.jpeg"
-        ],
-        "dimensions": [
-            {
-                "name": "Size",
-                "values": [
-                    "32GB",
-                    "64GB",
-                    "128GB"
-                ]
-            },
-            {
-                "name": "Color",
-                "values": [
-                    "Black",
-                    "Green",
-                    "Purple",
-                    "Red",
-                    "White",
-                    "Yellow"
-                ]
-            },
-            {
-                "name": "Carrier",
-                "values": [
-                    "AT&T",
-                    "T-Mobile",
-                    "Unlocked",
-                    "Verizon"
-                ]
-            }
         ]
     },
     {
         "category": "Cell Phones & Accesories",
-        "dimensions": [
-            {
-                "display": "Size",
-                "name": "size",
-                "values": [
-                    "64GB",
-                    "256GB"
-                ]
-            },
-            {
-                "display": "Color",
-                "name": "color",
-                "values": [
-                    "Silver",
-                    "Space Gray"
-                ]
-            },
-            {
-                "display": "Carrier",
-                "name": "carrier",
-                "values": [
-                    "AT&T",
-                    "T-Mobile",
-                    "Unlocked",
-                    "Verizon"
-                ]
-            }
-        ],
         "slug": "iphone-x",
         "title": "iPhone X"
     }
