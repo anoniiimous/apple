@@ -19,6 +19,6 @@
     ],
     "pricing": {
         "ListPrice": "328.95",
-        "SalePrice": ""
+        "SalePrice": null
     }
 }
