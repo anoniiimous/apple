@@ -41,6 +41,36 @@
                 "name": "Carrier",
                 "value": "Unlocked"
             }
+        ],
+        "dimensions": [
+            {
+                "name": "Size",
+                "values": [
+                    "64GB",
+                    "128GB",
+                    "256GB"
+                ]
+            },
+            {
+                "name": "Color",
+                "values": [
+                    "Black",
+                    "Green",
+                    "Purple",
+                    "Red",
+                    "White",
+                    "Yellow"
+                ]
+            },
+            {
+                "name": "Carrier",
+                "values": [
+                    "AT&T",
+                    "T-Mobile",
+                    "Unlocked",
+                    "Verizon"
+                ]
+            }
         ]
     }
 ]
