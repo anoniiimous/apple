@@ -9,5 +9,7 @@
         "/raw/merch/iphone-11/color-green/image.3.jpeg",
         "/raw/merch/iphone-11/color-green/image.4.jpeg"
     ],
-    "attributes": []
+    "attributes": {
+        "Color": "Green"
+    }
 }
