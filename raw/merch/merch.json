@@ -89,7 +89,8 @@
             "iPhone11"
         ],
         "pricing": {
-            "ListPrice": "328.00"
+            "ListPrice": "328.00",
+            "SalePrice": "325.00"
         },
         "attributes": {
             "Size": "64GB",
