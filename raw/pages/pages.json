@@ -1,0 +1,22 @@
+[
+    {
+        "page": "/mac/",
+        "path": "/mac/"
+    },
+    {
+        "page": "/ipad/",
+        "path": "/ipad/"
+    },
+    {
+        "page": "/iphone/",
+        "path": "/iphone/"
+    },
+    {
+        "page": "/watch/",
+        "path": "/watch/"
+    },
+    {
+        "page": "/airpods/",
+        "path": "/airpods/"
+    }
+]
