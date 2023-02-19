@@ -132,37 +132,5 @@
         ],
         "slug": "iphone-12",
         "title": "iPhone 12"
-    },
-    {
-        "category": "Cell Phones & Accesories",
-        "dimensions": [
-            {
-                "name": "Size",
-                "values": [
-                    "64GB",
-                    "256GB",
-                    "512GB"
-                ]
-            },
-            {
-                "name": "Color",
-                "values": [
-                    "Gold",
-                    "Silver",
-                    "Space Gray"
-                ]
-            },
-            {
-                "name": "Carrier",
-                "values": [
-                    "AT&T",
-                    "T-Mobile",
-                    "Unlocked",
-                    "Verizon"
-                ]
-            }
-        ],
-        "slug": "iphone-xs-max",
-        "title": "iPhone XS Max"
     }
 ]
