@@ -22,6 +22,7 @@
     "pricing": {
         "ListPrice": "327.00"
     },
+    "quantity": 3,
     "attributes": {
         "Size": "64GB",
         "Color": "Black",
