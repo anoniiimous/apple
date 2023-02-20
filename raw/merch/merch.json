@@ -8,6 +8,10 @@
             "/raw/merch/iphone-11/image.1.jpeg",
             "/raw/merch/iphone-11/image.2.jpeg"
         ],
+        "tags": [
+            "Apple",
+            "iPhone11"
+        ],
         "dimensions": [
             {
                 "name": "Size",
