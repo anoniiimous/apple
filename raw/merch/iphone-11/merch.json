@@ -112,7 +112,17 @@
             "Apple",
             "iPhone11"
         ],
-        "details": {},
+        "details": {
+            "Brand": "Apple",
+            "Model Name": "iPhone 11",
+            "Wireless Carrier": "Unlocked",
+            "OS": "iOS",
+            "Memory Storage Capacity": "64GB",
+            "Connectivity Technologies": "Bluetooth, Wi-Fi, USB, NFC",
+            "Color": "Black",
+            "Screen Size": "6.1 inches",
+            "Wireless Network Technology": "GSM, CDMA"
+        },
         "attributes": {
             "Size": "64GB",
             "Color": "Black",
