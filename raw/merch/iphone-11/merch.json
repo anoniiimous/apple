@@ -112,11 +112,28 @@
             "Apple",
             "iPhone11"
         ],
-        "details": {},
-        "about": [],
+        "details": {
+            "Brand": "Apple",
+            "Model Name": "iPhone 11",
+            "Wireless Carrier": "Unlocked",
+            "OS": "iOS",
+            "Memory Storage Capacity": "64GB",
+            "Connectivity Technologies": "Bluetooth, Wi-Fi, USB, NFC",
+            "Color": "Black",
+            "Screen Size": "6.1 inches",
+            "Wireless Network Technology": "GSM, CDMA"
+        },
+        "features": [
+            "This phone is unlocked and compatible with any carrier of choice on GSM and CDMA networks (e.g. AT&T, T-Mobile, Sprint, Verizon, US Cellular, Cricket, Metro, Tracfone, Mint Mobile, etc.).",
+            "Tested for battery health and guaranteed to have a minimum battery capacity of 80%.",
+            "Successfully passed a full diagnostic test which ensures like-new functionality and removal of any prior-user personal information.",
+            "The device does not come with headphones or a SIM card. It does include a generic (Mfi certified) charger and charging cable.",
+            "Inspected and guaranteed to have minimal cosmetic damage, which is not noticeable when the device is held at arm's length."
+        ],
         "pricing": {
             "ListPrice": "327.00"
         },
+        "quantity": 3,
         "attributes": {
             "Size": "64GB",
             "Color": "Black",
