@@ -180,28 +180,5 @@
             "Carrier": "Unlocked"
         },
         "slug": "iphone-11/size-64gb_color-black_carrier-unlocked"
-    },
-    {
-        "description": "This device is in EXCELLENT cosmetic condition, it is 100% fully functional as tested by our expert technicians and passed an industry leading 65-point inspection. The device may have minor cosmetic wear such as minimal light scratches on the screen and minor imperfections on sides and/or back. The device has been thoroughly inspected, cleaned and refurbished (if necessary) at our manufacturer approved repair center. Includes New OEM A/C Adapter & Data Cable. Devices do not include a SIM card, headphones, original box or the original manufacturer's warranty. This GSM UNLOCKED device is being sold for use with only GSM Carrier networks such as, T-Mobile and AT&T.  Please check with your carrier for compatibility prior to purchasing.",
-        "title": "iPhone 11",
-        "category": "Cell Phones & Accesories",
-        "images": [
-            "/raw/merch/iphone-11/image.0.jpeg",
-            "/raw/merch/iphone-11/image.1.jpeg",
-            "/raw/merch/iphone-11/image.2.jpeg"
-        ],
-        "tags": [
-            "Apple",
-            "iPhone11"
-        ],
-        "details": {},
-        "about": [],
-        "quantity": 3,
-        "attributes": {
-            "Size": "128GB",
-            "Color": "Black",
-            "Carrier": "Unlocked"
-        },
-        "slug": "iphone-11/size-128gb_color-black_carrier-unlocked"
     }
 ]
