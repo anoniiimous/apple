@@ -18,5 +18,9 @@
     {
         "page": "/airpods/",
         "path": "/airpods/"
+    },
+    {
+        "page": "/ipad/ipad-air/",
+        "path": "/ipad/ipad-air/"
     }
 ]
