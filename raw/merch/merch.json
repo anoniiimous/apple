@@ -212,5 +212,26 @@
             "Color": "Sky Blue"
         },
         "slug": "airpods-max/color-sky-blue"
+    },
+    {
+        "category": "Computers",
+        "dimensions": [
+            {
+                "name": "Processor",
+                "values": [
+                    "M2",
+                    "M2 Pro"
+                ]
+            },
+            {
+                "name": "Storage",
+                "values": [
+                    "256GB",
+                    "512GB"
+                ]
+            }
+        ],
+        "slug": "mac-mini",
+        "title": "Mac mini"
     }
 ]
