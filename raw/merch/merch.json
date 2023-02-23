@@ -195,5 +195,16 @@
             "Color": "Space Gray"
         },
         "slug": "airpods-max/color-space-gray"
+    },
+    {
+        "description": "",
+        "title": "AirPods Max",
+        "category": "Electronics",
+        "details": {},
+        "about": [],
+        "attributes": {
+            "Color": "Sky Blue"
+        },
+        "slug": "airpods-max/color-sky-blue"
     }
 ]
