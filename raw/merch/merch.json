@@ -1,19 +1,179 @@
 [
     {
-        "description": "Experience Rihanna’s incredible music catalog like never before with Spatial Audio, sing along with Apple Music Sing, tune in to Apple Music Radio for expert music commentary, and don’t miss the official Apple Music Super Bowl LVII Halftime Show Press Conference on February 9 at 10 a.m. MST",
-        "image": "blob:https://dompad.github.tld/d63912e5-7538-4a8e-92ac-0b4626d91e05",
-        "slug": "apple-music-launches-rihannas-road-to-halftime-ahead-of-super-bowl-lvii",
-        "title": "Apple Music launches Rihanna’s Road to Halftime ahead of Super Bowl LVII",
-        "category": "Music",
+        "description": "This device is in EXCELLENT cosmetic condition, it is 100% fully functional as tested by our expert technicians and passed an industry leading 65-point inspection. The device may have minor cosmetic wear such as minimal light scratches on the screen and minor imperfections on sides and/or back. The device has been thoroughly inspected, cleaned and refurbished (if necessary) at our manufacturer approved repair center. Includes New OEM A/C Adapter & Data Cable. Devices do not include a SIM card, headphones, original box or the original manufacturer's warranty. This GSM UNLOCKED device is being sold for use with only GSM Carrier networks such as, T-Mobile and AT&T.  Please check with your carrier for compatibility prior to purchasing.",
+        "title": "iPhone 11",
+        "category": "Cell Phones & Accesories",
+        "images": [
+            "/raw/merch/iphone-11/image.0.jpeg",
+            "/raw/merch/iphone-11/image.1.jpeg",
+            "/raw/merch/iphone-11/image.2.jpeg"
+        ],
         "tags": [
-            "AppleMusic",
-            "Rihanna",
-            "SuperBowlLVII"
-        ]
+            "Apple",
+            "iPhone11"
+        ],
+        "dimensions": [
+            {
+                "name": "Size",
+                "values": [
+                    "64GB",
+                    "128GB",
+                    "256GB"
+                ]
+            },
+            {
+                "name": "Color",
+                "values": [
+                    "Black",
+                    "Green",
+                    "Purple",
+                    "Red",
+                    "White",
+                    "Yellow"
+                ]
+            },
+            {
+                "name": "Carrier",
+                "values": [
+                    "AT&T",
+                    "T-Mobile",
+                    "Unlocked",
+                    "Verizon"
+                ]
+            }
+        ],
+        "slug": "iphone-11"
     },
     {
-        "description": "Delivering incredible audio quality, enhanced Siri capabilities, and a safe and secure smart home experience",
-        "slug": "apple-introduces-the-new-homepod-with-breakthrough-sound-and-intelligence",
-        "title": "Apple introduces the new HomePod with breakthrough sound and intelligence"
+        "description": "This device is in EXCELLENT cosmetic condition, it is 100% fully functional as tested by our expert technicians and passed an industry leading 65-point inspection. The device may have minor cosmetic wear such as minimal light scratches on the screen and minor imperfections on sides and/or back. The device has been thoroughly inspected, cleaned and refurbished (if necessary) at our manufacturer approved repair center. Includes New OEM A/C Adapter & Data Cable. Devices do not include a SIM card, headphones, original box or the original manufacturer's warranty. This GSM UNLOCKED device is being sold for use with only GSM Carrier networks such as, T-Mobile and AT&T.  Please check with your carrier for compatibility prior to purchasing.",
+        "slug": "iphone-11/color-green",
+        "title": "iPhone 11",
+        "images": [
+            "/raw/merch/iphone-11/color-green/image.0.jpeg",
+            "/raw/merch/iphone-11/color-green/image.1.jpeg",
+            "/raw/merch/iphone-11/color-green/image.2.jpeg",
+            "/raw/merch/iphone-11/color-green/image.3.jpeg",
+            "/raw/merch/iphone-11/color-green/image.4.jpeg"
+        ],
+        "attributes": {
+            "Color": "Green"
+        }
+    },
+    {
+        "description": "This device is in EXCELLENT cosmetic condition, it is 100% fully functional as tested by our expert technicians and passed an industry leading 65-point inspection. The device may have minor cosmetic wear such as minimal light scratches on the screen and minor imperfections on sides and/or back. The device has been thoroughly inspected, cleaned and refurbished (if necessary) at our manufacturer approved repair center. Includes New OEM A/C Adapter & Data Cable. Devices do not include a SIM card, headphones, original box or the original manufacturer's warranty. This GSM UNLOCKED device is being sold for use with only GSM Carrier networks such as, T-Mobile and AT&T.  Please check with your carrier for compatibility prior to purchasing.",
+        "slug": "iphone-11/color-purple",
+        "title": "iPhone 11",
+        "images": [
+            "/raw/merch/iphone-11/color-purple/image.0.jpeg",
+            "/raw/merch/iphone-11/color-purple/image.1.jpeg",
+            "/raw/merch/iphone-11/color-purple/image.2.jpeg",
+            "/raw/merch/iphone-11/color-purple/image.3.jpeg",
+            "/raw/merch/iphone-11/color-purple/image.4.jpeg"
+        ],
+        "attributes": {
+            "Color": "Purple"
+        }
+    },
+    {
+        "description": "This device is in EXCELLENT cosmetic condition, it is 100% fully functional as tested by our expert technicians and passed an industry leading 65-point inspection. The device may have minor cosmetic wear such as minimal light scratches on the screen and minor imperfections on sides and/or back. The device has been thoroughly inspected, cleaned and refurbished (if necessary) at our manufacturer approved repair center. Includes New OEM A/C Adapter & Data Cable. Devices do not include a SIM card, headphones, original box or the original manufacturer's warranty. This GSM UNLOCKED device is being sold for use with only GSM Carrier networks such as, T-Mobile and AT&T.  Please check with your carrier for compatibility prior to purchasing.",
+        "title": "iPhone 11",
+        "category": "Cell Phones & Accesories",
+        "images": [
+            "/raw/merch/iphone-11/color-purple/image.0.jpeg",
+            "/raw/merch/iphone-11/color-purple/image.1.jpeg",
+            "/raw/merch/iphone-11/color-purple/image.2.jpeg",
+            "/raw/merch/iphone-11/color-purple/image.3.jpeg",
+            "/raw/merch/iphone-11/color-purple/image.4.jpeg"
+        ],
+        "tags": [
+            "Apple",
+            "iPhone11"
+        ],
+        "pricing": {
+            "ListPrice": "328.00"
+        },
+        "attributes": {
+            "Size": "64GB",
+            "Color": "Purple",
+            "Carrier": "Unlocked"
+        },
+        "slug": "iphone-11/size-64gb_color-purple_carrier-unlocked"
+    },
+    {
+        "category": "Cell Phones & Accesories",
+        "dimensions": [
+            {
+                "name": "Size",
+                "values": [
+                    "64GB",
+                    "128GB",
+                    "256GB"
+                ]
+            },
+            {
+                "name": "Color",
+                "values": [
+                    "Black",
+                    "Blue",
+                    "Green",
+                    "Purple",
+                    "Red",
+                    "White"
+                ]
+            },
+            {
+                "name": "Carrier",
+                "values": [
+                    "AT&T",
+                    "T-Mobile",
+                    "Unlocked",
+                    "Verizon"
+                ]
+            }
+        ],
+        "slug": "iphone-12",
+        "title": "iPhone 12"
+    },
+    {
+        "description": "This device is in EXCELLENT cosmetic condition, it is 100% fully functional as tested by our expert technicians and passed an industry leading 65-point inspection. The device may have minor cosmetic wear such as minimal light scratches on the screen and minor imperfections on sides and/or back. The device has been thoroughly inspected, cleaned and refurbished (if necessary) at our manufacturer approved repair center. Includes New OEM A/C Adapter & Data Cable. Devices do not include a SIM card, headphones, original box or the original manufacturer's warranty. This GSM UNLOCKED device is being sold for use with only GSM Carrier networks such as, T-Mobile and AT&T.  Please check with your carrier for compatibility prior to purchasing.",
+        "title": "iPhone 11",
+        "category": "Cell Phones & Accesories",
+        "images": [
+            "/raw/merch/iphone-11/image.0.jpeg",
+            "/raw/merch/iphone-11/image.1.jpeg",
+            "/raw/merch/iphone-11/image.2.jpeg"
+        ],
+        "tags": [
+            "Apple",
+            "iPhone11"
+        ],
+        "details": {
+            "Brand": "Apple",
+            "Model Name": "iPhone 11",
+            "Wireless Carrier": "Unlocked",
+            "OS": "iOS",
+            "Memory Storage Capacity": "64GB",
+            "Connectivity Technologies": "Bluetooth, Wi-Fi, USB, NFC",
+            "Color": "Black",
+            "Screen Size": "6.1 inches",
+            "Wireless Network Technology": "GSM, CDMA"
+        },
+        "about": [
+            "This phone is unlocked and compatible with any carrier of choice on GSM and CDMA networks (e.g. AT&T, T-Mobile, Sprint, Verizon, US Cellular, Cricket, Metro, Tracfone, Mint Mobile, etc.).",
+            "Tested for battery health and guaranteed to have a minimum battery capacity of 80%.",
+            "Successfully passed a full diagnostic test which ensures like-new functionality and removal of any prior-user personal information.",
+            "The device does not come with headphones or a SIM card. It does include a generic (Mfi certified) charger and charging cable.",
+            "Inspected and guaranteed to have minimal cosmetic damage, which is not noticeable when the device is held at arm's length."
+        ],
+        "pricing": {
+            "ListPrice": "327.00"
+        },
+        "quantity": 3,
+        "attributes": {
+            "Size": "64GB",
+            "Color": "Black",
+            "Carrier": "Unlocked"
+        },
+        "slug": "iphone-11/size-64gb_color-black_carrier-unlocked"
     }
 ]
