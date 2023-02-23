@@ -4,27 +4,27 @@
         "path": "/"
     },
     {
-        "page": "/mac/",
-        "path": "/mac/"
+        "page": "/mac",
+        "path": "/mac"
     },
     {
-        "page": "/ipad/",
-        "path": "/ipad/"
+        "page": "/ipad",
+        "path": "/ipad"
     },
     {
-        "page": "/iphone/",
-        "path": "/iphone/"
+        "page": "/iphone",
+        "path": "/iphone"
     },
     {
-        "page": "/watch/",
-        "path": "/watch/"
+        "page": "/watch",
+        "path": "/watch"
     },
     {
-        "page": "/airpods/",
-        "path": "/airpods/"
+        "page": "/airpods",
+        "path": "/airpods"
     },
     {
-        "page": "/ipad/ipad-air/",
-        "path": "/ipad/ipad-air/"
+        "page": "/ipad/ipad-air",
+        "path": "/ipad/ipad-air"
     }
 ]
