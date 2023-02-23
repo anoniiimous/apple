@@ -175,5 +175,19 @@
             "Carrier": "Unlocked"
         },
         "slug": "iphone-11/size-64gb_color-black_carrier-unlocked"
+    },
+    {
+        "category": "Electronics",
+        "dimensions": [
+            {
+                "name": "Color",
+                "values": [
+                    "Space Gray",
+                    "Sky Blue"
+                ]
+            }
+        ],
+        "slug": "airpods-max",
+        "title": "AirPods Max"
     }
 ]
