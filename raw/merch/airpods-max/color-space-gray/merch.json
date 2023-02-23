@@ -4,6 +4,9 @@
     "category": "Electronics",
     "details": {},
     "about": [],
+    "pricing": {
+        "ListPrice": "449.99"
+    },
     "attributes": {
         "Color": "Space Gray"
     },
