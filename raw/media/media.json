@@ -6,21 +6,10 @@
         "description": "Mackbooks on wooden office desk."
     },
     {
-        "format": "photo",
-        "slug": "astronaut-photo",
-        "title": "Astronaut Photo"
-    },
-    {
         "format": "video",
         "slug": "hand-washing",
         "title": "Hand Washing",
         "description": "How to wash hands thoroughly."
-    },
-    {
-        "format": "video",
-        "slug": "jungle-street",
-        "title": "Jungle Street",
-        "description": "Outside broad day with it."
     },
     {
         "format": "audio",
