@@ -22,36 +22,6 @@
         "pricing": {
             "ListPrice": "449.99"
         },
-        "quantity": 3,
-        "attributes": {
-            "Color": "Sky Blue"
-        },
-        "slug": "airpods-max/color-sky blue"
-    },
-    {
-        "description": "",
-        "title": "AirPods Max",
-        "category": "Electronics",
-        "details": {},
-        "about": [],
-        "pricing": {
-            "ListPrice": "449.99"
-        },
-        "quantity": 8,
-        "attributes": {
-            "Color": "Space Gray"
-        },
-        "slug": "airpods-max/color-space gray"
-    },
-    {
-        "description": "",
-        "title": "AirPods Max",
-        "category": "Electronics",
-        "details": {},
-        "about": [],
-        "pricing": {
-            "ListPrice": "449.99"
-        },
         "attributes": {
             "Color": "Space Gray"
         },
