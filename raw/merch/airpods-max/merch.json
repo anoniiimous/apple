@@ -1,0 +1,14 @@
+{
+    "category": "Electronics",
+    "dimensions": [
+        {
+            "name": "Color",
+            "values": [
+                "Space Gray",
+                "Sky Blue"
+            ]
+        }
+    ],
+    "slug": "airpods-max",
+    "title": "AirPods Max"
+}
