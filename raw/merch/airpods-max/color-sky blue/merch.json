@@ -1,0 +1,15 @@
+{
+    "description": "",
+    "title": "AirPods Max",
+    "category": "Electronics",
+    "details": {},
+    "about": [],
+    "pricing": {
+        "ListPrice": "449.99"
+    },
+    "quantity": 3,
+    "attributes": {
+        "Color": "Sky Blue"
+    },
+    "slug": "airpods-max/color-sky blue"
+}
