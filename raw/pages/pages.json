@@ -22,5 +22,9 @@
     {
         "page": "/blog/",
         "path": "/blog/"
+    },
+    {
+        "page": "/blog/post/",
+        "path": "/blog/post/"
     }
 ]
