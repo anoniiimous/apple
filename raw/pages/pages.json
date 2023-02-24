@@ -4,10 +4,6 @@
         "path": "/"
     },
     {
-        "page": "/ipad",
-        "path": "/ipad"
-    },
-    {
         "page": "/about/",
         "path": "/about/"
     }
