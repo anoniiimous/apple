@@ -18,5 +18,9 @@
     {
         "page": "/ipad/ipad-air/",
         "path": "/ipad/ipad-air/"
+    },
+    {
+        "page": "/blog/",
+        "path": "/blog/"
     }
 ]
