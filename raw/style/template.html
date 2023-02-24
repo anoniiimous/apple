@@ -1,125 +1,69 @@
-<header class="color-fff position-absolute top-0 z-index-5 width-100pct">
-    <!--<picture style="background-color:rgb(255,229,206)"></picture>-->
-    <flex class="align-items-center flex-grow-1 justify-content-space-between">
-        <card class="line-height-50px margin-y-10px">
-            <row class="align-items-center justify-content-space-between">
-                <box class="padding-x-20px">
+<header class="width-100pct">
+    <row class="padding-4vw width-100pct" data-columns="3">
+        <card class="justify-content-center line-height-50px">
+            <row class="gap-20px">
+                <box class="padding-x-20px" data-href="/">
                     <section>
-                        <ico>
-                            <n class="gg-menu"></n>
-                        </ico>
+                        <text>Shop</text>
                     </section>
                 </box>
-                <box class="-dw640px-display-none padding-x-20px" data-href="/">
+                <box class="padding-x-20px" data-href="/lookbook">
                     <section>
-                        <text placeholder="Home">Home</text>
+                        <text>Lookbook</text>
                     </section>
                 </box>
-                <box class="-dw640px-display-none padding-x-20px" data-href="/blog/">
+                <box class="padding-x-20px" data-href="/about">
                     <section>
-                        <text placeholder="Blog">Blog</text>
+                        <text>About</text>
                     </section>
                 </box>
-                <box class="-dw640px-display-none padding-x-20px" data-href="/about/">
+                <box class="padding-x-20px" data-href="/contact">
                     <section>
-                        <text placeholder="About">About</text>
-                    </section>
-                </box>
-                <box class="-dw640px-display-none padding-x-20px" data-href="/contact/">
-                    <section>
-                        <text placeholder="Contact">Contact</text>
+                        <text>Contact</text>
                     </section>
                 </box>
             </row>
         </card>
-        <card>
+        <card class="align-items-center justify-content-center">
             <row>
-                <box class="margin-left-auto">
-                    <section>
+                <box data-href="/">
+                    <row>
+                        <text class="font-size-24px font-weight-bolder line-height-50px padding-x-10px">Marth</text>
+                    </row>
+                </box>
+            </row>
+        </card>
+        <card class="align-items-flex-end flex-direction-row gap-20px justify-content-flex-end">
+            <row>
+                <box>
+                    <row>
                         <ico>
                             <n class="gg-facebook"></n>
                         </ico>
-                    </section>
+                    </row>
                 </box>
                 <box>
-                    <section>
+                    <row>
                         <ico>
                             <n class="gg-youtube"></n>
                         </ico>
-                    </section>
+                    </row>
                 </box>
-                <box>
+                <box class="margin-left-20px" data-href="/cart">
                     <section>
                         <ico>
-                            <n class="gg-twitter"></n>
+                            <n class="gg-shopping-cart"></n>
                         </ico>
                     </section>
                 </box>
             </row>
         </card>
-    </flex>
+    </row>
 </header>
 <main>
     <page class="width-100pct" data-fetch="raw/pages/page.html" data-page="/"></page>
-    <page class="width-100pct" data-fetch="raw/pages/page.about.html" data-page="/about/"></page>
-    <page class="width-100pct" data-fetch="raw/pages/page.blog.html" data-page="/blog/"></page>
-    <page class="width-100pct" data-fetch="raw/pages/page.blog.post.html" data-page="/blog/*/"></page>
-    <page class="width-100pct" data-fetch="raw/pages/page.contact.html" data-page="/contact/"></page>
+    <page class="width-100pct" data-fetch="raw/pages/page.about.html" data-page="/about"></page>
+    <page class="width-100pct" data-fetch="raw/pages/page.cart.html" data-page="/cart"></page>
+    <page class="width-100pct" data-fetch="raw/pages/page.contact.html" data-page="/contact"></page>
+    <page class="width-100pct" data-fetch="raw/pages/page.lookbook.html" data-page="/lookbook"></page>
 </main>
-<footer class="padding-y-50px">
-    <section>
-        <card class="text-align-center">
-            <row class="align-items-center justify-content-center">
-                <box class="line-height-50px">
-                    <section>
-                        <text class="padding-x-5px text-decoration-underline" placeholder="Page 1">Episodes</text>
-                    </section>
-                </box>
-                <box class="line-height-50px">
-                    <section>
-                        <text class="padding-x-5px text-decoration-underline" placeholder="Page 2">About</text>
-                    </section>
-                </box>
-                <box class="line-height-50px">
-                    <section>
-                        <text class="padding-x-5px text-decoration-underline" placeholder="Page 3">Donate</text>
-                    </section>
-                </box>
-            </row>
-        </card>
-        <card class="text-align-center">
-            <row class="align-items-center justify-content-center">
-                <box class="line-height-50px">
-                    <section>
-                        <text>Powered by <u>domPad</u></text>
-                    </section>
-                </box>
-            </row>
-        </card>
-        <card>
-            <row class="align-items-center justify-content-center">
-                <box>
-                    <section>
-                        <ico>
-                            <n class="gg-twitter"></n>
-                        </ico>
-                    </section>
-                </box>
-                <box>
-                    <section>
-                        <ico>
-                            <n class="gg-youtube"></n>
-                        </ico>
-                    </section>
-                </box>
-                <box>
-                    <section>
-                        <ico>
-                            <n class="gg-facebook"></n>
-                        </ico>
-                    </section>
-                </box>
-            </row>
-        </card>
-    </section>
-</footer>
