@@ -8,15 +8,7 @@
         "path": "/ipad"
     },
     {
-        "page": "/ipad/ipad-air/",
-        "path": "/ipad/ipad-air/"
-    },
-    {
         "page": "/about/",
         "path": "/about/"
-    },
-    {
-        "page": "/contact/",
-        "path": "/contact/"
     }
 ]
