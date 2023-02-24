@@ -18,5 +18,9 @@
     {
         "page": "/about/",
         "path": "/about/"
+    },
+    {
+        "page": "/contact/",
+        "path": "/contact/"
     }
 ]
