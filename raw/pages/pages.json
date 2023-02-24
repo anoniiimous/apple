@@ -4,10 +4,6 @@
         "path": "/"
     },
     {
-        "page": "/mac",
-        "path": "/mac"
-    },
-    {
         "page": "/ipad",
         "path": "/ipad"
     },
@@ -16,15 +12,7 @@
         "path": "/iphone"
     },
     {
-        "page": "/watch",
-        "path": "/watch"
-    },
-    {
         "page": "/airpods",
         "path": "/airpods"
-    },
-    {
-        "page": "/ipad/ipad-air",
-        "path": "/ipad/ipad-air"
     }
 ]
