@@ -18,5 +18,9 @@
     {
         "page": "/contact/",
         "path": "/contact/"
+    },
+    {
+        "page": "/air-pods/",
+        "path": "/air-pods/"
     }
 ]
