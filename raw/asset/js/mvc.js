@@ -188,13 +188,42 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
         //MERCH PRODUCT
         var merch = vp.find('[data-merch]');
         if (merch) {
-                var got = route.GOT;
-                var slug = got.splice(merch.dataset.merch);
+            var got = route.GOT;
+            var slug = got.splice(merch.dataset.merch).join('/');
 
-                console.log(slug);
-                
-            var image = merch.find('[data-value="post.image"]');
-            image ? image.src = "" : null;
+            console.log(slug);
+
+            ajax("/raw/merch/" + slug + "/merch.json").then(function(d) {
+                var data = JSON.parse(d);
+                var ancestor = data.filter(row=>rout.ed.dir(row.slug).length === 1)[0];
+                var descendants = data.filter(function(row) {
+                    var dir = rout.ed.dir(row.slug);
+                    return dir.length > 1 && dir[0] === ancestor.slug;
+                });
+                var produt = null;
+                if (rout.ed.dir(slug).length === 1) {
+                    product = ancestor;
+                } else {
+                    product = descendants[0];
+                }
+                console.log({
+                    data,
+                    slug,
+                    ancestor,
+                    descendants,
+                    product
+                });
+
+                var title = $(merch.all('[data-value="post.title"]'));
+                title ? title.html(product.title) : null;
+
+                var image = merch.find('[data-value="post.image"]');
+                image ? image.src = "" : null;
+
+                var image = merch.find('[data-value="post.image"]');
+                image ? image.src = "" : null;
+
+            })
         }
 
         resolve(route);
