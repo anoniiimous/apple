@@ -57,36 +57,49 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                         posts = JSON.parse(await ajax('raw/merch/merch.json'));
                     }
 
-                    posts = posts.filter(row=>rout.ed.dir(row.slug).length === 1);
+                    var ancestors = posts.filter(row=>rout.ed.dir(row.slug).length === 1);
 
-                    if (posts.length > 0) {
+                    if (ancestors.length > 0) {
 
                         var p = 0;
                         var html = "";
 
                         do {
 
-                            var post = posts[p];
+                            var post = ancestors[p];
+
                             var elem = 0 < 1 ? feed.children[p] : feed.nextElementSibling.content.firstElementChild.cloneNode(true);
 
                             if (post) {
 
-                                elem.dataset.display = "flex";
-
-                                var date = elem.find('[placeholder="Date"]');
-                                var title = elem.find('[placeholder="Title"]');
-                                var description = elem.find('[placeholder="Description"]');
-                                var picture = elem.find('picture');
-
-                                console.log(57, {
-                                    title,
-                                    post
+                                var descendants = posts.filter(function(row) {
+                                    var dir = rout.ed.dir(row.slug);
+                                    return dir.length > 1 && dir[0] === post.slug
                                 });
 
+                                console.log(57, {
+                                    post,
+                                    descendants,
+                                    posts
+                                });
+
+                                elem.dataset.display = "flex";
+                                elem.dataset.href = "/shop/merch/" + post.slug;
+
+                                var image = elem.find('picture img');
+                                image && post.images ? image.src = post.images[0] : null;
+
+                                var date = elem.find('[placeholder="Date"]');
                                 date && post.date ? date.textContent = post.date : null;
-                                title && post.title ? title.textContent = post.title : null;
+
+                                var title = elem.find('[placeholder="Title"]');
+                                title && post.title ? title.textContent = post.title : null
+
+                                var description = elem.find('[placeholder="Description"]');
                                 description && post.description ? description.textContent = post.description : null;
-                                post.image ? picture.find('img').dataset.src = post.image : null;
+
+                                var pricing = elem.find('[placeholder="$0.00"]');
+                                if (pricing && post.pricing) {}
 
                                 //html += elem.outerHTML;
                             } else {
@@ -103,7 +116,7 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
 
                     }
 
-                    console.log(37, {
+                    console.log(115, {
                         feed,
                         media,
                         posts
