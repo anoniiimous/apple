@@ -446,40 +446,6 @@ function getPath(links) {
     link += links[f].link;
     return link;
 }
-function getRoot(els) {
-    var els = $('[data-pages]');
-    var root = null;
-    if (els.length > 0) {
-        var arr = [];
-        var r = 0;
-        do {
-            arr.push(els[r].dataset.pages);
-            r++;
-        } while (r < els.length);
-        arr.sort();
-        arr.reverse();
-        window.paths.arr = arr;
-        root = paths.page.stringExists(arr);
-        //root = arr.includes(paths.page) ? paths.page : null;
-        //console.log({page:paths.page,arr,root});
-    }
-    return root;
-}
-function getPages(win) {
-    var els = win.document.body.all('[data-page]');
-    var root = null;
-    if (els.length > 0) {
-        var arr = [];
-        var r = 0;
-        do {
-            arr.push(els[r].dataset.root);
-            r++;
-        } while (r < els.length);
-        window.paths.arr = arr;
-        root = paths.page.stringExists(arr);
-    }
-    return root;
-}
 
 window.colors = {
 

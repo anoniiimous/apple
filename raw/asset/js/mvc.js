@@ -33,6 +33,7 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
             vp
         });
 
+        //MEDIA FEED
         var feeds = vp.all('[data-media]');
         if (feeds.length > 0) {
             var f = 0;
@@ -182,6 +183,18 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                 }
                 f++;
             } while (f < feeds.length)
+        }
+
+        //MERCH PRODUCT
+        var merch = vp.find('[data-merch]');
+        if (merch) {
+                var got = route.GOT;
+                var slug = got.splice(merch.dataset.merch);
+
+                console.log(slug);
+                
+            var image = merch.find('[data-value="post.image"]');
+            image ? image.src = "" : null;
         }
 
         resolve(route);
