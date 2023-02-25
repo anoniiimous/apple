@@ -15,7 +15,7 @@
 }
 
 @media {
-    .display-none {
+    .display-none, [data-display="none"] {
         display: none;
     }
 }

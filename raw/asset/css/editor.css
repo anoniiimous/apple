@@ -84,7 +84,7 @@ body > footer card box:hover:after, body > header card box:hover:after, body pag
     border: 4px solid #52b9d6;
     top: 0px;
     left: 0px;
-    z-index: 1;
+    z-index: 123456;
     top: 0;
     left: 0;
     margin: 0px;

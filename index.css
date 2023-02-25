@@ -1,15 +1,19 @@
 /*PSEUDO*/
-@media screen {   
+@media screen {
     [data-after]:after {
         content: attr(data-after);
     }
-    
+
     [data-before]:before {
         content: attr(data-before);
     }
-    
+
     body:not([data-uid]) .-isauth, body[data-uid] .-noauth {
         display: none;
+    }
+
+    :focus {
+        outline: none;
     }
 }
 
@@ -35,20 +39,26 @@
 
     body > header, body > footer {
         display: flex;
-        display: webkit-flex;
+        display: -webkit-flex;
     }
 
     body > header > section, body > footer > section {
         width: 100%;
     }
 
+    a {
+        text-decoration: none;
+    }
+
     blocks {
+        /* min-height: 100%; */
         width: 100%;
+        display: block;
     }
 
     block, box, card {
         display: flex;
-        display: webkit-flex;
+        display: -webkit-flex;
         flex-direction: column;
         position: relative;
     }
@@ -56,9 +66,12 @@
     block > section, card > section, box > section {
         width: 100%;
     }
-    
-    header > picture, nav > picture, footer > picture,
-    block > picture, card > picture, box > picture {
+
+    block > section, card > section, box > section {
+        position: relative;
+    }
+
+    header > picture, nav > picture, footer > picture, block > picture, card > picture, box > picture {
         position: absolute;
         top: 0;
         left: 0;
@@ -68,7 +81,12 @@
         width: 100%;
         height: 100%;
     }
-    
+
+    block > picture ~ *, card > picture ~ *, box > picture ~ * {
+        position: relative;
+        z-index: 1;
+    }
+
     block > figure, card > figure, box > figure {
         position: absolute;
         top: 0;
@@ -94,15 +112,30 @@
 
     flex, column, row {
         display: flex;
-        display: webkit-flex;
+        display: -webkit-flex;
+    }
+
+    block > footer, card > footer, box > footer {
+        display: flex;
+        display: -webkit-flex;
     }
 
     column {
         flex-direction: column;
     }
 
+    dropdown {
+        /* position: relative; */
+        display: flex;
+        display: -webkit-flex;
+    }
+
     row {
         flex-direction: row;
+    }
+
+    figure {
+        margin: unset;
     }
 
     form {
@@ -110,18 +143,26 @@
     }
 
     form > * {
-        width: 100%;
+        /* width: 100%; */
     }
 
     main {
         /* display: flex; */
-        display: webkit-flex;
+        /* display: -webkit-flex; */
+        display: inherit;
         width: 100%;
-        overflow: visible;
+        /* height: 100%; */
+        /* overflow: visible; */
         position: relative;
         /* min-height: 100%; */
         /* background: #bbb; */
-        overflow-x: hidden;
+        /* overflow-x: hidden; */
+    }
+
+    nav {
+        display: flex;
+        display: -webkit-flex;
+        flex-direction: column;
     }
 
     ico {
@@ -139,16 +180,34 @@
         width: 50px;
     }
 
+    img:not([src]) {
+        display: none;
+    }
+
     iframe {
         border: 0;
     }
 
     input {
-        /* -webkit-appearance: none; */
+        border: 0;
+        -webkit-appearance: none;
     }
 
     input:focus {
         outline: none;
+    }
+
+    input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type="checkbox"] {
+        display: none;
+    }
+
+    input[type="number"] {
+        -moz-appearance: textfield;
     }
 
     [type="text"], [type="password"] {
@@ -167,7 +226,7 @@
     }
 
     page, pages {
-        /* display: flex; */
+        display: inherit;
         position: relative;
     }
 
@@ -176,6 +235,7 @@
         border: unset;
         resize: none;
         font-family: Arial;
+        padding: 0;
     }
 
     textarea:focus {
@@ -184,13 +244,15 @@
 
     body > aside {
         position: absolute;
+        position: fixed;
         width: 100%;
         height: 100%;
+        overflow-x: hidden;
         /* background: white; */
     }
 
     body > aside ~ * {
-        position: fixed;
+        /* position: fixed; */
     }
 
     body > page, body > pages {
@@ -203,14 +265,6 @@
     }
 
     [data-hide]:not([data-active="true"]), [data-page]:not([data-active="true"]):not(.-active), [data-pages]:not([data-active="true"]):not(.-active) {
-        display: none;
-    }
-
-    .empty:empty {
-        display: none;
-    }
-
-    :not(:empty) + .empty-state {
         display: none;
     }
 }

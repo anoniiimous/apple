@@ -1,8 +1,7 @@
 window.onload = ()=>{
     window.dom = {
         body: document.body,
-        boot: document.getElementById("boot"),
-        nav: document.body.find('nav')
+        boot: document.getElementById("boot")
     };
 
     window.global = window.globals;
@@ -11,7 +10,7 @@ window.onload = ()=>{
     init();
 }
 
-window.onpopstate = (event)=>{
+is.iframe ? null : window.onpopstate = (event)=>{
     if (event.state) {
         console.log(event.state);
         var state = is.local(window.location.protocol) ? event.state.replace(/^#+/, '') : event.state;
@@ -25,22 +24,44 @@ window.onpopstate = (event)=>{
 
 async function init() {
     console.log("Initializing...");
-    
-    const html = await ajax('raw/html/template/template.shell.html');
-    dom.body.find('boot').insertAdjacentHTML('afterend', html);
 
-    window.rout.ing = function(href, GOT, n, m=GOT[n], root=GOT[0]) {
-        return m.includes("#")
+    //SHELL
+    var html = ``;
+    if (is.iframe) {
+        const user = await github.user.get();
+        const owner = user.login;
+        const repo = window.parent.route.GOT[1];
+        const branch = 'main';
+        const file = 'raw/style/template.html';
+        const path = '/' + owner + '/' + repo + '/' + branch + '/' + file;
+        console.log("index.js init", {
+            branch,
+            file,
+            html,
+            owner,
+            path,
+            repo
+        });
+        try {
+            html = atob((await github.raw.path(path)).content);
+        } catch (e) {
+            if (e.code === 404) {
+                modal.alert(e.code + ": " + e.message);
+            }
+        }
+    } else {
+        html = await ajax('/raw/style/template.html');
     }
+    html.length > 0 ? dom.body.find('boot').insertAdjacentHTML('afterend', html) : null;
 
+    //EVENTS
+    touch.ing = false;
     touch.events = {
         dbltap: on.touch.dbltap,
         drag: on.touch.drag,
         press: on.touch.press,
         tap: on.touch.tap
     };
-    touch.ing = false;
-
     dom.body.dataset.theme = "meridiem";
     dom.body.addEventListener("click", function(e) {
         if (window.touch.ing === false) {
@@ -68,23 +89,46 @@ async function init() {
         //console.log(e.type);
     });
 
-    const authChange = function(e) {
-        const load = function(e) {
-            dom.body.dataset.load = "ed";
-        };
-        dom.body.dataset.load = "ed";
-    };
+    is.iframe ? document.addEventListener("keyup", function(e) {
+        if (e.key === "Escape") {
+            if (window.parent.route.page === "/dashboard/*/build/preview/") {
+                window.parent.dom.body.find('[data-href="/dashboard/:get/build/"]').click()
+            }
+        }
+    }) : document.addEventListener("keyup", function(e) {
+        if (e.key === "Escape") {
+            if (route.page === "/dashboard/*/build/preview/") {
+                '/dashboard/:get/build/'.router();
+            }
+        }
+    });
 
-    var url = window.location.pathname;
-    if (hub) {
-        var dir = rout.ed.dir(window.location.pathname);
-        dir.splice(0, 1)
-        var url = rout.ed.url(dir);
+    window.addEventListener("message", (e)=>{
+        var event = e.data[0]
+        var data = e.data[1];
+        if (is.iframe === false) {
+            if (event === "router") {
+                var page = route.page;
+                var path = route.path;
+                var slug = data;
+
+                if (getRoot() === "/dashboard/*/build/er/") {
+                    var rte1 = rout.ed.dir(path).splice(0, 4);
+                    var rte2 = rout.ed.dir(slug);
+                    var rte0 = rte1.concat(rte2);
+                    var href = rout.ed.url(rte0);
+                }
+
+                //console.log({path, slug, href}, {rte0, rte1, rte2});
+                href.router();
+            }
+        }
     }
+    )
 
-    var uri = ((dom.boot.dataset.path ? dom.boot.dataset.path : url) + (window.location.search + window.location.hash));
-
+    //ROUTE
     var go = false;
-    
-    uri.router().then(go = true);    
+    window.boot.router().then(go = true);
+
+    console.log("...Initialized");
 }

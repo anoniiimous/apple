@@ -10,8 +10,23 @@ String.prototype.router = async function(params) {
     var pages = dom.body.find('pages[data-pages="' + getRoot() + '"]');
     var page = dom.body.find('page[data-page="' + route.page + '"]');
     var vp = page ? page : pages;
-    if (pages) {
-        if (pages.innerHTML === "" && pages.dataset.fetch) {//pages.innerHTML = await ajax(pages.dataset.fetch);
+    0 > 1 ? console.log(13, {
+        page,
+        pages,
+        route,
+        vp
+    }) : null;
+    if (page) {
+        if (is.iframe) {
+            var path = "/"+window.parent.owner.login+"/" + window.parent.GET[1] + "/main/" + vp.dataset.fetch;
+            var pg = atob((await github.raw.path(path)).content);
+        } else {
+            var path = vp.dataset.fetch;
+            var pg = await ajax(path);
+        }
+        if (page.innerHTML === "") {
+            page.innerHTML = pg
+            //await ajax(page.dataset.fetch);
         }
     }
 
@@ -25,15 +40,14 @@ String.prototype.router = async function(params) {
             ff++;
         } while (ff < fetching3.length);
     }
-
     if (vp) {
         if (vp.innerHTML === "" && vp.dataset.fetch) {
             if (is.iframe) {
-                var path = "/anoniiimous/" + window.parent.GET[1] + "/main/" + vp.dataset.fetch;
+                var path = "/" + window.parent + "/" + window.parent.GET[1] + "/main/" + vp.dataset.fetch;
                 var pg = atob((await github.raw.path(path)).content);
             } else {
                 var path = vp.dataset.fetch;
-                var pg = await ajax(path)
+                var pg = await ajax(path);
             }
             vp.innerHTML = pg;
             console.log("router.js 33", path, vp, vp.dataset.fetch);
@@ -79,7 +93,9 @@ String.prototype.router = async function(params) {
         if (route) {
             var pop = params ? params.pop : null;
 
-            route = window.view ? await view(route).then(rout.ed.bang(route)) : await rout.ed.bang(route);
+            await rout.ed.bang(route);
+            window.view ? await view(route) : null;
+            //route = window.view ? await view(route).then(rout.ed.bang(route)) : await rout.ed.bang(route);
 
             var path = route.path;
             window.GET = rout.ed.dir(path);
@@ -90,7 +106,7 @@ String.prototype.router = async function(params) {
 
                 const hash = window.hub ? "/#" : "";
                 const link = hash + (route.hash.length > 0 ? route.hash.split('#')[1] : route.path) + route.search;
-                1 < 0 ? console.log(66, {
+                0 > 1 ? console.log(66, {
                     hub,
                     hash,
                     link,
@@ -179,7 +195,17 @@ window.rout.ed.bang = async(route)=>{
     if (rs.length > 0) {
         var i = 0;
         do {
-            route.page.includes(rs[i].dataset.pages) ? rs[i].dataset.active = true : null;
+            //alert(route.page + "\r" + rs[i].dataset.pages);
+            if (rs[i].dataset.pages.startsWith(route.page)) {
+                //console.log(rs[i]);
+                //alert(rs[i].dataset.pages + "\r" + route.page);
+                //if (rs[i].dataset.pages.includes(route.page)) {
+                //rs[i].innerHTML = await ajax(rs[i].dataset.fetch);
+            }
+            if (route.page.includes(rs[i].dataset.pages)) {
+                //if (rs[i].dataset.pages.includes(route.page)) {
+                rs[i].dataset.active = true;
+            }
             i++;
         } while (i < rs.length)
     }
@@ -207,7 +233,7 @@ window.rout.ed.dir = function(url, num, g=[]) {
 window.rout.ed.url = function(dir) {
     if (dir.length > 0) {
         var end = dir[dir.length - 1];
-        href = dir.length === 0 ? "/" : "/" + dir.join("/") + (end.includes("?") ? "" : "/");
+        href = dir.length === 0 ? "/" : "/" + dir.join("/") + (end.includes("?") ? "" : "");
     } else {
         href = "/";
     }
