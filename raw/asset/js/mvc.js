@@ -192,29 +192,155 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
             ajax("/raw/merch/" + parent + "/merch.json").then(function(d) {
                 var data = JSON.parse(d);
                 var ancestor = data.filter(row=>rout.ed.dir(row.slug).length === 1)[0];
+
+                //DIMENSIONS
+                var box = merch.find('[data-value="post.traits"]').closest('box');
+                var n = 0;
+                var attr = [];
+                var variant = false;
+                var dimensions = ancestor && ancestor.dimensions;
+                if (dimensions && dimensions.length > 0) {
+                    var template = box.find('template');
+
+                    template.previousElementSibling.innerHTML = "";
+                    box.removeAttribute('data-display');
+
+                    var d = 0;
+                    do {
+                        var el = template.content.firstElementChild.cloneNode(true);
+
+                        var name = dimensions[d].name;
+                        var field = el.find('field');
+                        field.find('text').dataset.name = field.find('text').textContent = dimensions[d].name;
+
+                        var dropdown = el.find('dropdown');
+                        var values = dimensions[d].values;
+                        if (values.length > 0) {
+                            var aa = 0;
+                            var v = 0;
+                            0 > 1 ? console.log(399, {
+                                values
+                            }) : null;
+                            do {
+                                var item = dropdown.find('template').content.firstElementChild.cloneNode(true);
+                                item.find('span').dataset.after = values[v];
+                                dropdown.children[1].insertAdjacentHTML('beforeend', item.outerHTML);
+                                v++;
+                            } while (v < values.length);
+
+                            if (get[5]) {
+                                var u = rout.ed.dir(route.path);
+                                var gat = u.splice(5, u.length - 1);
+                                var matrix = get[5];
+                                var arr = 0 < 1 ? matrix.split('_') : gat;
+                                var ax = 0;
+                                do {
+                                    var ar = arr[ax];
+                                    if (0 < 1 && ar) {
+                                        var dd = 0;
+                                        do {
+                                            var vv = 0;
+                                            do {
+                                                if (ar) {
+                                                    var value = dimensions[dd].values[vv];
+                                                    var name = dimensions[dd].name;
+                                                    if (value) {
+                                                        var vars = {
+                                                            arr1: ar.split('-')[0].toLowerCase(),
+                                                            arr2: ar.split(ar.split('-')[0] + "-")[1].replace('-', ' ').toLowerCase(),
+                                                            name: name.toLowerCase(),
+                                                            value: value.toLowerCase().replace('-', ''),
+                                                            element: template.find('[placeholder][data-name="' + name + '"]')
+                                                        }
+                                                        //console.log(367, vars);
+                                                        if (vars.element && vars.arr1 === vars.name && vars.arr2 === vars.value) {
+                                                            vars.element.closest('field').nextElementSibling.find('[placeholder]').textContent = value;
+                                                        }
+                                                    }
+                                                    aa++;
+                                                }
+                                                vv++;
+                                            } while (vv < values.length);
+                                            dd++;
+                                        } while (dd < dimensions.length);
+                                    }
+                                    ax++;
+                                } while (ax < arr.length);
+                            }
+
+                            //Find Variation
+                            if (n === dimensions.length) {
+                                var variant = true;
+                            }
+                        }
+
+                        template.previousElementSibling.insertAdjacentHTML('beforeend', el.outerHTML);
+
+                        var name = el.find('field [placeholder]').dataset.name;
+                        var value = el.find('dropdown [placeholder]').textContent;
+                        //console.log(template, name, value);
+                        if (name && value) {
+                            attr.push(name.toLowerCase().replaceAll('-', '') + "-" + value.toLowerCase().replaceAll('-', ''));
+                        }
+                        d++;
+                    } while (d < dimensions.length);
+                } else {
+                    box.dataset.display = "none";
+                }
+
                 var descendants = data.filter(function(row) {
                     var dir = rout.ed.dir(row.slug);
                     return dir.length > 1 && dir[0] === ancestor.slug;
                 });
-                var produt = null;
+
+                var product = null;
                 if (rout.ed.dir(slug).length === 1) {
                     product = ancestor;
                 } else {
                     product = descendants[0];
                 }
+
+                var prices = [];
+                descendants.forEach(function(row) {
+                    var price = row.pricing ? price = row.pricing : null;
+                    price ? prices.push(price) : null;
+                });
+
                 console.log({
                     data,
                     slug,
                     ancestor,
                     descendants,
-                    product
+                    product,
+                    prices
                 });
 
-                var title = $(merch.all('[data-value="post.title"]'));
-                title ? title.html(product.title) : null;
-
                 var image = merch.find('[data-value="post.image"]');
-                image ? image.src = product.images[0] : null;
+                product.images && product.images.length > 0 ? image.src = product.images[0] : null;
+
+                var title = $(merch.all('[data-value="post.title"]'));
+                product.title ? title.html(product.title) : null;
+
+                if (prices.length > 0) {
+                    prices.sort((a,b)=>a.ListPrice - b.ListPrice);
+                    var pricing = $(merch.all('[data-value="post.pricing"]'));
+                    pricing ? pricing.html("$" + prices[0].ListPrice + " &#8211; " + "$" + prices[prices.length - 1].ListPrice) : null;
+                    console.log(pricing);
+                }
+
+                var description = merch.find('[data-value="post.description"]');
+                if (product.description) {
+                    description.textContent = product.description;
+                } else {
+                    description.closest('box').dataset.display = "none";
+                }
+
+                var details = merch.find('[data-value="post.details"]');
+                if (product.details) {
+                    details.html(product.details)
+                } else {
+                    details.closest('box').dataset.display = "none";
+                }
 
             })
         }
@@ -225,4 +351,58 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
 }
 );
 
-window.mvc.c ? null : (window.mvc.c = controller = {});
+window.mvc.c ? null : (window.mvc.c = controller = {
+
+    product: {
+
+        traits: async(target)=>{
+            var attributes = target.previousElementSibling;
+            var variations = await modal.dropdown(target, {
+                other: false,
+                title: attributes.find('[placeholder]').value
+            });
+
+            var url = '/dashboard/' + GET[1] + '/merch/catalog/' + GET[4] + '/';
+            var values = [];
+            var traits = target.closest('box column').children;
+            if (traits.length > 0) {
+                var t = 0;
+                do {
+                    var trait = traits[t];
+                    var name = trait.find('field [placeholder]').textContent;
+                    var value = trait.find('dropdown [placeholder]').textContent;
+                    if (name.length > 0 && value.length > 0) {
+                        values.push(name.toLowerCase().replaceAll('-', '') + "-" + value.toLowerCase().replaceAll('-', '').replaceAll(' ', '-'));
+                    }
+                    t++;
+                } while (t < traits.length);
+                var matrix = values.join('_');
+
+                if (matrix.length > 0) {
+                    //console.log(matrix, values);
+                    url += matrix + '/';
+                }
+                var vp = target.closest('pages');
+
+                0 < 1 ? console.log({
+                    route,
+                    url,
+                    matrix,
+                    values
+                }, {
+                    attributes,
+                    variations
+                }, {
+                    matrix,
+                    traits,
+                    values
+                }) : null;
+
+                route.path === url ? null : url.router();
+
+            }
+        }
+
+    }
+
+});

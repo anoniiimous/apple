@@ -3,6 +3,10 @@
         align-items: center;
     }
 
+    .align-items-flex-start {
+        align-items: flex-start;
+    }
+
     .align-items-flex-end {
         align-items: flex-end;
     }
@@ -15,6 +19,26 @@
     
     .background-color-f7f7f7 {
         background-color: #f7f7f7;
+    }
+    
+    .background-color-fff {
+        background-color: #fff;
+    }
+
+    [data-background-color="rgba(0,0,0,0.5)"] {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+}
+
+@media {
+    .border-1px-solid {
+        border: 1px solid;
+    }
+}
+
+@media {
+    .border-radius-10px {
+        border-radius: 10px;
     }
 }
 
@@ -29,8 +53,18 @@
         display: flex;
     }
     
+    .display-inline-flex, [data-display="inline-flex"] {
+        display: inline-flex;
+    }
+    
     .display-none, [data-display="none"] {
         display: none;
+    }
+}
+
+@media {
+    .flex-1 {
+        flex: 1;
     }
 }
 
@@ -61,6 +95,10 @@
 }
 
 @media {
+    .gap-10px {
+        gap: 10px;
+    }
+    
     .gap-20px {
         gap: 20px;
     }
@@ -81,6 +119,10 @@
 
     .height-100pct {
         height: 100%;
+    }
+
+    .height-36px, [data-height="36px"] {
+        height: 36px;
     }
 }
 
@@ -109,6 +151,12 @@
 }
 
 @media {
+    .margin-auto {
+        margin: auto;
+    }
+}
+
+@media {
     .margin-bottom-20px {
         margin-bottom: 20px;
     }
@@ -128,12 +176,30 @@
 }
 
 @media {
+    .min-height-100pct {
+        min-height: 100%;
+    }
+}
+
+@media {
+    .min-width-240px {
+        min-width: 240px;
+    }
+}
+
+@media {
     .object-fit-contain {
         object-fit: contain;
     }
     
     .object-fit-cover {
         object-fit: cover;
+    }
+}
+
+@media {
+    .overflow-hidden {
+        overflow: hidden;
     }
 }
 
@@ -158,6 +224,11 @@
         padding-left: 10px;
         padding-right: 10px;
     }
+
+    .padding-y-3pt3vmax {
+        padding-bottom: 3.3vmax;
+        padding-top: 3.3vmax;
+    }
 }
 
 @media {
@@ -177,6 +248,12 @@
 }
 
 @media {
+    .text-decoration-underline {
+        text-decoration: underline;
+    }
+}
+
+@media {
     .text-transform-uppercase {
         text-transform: uppercase;
     }
@@ -191,6 +268,10 @@
 @media {
     .width-100pct {
         width: 100%;
+    }
+
+    .width-36px, [data-width="36px"] {
+        width: 36px;
     }
 }
 
