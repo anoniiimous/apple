@@ -21,17 +21,13 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
 
         $(dom.body.all('aside')).remove();
 
-        console.log({
-            page
-        });
-
         var page = route.page;
         var vp = dom.body.find('[data-page="' + page + '"]');
 
-        0 > 1 ? null : console.log(108, {
+        0 > 1 ? console.log(108, {
             route,
             vp
-        });
+        }) : null;
 
         //MEDIA FEED
         var feeds = vp.all('[data-media]');
@@ -190,10 +186,10 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
         if (merch) {
             var got = route.GOT;
             var slug = got.splice(merch.dataset.merch).join('/');
+            var parent = rout.ed.dir(slug)[0];
+            console.log(190, parent, slug);
 
-            console.log(slug);
-
-            ajax("/raw/merch/" + slug + "/merch.json").then(function(d) {
+            ajax("/raw/merch/" + parent + "/merch.json").then(function(d) {
                 var data = JSON.parse(d);
                 var ancestor = data.filter(row=>rout.ed.dir(row.slug).length === 1)[0];
                 var descendants = data.filter(function(row) {
@@ -218,10 +214,7 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                 title ? title.html(product.title) : null;
 
                 var image = merch.find('[data-value="post.image"]');
-                image ? image.src = "" : null;
-
-                var image = merch.find('[data-value="post.image"]');
-                image ? image.src = "" : null;
+                image ? image.src = product.images[0] : null;
 
             })
         }

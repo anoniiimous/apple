@@ -2,7 +2,7 @@
 body > footer, body > header, body > nav {
     position: relative;
 }
-body page block, body page card, body page card box {
+body block, body card, body card box {
     position: relative;
 }
 
@@ -32,20 +32,20 @@ body > footer > * ~ *, body > footer card > * ~ *, body > footer card box > * ~ 
     z-index: 12;
 }
 
-body page block > *, body page card > *, body page card box > * {
+body block > *, body card > *, body card box > * {
     z-index: 12;
 }
-body page block > picture, body page card > picture, body page card box > picture {
+body block > picture, body card > picture, body card box > picture {
     z-index: 0;
 }
-body page block > video, body page card > video, body page card box > video {
+body block > video, body card > video, body card box > video {
     z-index: 0;
 }
-body page block > * ~ *, body page card > * ~ *, body page card box > * ~ * {
+body block > * ~ *, body card > * ~ *, body card box > * ~ * {
     z-index: 12;
 }
 
-body > header:hover:after, body page block:hover:after, body > footer:hover:after {
+body > header:hover:after, body block:hover:after, body > footer:hover:after {
     content: '';
     display: block;
     width: calc(100% - 8px);
@@ -60,7 +60,7 @@ body > header:hover:after, body page block:hover:after, body > footer:hover:afte
     margin: 0px;
 }
 
-body > footer card:hover:after, body > header card:hover:after,body page card:hover:after {
+body > footer card:hover:after, body > header card:hover:after,body card:hover:after {
     content: '';
     display: block;
     width: calc(100% - 8px);
@@ -75,7 +75,7 @@ body > footer card:hover:after, body > header card:hover:after,body page card:ho
     margin: 0px;
 }
 
-body > footer card box:hover:after, body > header card box:hover:after, body page card box:hover:after {
+body > footer card box:hover:after, body > header card box:hover:after, body card box:hover:after {
     content: '';
     display: block;
     width: calc(100% - 8px);

@@ -8,19 +8,37 @@
     }
 }
 
-@media {
+@media {    
+    .background-color-a8a6a1 {
+        background-color: #a8a6a1;
+    }
+    
     .background-color-f7f7f7 {
         background-color: #f7f7f7;
     }
 }
 
 @media {
+    .color-fff {
+        color: #fff;
+    }
+}
+
+@media {
+    .display-flex, [data-display="flex"] {
+        display: flex;
+    }
+    
     .display-none, [data-display="none"] {
         display: none;
     }
 }
 
 @media {
+    .flex-direction-column {
+        flex-direction: column;
+    }
+    
     .flex-direction-row {
         flex-direction: row;
     }
@@ -29,6 +47,10 @@
 @media {
     .font-size-24px {
         font-size: 24px;
+    }
+
+    .font-size-2pt8rem {
+        font-size: 2.8rem;
     }
 }
 
@@ -41,6 +63,14 @@
 @media {
     .gap-20px {
         gap: 20px;
+    }
+    
+    .gap-50px {
+        gap: 50px;
+    }
+    
+    .gap-60px {
+        gap: 60px;
     }
 }
 
@@ -112,6 +142,10 @@
         padding: 10px;
     }
     
+    .padding-20px {
+        padding: 20px;
+    }
+    
     .padding-4vw {
         padding: 4vw
     }
@@ -133,6 +167,18 @@
 
     .position-relative {
         position: relative;
+    }
+}
+
+@media {
+    .text-align-center {
+        text-align: center;
+    }
+}
+
+@media {
+    .text-transform-uppercase {
+        text-transform: uppercase;
     }
 }
 
