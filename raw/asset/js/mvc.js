@@ -358,6 +358,8 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
         var vp = dom.body.find('[data-view="cart"]');
         if (vp) {
             var column = vp.find('block column');
+            column.innerHTML = "";
+            
             var cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : null;
             if (cart && cart.length > 0) {
                 var template = vp.find('block template');
