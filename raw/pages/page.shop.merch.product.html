@@ -17,14 +17,14 @@
                     </box>
                     <box>
                         <section>
-                            <text placeholder="Title" data-value="post.title"></text>
+                            <text placeholder="Title" data-value="post.href"></text>
                         </section>
                     </box>
                 </row>
             </card>
         </header>
         <column>
-            <card class="align-items-flex-start gap-50px width-100pct" data-columns="2">
+            <card class="align-items-flex-start gap-50px width-100pct" data-768px-columns="1" data-columns="2">
                 <column>
                     <box>
                         <section>
@@ -34,10 +34,10 @@
                         </section>
                     </box>
                 </column>
-                <form class="display-flex flex-direction-column gap-50px">
+                <form class="display-flex flex-direction-column gap-50px" onsubmit="controller.product.cart(event)">
                     <box class="gap-20px">
                         <header>
-                            <text class="font-size-2pt8rem font-weight-bolders" placeholder="Product Title" data-value="post.title"></text>
+                            <text class="font-size-2pt8rem font-weight-bolders" placeholder="Title" data-value="post.title"></text>
                         </header>
                         <column>
                             <text class="font-size-24px" placeholder="$0.00" data-value="post.pricing"></text>
@@ -68,7 +68,7 @@
                                         <text class="flex-1" placeholder="Attribute"></text>
                                     </row>
                                 </field>
-                                <dropdown class="align-items-center border-1px-solid border-radius-50px display-flex height-50px justify-content-center line-height-500px width-50pct">
+                                <dropdown class="align-items-center border-1px-solid border-radius-0px display-flex height-50px justify-content-center line-height-500px width-50pct">
                                     <row class="align-items-center justify-content-center padding-x-10px width-100pct" data-tap="controller.product.traits(event.target.closest('dropdown'))">
                                         <text class="flex-1" placeholder="Value"></text>
                                         <ico>
@@ -99,7 +99,7 @@
                                 <ico class="align-items-center display-flex font-weight-bolder justify-content-center">
                                     <n class="gg-chevron-up"></n>
                                 </ico>
-                                <input class="flex-1 font-size-18px height-36px text-align-center" data-width="120px" min="0" placeholder="0" step="1" type="number">
+                                <input class="flex-1 font-size-18px height-36px text-align-center" data-width="50px" min="0" placeholder="0" step="1" type="number" value="1" data-value="post.quantity">
                                 <ico class="align-items-center display-flex font-weight-bolder justify-content-center">
                                     <n class="gg-chevron-down"></n>
                                 </ico>

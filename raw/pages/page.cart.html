@@ -1,6 +1,48 @@
 <blocks>
-    <block class="padding-4vw">
-        <column></column>
+    <block class="padding-4vw" data-view="cart">
+        <template>
+            <card class="display-flex flex-direction-row gap-20px">
+                <row>
+                    <box>
+                        <section>
+                            <picture class="-dw960px-height-17pt6vw -dw960px-width-17pt6vw background-color-f7f7f7 height-120px width-120px">
+                                <img class="object-fit-contain">
+                            </picture>
+                        </section>
+                    </box>
+                </row>
+                <row class="flex-1 gap-20px" data-640px-columns="1" data-columns="2">
+                    <box>
+                        <column>
+                            <text class="font-weight-bolder" placeholder="Title"></text>
+                            <text data-display="none" placeholder="Attributes"></text>
+                        </column>
+                    </box>
+                    <box class="-dw640px-margin-right-0 margin-right-40px">
+                        <row>
+                            <field class="display-inline-flex flex-direction-row line-height-20px margin-right-auto">
+                                <ico data-height="20px" data-width="20px">
+                                    <n class="gg-chevron-up"></n>
+                                </ico>
+                                <input class="height-20px text-align-center width-50px" placeholder="0" type="number">
+                                <ico data-height="20px" data-width="20px">
+                                    <n class="gg-chevron-down"></n>
+                                </ico>
+                            </field>
+                            <text class="line-height-20px" placeholder="$0.00"></text>
+                        </row>
+                    </box>
+                    <box class="position-absolute top-0 right-0">
+                        <row>
+                            <ico data-height="20px" data-width="20px">
+                                <n class="gg-close"></n>
+                            </ico>
+                        </row>
+                    </box>
+                </row>
+            </card>
+        </template>
+        <column class="gap-20px"></column>
         <column class="empty-state">
             <card>
                 <section>

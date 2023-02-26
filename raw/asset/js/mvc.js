@@ -19,6 +19,11 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
 
         window.GET = window.GET ? GET : rout.ed.dir(dom.body.dataset.path);
 
+        var json = await ajax('/site.webmanifest');
+        window.webmanifest = JSON.parse(json);
+        console.log(webmanifest);
+        dom.body.find('[data-value="webmanifest.name"]').textContent = webmanifest.name;
+
         $(dom.body.all('aside')).remove();
 
         var page = route.page;
@@ -185,7 +190,7 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
         var merch = vp.find('[data-merch]');
         if (merch) {
             var got = route.GOT;
-            var slug = got.splice(merch.dataset.merch).join('/');
+            var slug = got.splice(merch.dataset.merch, got.length - 1).join('/');
             var parent = rout.ed.dir(slug)[0];
             console.log(190, parent, slug);
 
@@ -208,10 +213,11 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                     var d = 0;
                     do {
                         var el = template.content.firstElementChild.cloneNode(true);
+                        var dimension = dimensions[d];
 
                         var name = dimensions[d].name;
                         var field = el.find('field');
-                        field.find('text').dataset.name = field.find('text').textContent = dimensions[d].name;
+                        field.find('text').dataset.name = field.find('text').textContent = dimension.name;
 
                         var dropdown = el.find('dropdown');
                         var values = dimensions[d].values;
@@ -228,10 +234,10 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                                 v++;
                             } while (v < values.length);
 
-                            if (get[5]) {
+                            if (rout.ed.dir(slug).length > 1) {
                                 var u = rout.ed.dir(route.path);
                                 var gat = u.splice(5, u.length - 1);
-                                var matrix = get[5];
+                                var matrix = get[get.length - 1];
                                 var arr = 0 < 1 ? matrix.split('_') : gat;
                                 var ax = 0;
                                 do {
@@ -250,7 +256,7 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                                                             arr2: ar.split(ar.split('-')[0] + "-")[1].replace('-', ' ').toLowerCase(),
                                                             name: name.toLowerCase(),
                                                             value: value.toLowerCase().replace('-', ''),
-                                                            element: template.find('[placeholder][data-name="' + name + '"]')
+                                                            element: el.find('[placeholder][data-name="' + name + '"]')
                                                         }
                                                         //console.log(367, vars);
                                                         if (vars.element && vars.arr1 === vars.name && vars.arr2 === vars.value) {
@@ -318,8 +324,11 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                 var image = merch.find('[data-value="post.image"]');
                 product.images && product.images.length > 0 ? image.src = product.images[0] : null;
 
-                var title = $(merch.all('[data-value="post.title"]'));
+                var title = $(merch.all('[placeholder="Title"]'));
                 product.title ? title.html(product.title) : null;
+
+                var title = $(merch.all('[data-value="post.href"]'));
+                product.title ? title.attr('data-href', route.page.replace('*', ancestor.slug)) : null;
 
                 if (prices.length > 0) {
                     prices.sort((a,b)=>a.ListPrice - b.ListPrice);
@@ -345,64 +354,158 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
             })
         }
 
+        //CART
+        var vp = dom.body.find('[data-view="cart"]');
+        if (vp) {
+            var column = vp.find('block column');
+            var cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : null;
+            if (cart && cart.length > 0) {
+                var template = vp.find('block template');
+                var c = 0;
+                do {
+                    var row = cart[c];
+                    try {
+                        var json = await ajax('/raw/merch/' + row.slug + '/merch.json');
+                        if (is.json(json)) {
+                            json = JSON.parse(json);
+                            var el = template.content.firstElementChild.cloneNode(true);
+                            el.find('picture img').src = json.images[0];
+                            el.find('[placeholder="Title"]').textContent = json.title;
+                            el.find('[type="number"]').setAttribute('value', row.quantity);
+                            el.find('[placeholder="$0.00"]').textContent = '$' + json.pricing.ListPrice;
+                            column.insertAdjacentHTML('beforeend', el.outerHTML);
+                            console.log(369, {
+                                el,
+                                json,
+                                row
+                            });
+                        }
+                    } catch (e) {
+                        console.log(381, {
+                            e
+                        });
+                    }
+                    c++;
+                } while (c < cart.length);
+            }
+        }
+
         resolve(route);
     }
     );
 }
 );
 
-window.mvc.c ? null : (window.mvc.c = controller = {
+window.mvc.c ? null : (window.mvc.c = controller = {});
 
-    product: {
-
-        traits: async(target)=>{
-            var attributes = target.previousElementSibling;
-            var variations = await modal.dropdown(target, {
-                other: false,
-                title: attributes.find('[placeholder]').value
-            });
-
-            var url = '/dashboard/' + GET[1] + '/merch/catalog/' + GET[4] + '/';
-            var values = [];
-            var traits = target.closest('box column').children;
-            if (traits.length > 0) {
-                var t = 0;
-                do {
-                    var trait = traits[t];
-                    var name = trait.find('field [placeholder]').textContent;
-                    var value = trait.find('dropdown [placeholder]').textContent;
-                    if (name.length > 0 && value.length > 0) {
-                        values.push(name.toLowerCase().replaceAll('-', '') + "-" + value.toLowerCase().replaceAll('-', '').replaceAll(' ', '-'));
-                    }
-                    t++;
-                } while (t < traits.length);
-                var matrix = values.join('_');
-
-                if (matrix.length > 0) {
-                    //console.log(matrix, values);
-                    url += matrix + '/';
-                }
-                var vp = target.closest('pages');
-
-                0 < 1 ? console.log({
-                    route,
-                    url,
-                    matrix,
-                    values
-                }, {
-                    attributes,
-                    variations
-                }, {
-                    matrix,
-                    traits,
-                    values
-                }) : null;
-
-                route.path === url ? null : url.router();
-
-            }
-        }
-
+controller.cart = {};
+controller.cart.update = obj=>{
+    //console.log(obj);
+    var cart = localStorage.getItem('cart');
+    if (cart) {
+        cart = JSON.parse(cart);
+    } else {
+        cart = [];
     }
+    if (cart.some(o=>o.slug === obj.slug)) {
+        cart = cart.filter(function(o) {
+            if (o.slug === obj.slug) {
+                o.quantity = o.quantity + obj.quantity;
+            }
+            return o;
+        })
+    } else {
+        cart.push(obj);
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
 
-});
+controller.product = {};
+controller.product.cart = event=>{
+    event.preventDefault();
+    var form = event.target;
+    var dir = rout.ed.dir(route.path);
+    var slug = dir.splice(form.closest('[data-merch]').dataset.merch).join('/');
+    var quantity = parseInt(form.find('[data-value="post.quantity"]').value);
+    0 > 1 ? console.log("controller.product.cart", {
+        slug,
+        quantity
+    }) : null;
+    if (slug && quantity > 0) {
+        var obj = {
+            quantity,
+            slug
+        };
+        controller.cart.update(obj);
+        '/cart/'.router();
+    }
+}
+controller.product.quantity = target=>{
+    var button = target.closest('row').find('input');
+    var ico = target.closest('ico');
+    if (button && ico) {
+        var up = ico.find('.gg-chevron-up');
+        var down = ico.find('.gg-chevron-down');
+        button.value = button.value === '' ? 0 : button.value;
+        if (up) {
+            button.value = parseInt(button.value) + 1;
+        }
+        if (down && button.value > 0) {
+            button.value = parseInt(button.value) - 1;
+        }
+    }
+}
+controller.product.traits = async(target)=>{
+    var attributes = target.previousElementSibling;
+    var variations = await modal.dropdown(target, {
+        other: false,
+        title: attributes.find('[placeholder]').value
+    });
+
+    var url = route.path;
+    var values = [];
+    var traits = target.closest('box > column').children;
+    if (traits.length > 0) {
+        var t = 0;
+        do {
+            var trait = traits[t];
+            0 > 1 ? console.log(371, {
+                traits,
+                trait
+            }) : null;
+            var name = trait.find('field [placeholder]').textContent;
+            var value = trait.find('dropdown [placeholder]').textContent;
+            if (name.length > 0 && value.length > 0) {
+                values.push(name.toLowerCase().replaceAll('-', '') + "-" + value.toLowerCase().replaceAll('-', '').replaceAll(' ', '-'));
+            }
+            t++;
+        } while (t < traits.length);
+        var matrix = values.join('_');
+        if (matrix.length > 0) {
+            //console.log(matrix, values);
+            var dir1 = rout.ed.dir(route.path);
+            var dir2 = rout.ed.dir(route.page);
+            url = route.page.replace('*', dir1[dir2.length - 1] + "/" + matrix);
+            console.log(url);
+        }
+        var vp = target.closest('pages');
+
+        0 < 1 ? console.log({
+            route,
+            url,
+            matrix,
+            values
+        }, {
+            attributes,
+            variations
+        }, {
+            matrix,
+            traits,
+            values
+        }) : null;
+
+        route.path === url ? null : url.router();
+    }
+}
+
+mvc.c = controller;

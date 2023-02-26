@@ -166,7 +166,7 @@ window.on.touch = {
 (window.on["touch"]["tap"] = async(event)=>{
     //console.log("tap",{iframe:self===top},event.type);
     var target = event.target;
-    console.log('tap',{event,target});
+    //console.log('tap',{event,target});
 
     //EVENTS
     var el = target.closest(".block");

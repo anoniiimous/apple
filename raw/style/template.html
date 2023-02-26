@@ -1,7 +1,16 @@
 <header class="width-100pct">
     <row class="padding-4vw width-100pct" data-columns="3">
         <card class="justify-content-center line-height-50px">
-            <row class="gap-20px">
+            <row class="gap-20px" data-960px-display="flex" data-display="none">
+                <box class="padding-x-20px" data-href="/shop">
+                    <section>
+                        <ico>
+                            <n class="gg-menu"></n>
+                        </ico>
+                    </section>
+                </box>
+            </row>
+            <row class="gap-20px" data-960px-display="none">
                 <box class="padding-x-20px" data-href="/shop">
                     <section>
                         <text>Shop</text>
@@ -28,13 +37,13 @@
             <row>
                 <box data-href="/">
                     <row>
-                        <text class="font-size-24px font-weight-bolder line-height-50px padding-x-10px">Apple</text>
+                        <text class="font-size-24px font-weight-bolder line-height-50px padding-x-10px" data-value="webmanifest.name">Apple</text>
                     </row>
                 </box>
             </row>
         </card>
         <card class="align-items-flex-end flex-direction-row gap-20px justify-content-flex-end">
-            <row>
+            <row data-960px-display="none">
                 <box>
                     <row>
                         <ico>
@@ -49,6 +58,8 @@
                         </ico>
                     </row>
                 </box>
+            </row>
+            <row>
                 <box class="margin-left-20px" data-href="/cart">
                     <section>
                         <ico>
