@@ -19,9 +19,8 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
 
         window.GET = window.GET ? GET : rout.ed.dir(dom.body.dataset.path);
 
-        var json = await ajax('/site.webmanifest');
-        window.webmanifest = JSON.parse(json);
-        console.log(webmanifest);
+        window.webmanifest = JSON.parse(await ajax('/site.webmanifest'));
+        //console.log(webmanifest);
         dom.body.find('[data-value="webmanifest.name"]').textContent = webmanifest.name;
 
         $(dom.body.all('aside')).remove();
@@ -194,166 +193,311 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
             var parent = rout.ed.dir(slug)[0];
             console.log(190, parent, slug);
 
-            ajax("/raw/merch/" + parent + "/merch.json").then(function(d) {
-                var data = JSON.parse(d);
-                var ancestor = data.filter(row=>rout.ed.dir(row.slug).length === 1)[0];
+            var d = await ajax("/raw/merch/" + parent + "/merch.json");
+            //.then(async function(d) {
 
-                //DIMENSIONS
-                var box = merch.find('[data-value="post.traits"]').closest('box');
-                var n = 0;
-                var attr = [];
-                var variant = false;
-                var dimensions = ancestor && ancestor.dimensions;
-                if (dimensions && dimensions.length > 0) {
-                    var template = box.lastElementChild;
+            var data = JSON.parse(d);
+            //var ancestor = data.filter(row=>rout.ed.dir(row.slug).length === 1);
 
-                    template.previousElementSibling.innerHTML = "";
-                    box.removeAttribute('data-display');
+            //console.log(201, slug, data, "/raw/merch/" + parent + "/merch.json");
 
-                    var d = 0;
+            //ANCESTOR
+            try {
+                //var slug = get[5] ? get[4] + "/" + get[5] : get[4];
+                var res = window.ancestor = data;
+                if (res.length > 0) {
+                    var r = 0;
                     do {
-                        var el = template.content.firstElementChild.cloneNode(true);
-                        var dimension = dimensions[d];
+                        if (res[r].slug === parent) {
+                            //console.log(211, res[r], slug);
+                            var json = res[r];
+                        }
+                        r++;
+                    } while (r < res.length);
+                    if (!json) {
+                        throw "Not Found";
+                    }
+                }
+                0 > 1 ? console.log(295, {
+                    json,
+                    res
+                }) : null;
+            } catch (e) {
+                console.log(287, {
+                    e
+                });
+            }
 
-                        var name = dimensions[d].name;
-                        var field = el.find('field');
-                        field.find('text').dataset.name = field.find('text').textContent = dimension.name;
+            //DIMENSIONS
+            var box = merch.find('[data-value="post.traits"]').closest('box');
+            var n = 0;
+            var attr = [];
+            var variant = false;
+            var dimensions = json && json.dimensions;
+            //console.log(237, json, dimensions);
+            if (dimensions && dimensions.length > 0) {
+                var template = box.lastElementChild;
 
-                        var dropdown = el.find('dropdown');
-                        var values = dimensions[d].values;
-                        if (values.length > 0) {
-                            var aa = 0;
-                            var v = 0;
-                            0 > 1 ? console.log(399, {
-                                values
-                            }) : null;
+                template.previousElementSibling.innerHTML = "";
+                box.removeAttribute('data-display');
+
+                var d = 0;
+                do {
+                    var el = template.content.firstElementChild.cloneNode(true);
+                    var dimension = dimensions[d];
+
+                    var name = dimensions[d].name;
+                    var field = el.find('field');
+                    field.find('text').dataset.name = field.find('text').textContent = dimension.name;
+
+                    var dropdown = el.find('dropdown');
+                    var values = dimensions[d].values;
+                    if (values.length > 0) {
+                        var aa = 0;
+                        var v = 0;
+                        0 > 1 ? console.log(399, {
+                            values
+                        }) : null;
+                        do {
+                            var item = dropdown.find('template').content.firstElementChild.cloneNode(true);
+                            item.find('span').dataset.after = values[v];
+                            dropdown.children[1].insertAdjacentHTML('beforeend', item.outerHTML);
+                            v++;
+                        } while (v < values.length);
+
+                        if (rout.ed.dir(slug).length > 1) {
+                            var u = rout.ed.dir(route.path);
+                            var gat = u.splice(5, u.length - 1);
+                            var matrix = get[get.length - 1];
+                            var arr = 0 < 1 ? matrix.split('_') : gat;
+                            var ax = 0;
                             do {
-                                var item = dropdown.find('template').content.firstElementChild.cloneNode(true);
-                                item.find('span').dataset.after = values[v];
-                                dropdown.children[1].insertAdjacentHTML('beforeend', item.outerHTML);
-                                v++;
-                            } while (v < values.length);
-
-                            if (rout.ed.dir(slug).length > 1) {
-                                var u = rout.ed.dir(route.path);
-                                var gat = u.splice(5, u.length - 1);
-                                var matrix = get[get.length - 1];
-                                var arr = 0 < 1 ? matrix.split('_') : gat;
-                                var ax = 0;
-                                do {
-                                    var ar = arr[ax];
-                                    if (0 < 1 && ar) {
-                                        var dd = 0;
+                                var ar = arr[ax];
+                                if (0 < 1 && ar) {
+                                    var dd = 0;
+                                    do {
+                                        var vv = 0;
                                         do {
-                                            var vv = 0;
-                                            do {
-                                                if (ar) {
-                                                    var value = dimensions[dd].values[vv];
-                                                    var name = dimensions[dd].name;
-                                                    if (value) {
-                                                        var vars = {
-                                                            arr1: ar.split('-')[0].toLowerCase(),
-                                                            arr2: ar.split(ar.split('-')[0] + "-")[1].replace('-', ' ').toLowerCase(),
-                                                            name: name.toLowerCase(),
-                                                            value: value.toLowerCase().replace('-', ''),
-                                                            element: el.find('[placeholder][data-name="' + name + '"]')
-                                                        }
-                                                        //console.log(367, vars);
-                                                        if (vars.element && vars.arr1 === vars.name && vars.arr2 === vars.value) {
-                                                            vars.element.closest('field').nextElementSibling.find('[placeholder]').textContent = value;
-                                                        }
+                                            if (ar) {
+                                                var value = dimensions[dd].values[vv];
+                                                var name = dimensions[dd].name;
+                                                if (value) {
+                                                    var vars = {
+                                                        arr1: ar.split('-')[0].toLowerCase(),
+                                                        arr2: ar.split(ar.split('-')[0] + "-")[1].replace('-', ' ').toLowerCase(),
+                                                        name: name.toLowerCase(),
+                                                        value: value.toLowerCase().replace('-', ''),
+                                                        element: el.find('[placeholder][data-name="' + name + '"]')
                                                     }
-                                                    aa++;
+                                                    //console.log(367, vars);
+                                                    if (vars.element && vars.arr1 === vars.name && vars.arr2 === vars.value) {
+                                                        vars.element.closest('field').nextElementSibling.find('[placeholder]').textContent = value;
+                                                    }
                                                 }
-                                                vv++;
-                                            } while (vv < values.length);
-                                            dd++;
-                                        } while (dd < dimensions.length);
-                                    }
-                                    ax++;
-                                } while (ax < arr.length);
-                            }
-
-                            //Find Variation
-                            if (n === dimensions.length) {
-                                var variant = true;
-                            }
+                                                aa++;
+                                            }
+                                            vv++;
+                                        } while (vv < values.length);
+                                        dd++;
+                                    } while (dd < dimensions.length);
+                                }
+                                ax++;
+                            } while (ax < arr.length);
                         }
 
-                        template.previousElementSibling.insertAdjacentHTML('beforeend', el.outerHTML);
-
-                        var name = el.find('field [placeholder]').dataset.name;
-                        var value = el.find('dropdown [placeholder]').textContent;
-                        //console.log(template, name, value);
-                        if (name && value) {
-                            attr.push(name.toLowerCase().replaceAll('-', '') + "-" + value.toLowerCase().replaceAll('-', ''));
+                        //Find Variation
+                        if (n === dimensions.length) {
+                            var variant = true;
                         }
-                        d++;
-                    } while (d < dimensions.length);
-                } else {
-                    box.dataset.display = "none";
+                    }
+
+                    template.previousElementSibling.insertAdjacentHTML('beforeend', el.outerHTML);
+
+                    var name = el.find('field [placeholder]').dataset.name;
+                    var value = el.find('dropdown [placeholder]').textContent;
+                    //console.log(template, name, value);
+                    if (name && value) {
+                        attr.push(name.toLowerCase().replaceAll('-', '') + "-" + value.toLowerCase().replaceAll('-', ''));
+                    }
+                    d++;
+                } while (d < dimensions.length);
+            } else {
+                box.dataset.display = "none";
+            }
+
+            //DESCENDANT
+            0 < 1 ? console.log(395, {
+                attr,
+                dir: rout.ed.dir(slug),
+                slug,
+                ancestor
+            }) : null;
+            if (rout.ed.dir(slug).length > 1) {
+                if (0 < 1) {
+                    ancestor.sort((a,b)=>b.slug.localeCompare(a.slug));
+                    0 > 1 ? console.log(413, {
+                        ancestor,
+                        variant,
+                        slug
+                    }) : null;
+                    if (ancestor.length > 0) {
+                        var arrs = slug.split('_');
+                        var r = 0;
+                        do {
+                            var row = ancestor[r];
+                            //var slug = row.slug;
+                            var dir = rout.ed.dir(row.slug);
+                            if (dir.length > 1) {
+                                //console.log(row.slug, dir);
+                                var attributes = row.attributes;
+                                var keys = Object.keys(attributes);
+                                var vals = Object.values(attributes);
+                                var a = 0;
+                                if (keys.length > 0) {
+                                    do {
+                                        var name = keys[a];
+                                        var value = Object.values(attributes)[a];
+                                        var str = name.toLowerCase() + "-" + value.toLowerCase();
+                                        if (arrs.length > 0) {
+                                            var s = 0;
+                                            do {
+                                                var as = arrs[s];
+                                                var atrs = [];
+                                                var k = 0
+                                                do {
+                                                    atrs.push(keys[k].toLowerCase().replaceAll("-", "") + "-" + vals[k].toLowerCase().replaceAll("-", ""));
+                                                    k++;
+                                                } while (k < keys.length);
+                                                var there = str === as && arrs.has(atrs);
+                                                0 > 1 ? console.log(there, row.slug, {
+                                                    keys,
+                                                    row,
+                                                    attributes,
+                                                    arrs,
+                                                    atrs
+                                                }) : null;
+                                                if (there) {
+                                                    0 > 1 ? console.log(415, a, r, row.slug, {
+                                                        str,
+                                                        as,
+                                                        row
+                                                    }) : null;
+                                                    if (row.images) {
+                                                        json.images = row.images;
+                                                    }
+                                                }
+                                                s++;
+                                            } while (s < arrs.length);
+                                        }
+                                        a++;
+                                    } while (a < attributes.length)
+                                }
+                            }
+                            r++;
+                        } while (r < ancestor.length);
+                    }
                 }
+                try {
+                    var res = 0 > 1 ? await github.repos.contents({
+                        owner: user.login,
+                        repo: get[1],
+                        path: "/raw/merch/" + parent + "/" + attr.join('_') + "/merch.json"
+                    }, {
+                        accept: "application/vnd.github.raw",
+                        cache: "reload"
+                    }) : window.ancestor.find(row=>row.slug === slug);
+                    res ? null : res = json;
 
-                var descendants = data.filter(function(row) {
-                    var dir = rout.ed.dir(row.slug);
-                    return dir.length > 1 && dir[0] === ancestor.slug;
-                });
+                    0 < 1 ? console.log(474, {
+                        slug,
+                        res,
+                        json
+                    }) : null;
 
-                var product = null;
-                if (rout.ed.dir(slug).length === 1) {
-                    product = ancestor;
-                } else {
-                    product = descendants.find(o => o.slug === slug);
-                    product = product ? product : ancestor;
-                    console.log();
+                    var variant = true;
+
+                    json.category = res.category ? res.category : json.category ? json.category : null;
+                    json.description = res.description ? res.description : null;
+                    json.images = res.images ? res.images : (json.images ? json.images : []);
+                    json.details = res.details ? res.details : (json.details ? json.details : null);
+                    json.about = res.about ? res.about : (json.about ? json.about : null);
+                    json.pricing = res.pricing;
+                    json.quantity = res.quantity ? res.quantity : null;
+                    json.tags = res.tags ? res.tags : null;
+                    0 < 1 ? console.log(464, {
+                        json
+                    }) : null;
+                } catch (e) {
+                    console.log(316, 'error mvc.v DESCENDANT', {
+                        e,
+                        json
+                    });
                 }
+            }
 
-                var prices = [];
-                descendants.forEach(function(row) {
-                    var price = row.pricing ? price = row.pricing : null;
-                    price ? prices.push(price) : null;
-                });
+            var descendants = ancestor.filter(function(row) {
+                var dir = rout.ed.dir(row.slug);
+                return dir.length > 1 && dir[0] === rout.ed.dir(json.slug)[0];
+            });
 
-                console.log({
-                    data,
-                    slug,
-                    ancestor,
-                    descendants,
-                    product,
-                    prices
-                });
+            var product = null;
+            if (rout.ed.dir(slug).length === 1) {
+                product = ancestor;
+            } else {
+                product = descendants.find(o=>o.slug === slug);
+                product = product ? product : ancestor;
+                console.log();
+            }
 
-                var image = merch.find('[data-value="post.image"]');
-                product.images && product.images.length > 0 ? image.src = product.images[0] : null;
+            var prices = [];
+            descendants.forEach(function(row) {
+                var price = row.pricing ? price = row.pricing : null;
+                price ? prices.push(price) : null;
+            });
 
-                var title = $(merch.all('[placeholder="Title"]'));
-                product.title ? title.html(product.title) : null;
+            0 < 1 ? console.log({
+                data,
+                json,
+                slug,
+                ancestor,
+                descendants,
+                prices
+            }) : null;
 
-                var title = $(merch.all('[data-value="post.href"]'));
-                product.title ? title.attr('data-href', route.page.replace('*', ancestor.slug)) : null;
+            var image = merch.find('[data-value="post.image"]');
+            json.images && json.images.length > 0 ? image.src = json.images[0] : null;
 
-                if (prices.length > 0) {
-                    prices.sort((a,b)=>a.ListPrice - b.ListPrice);
-                    var pricing = $(merch.all('[data-value="post.pricing"]'));
-                    pricing ? pricing.html("$" + prices[0].ListPrice + " &#8211; " + "$" + prices[prices.length - 1].ListPrice) : null;
-                    console.log(pricing);
-                }
+            var title = $(merch.all('[placeholder="Title"]'));
+            json.title ? title.html(json.title) : null;
 
-                var description = merch.find('[data-value="post.description"]');
-                if (product.description) {
-                    description.textContent = product.description;
-                } else {
-                    description.closest('box').dataset.display = "none";
-                }
+            var href = $(merch.all('[data-value="post.href"]'));
+            ancestor.slug ? href.attr('data-href', route.page.replace('*', ancestor.slug)) : null;
 
-                var details = merch.find('[data-value="post.details"]');
-                if (product.details) {
-                    details.html(product.details)
-                } else {
-                    details.closest('box').dataset.display = "none";
-                }
+            var pricing = $(merch.all('[data-value="post.pricing"]'));
+            if (json.pricing) {
+                pricing ? pricing.html("$" + json.pricing.ListPrice) : null;
+                //console.log(pricing); 
+            } else {
+                prices.sort((a,b)=>a.ListPrice - b.ListPrice);
+                pricing ? pricing.html("$" + prices[0].ListPrice + " &#8211; " + "$" + prices[prices.length - 1].ListPrice) : null;
+                //console.log(pricing);                
+            }
 
-            })
+            var description = merch.find('[data-value="post.description"]');
+            if (json.description) {
+                description.textContent = json.description;
+            } else {
+                description.closest('box').dataset.display = "none";
+            }
+
+            var details = merch.find('[data-value="post.details"]');
+            if (json.details) {
+                details.html(json.details)
+            } else {
+                details.closest('box').dataset.display = "none";
+            }
+
+            //})
         }
 
         //CART
@@ -361,7 +505,7 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
         if (vp) {
             var column = vp.find('block column');
             column.innerHTML = "";
-            
+
             var cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : null;
             if (cart && cart.length > 0) {
                 var template = vp.find('block template');
