@@ -205,7 +205,7 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                 var variant = false;
                 var dimensions = ancestor && ancestor.dimensions;
                 if (dimensions && dimensions.length > 0) {
-                    var template = box.find('template');
+                    var template = box.lastElementChild;
 
                     template.previousElementSibling.innerHTML = "";
                     box.removeAttribute('data-display');
@@ -303,7 +303,9 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                 if (rout.ed.dir(slug).length === 1) {
                     product = ancestor;
                 } else {
-                    product = descendants[0];
+                    product = descendants.find(o => o.slug === slug);
+                    product = product ? product : ancestor;
+                    console.log();
                 }
 
                 var prices = [];
