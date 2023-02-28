@@ -55,14 +55,23 @@
                         <header>
                             <text class="text-transform-uppercase">Details</text>
                         </header>
-                        <column class="gap-20px">
-                            <text placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." data-value="post.details"></text>
-                        </column>
+                        <column class="gap-20px"></column>
+                        <text class="empty-state" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." data-value="post.details"></text>
+                        <template>
+                            <row class="display-flex gap-10px">
+                                <field class="-dw768px-width-50pct display-flex width-50pct" data-width="calc((100% - 10px)/2)">
+                                    <text class="flex-1 font-size-16px font-weight-bolder padding-5px" placeholder="Name" type="text"></text>
+                                </field>
+                                <field class="-dw768px-width-50pct display-flex width-50pct" data-width="calc((100% - 10px)/2)">
+                                    <text class="flex-1font-size-16px padding-5px" placeholder="Value" type="text"></text>
+                                </field>
+                            </row>
+                        </template>
                     </box>
                     <box class="background-color-fff gap-0px">
                         <column class="gap-20px margin-10px" data-value="post.traits"></column>
                         <template>
-                            <column>
+                            <column class="padding-y-20px">
                                 <field class="border-bottom-1px-solid display-flex height-36px line-height-36px width-50pct">
                                     <row class="align-items-center justify-content-center padding-x-10px width-100pct">
                                         <text class="flex-1" placeholder="Attribute"></text>
@@ -99,14 +108,14 @@
                                 <ico class="align-items-center display-flex font-weight-bolder justify-content-center">
                                     <n class="gg-chevron-up"></n>
                                 </ico>
-                                <input class="flex-1 font-size-18px height-36px text-align-center" data-width="50px" min="0" placeholder="0" step="1" type="number" value="1" data-value="post.quantity">
+                                <input class="flex-1 font-size-18px height-36px text-align-center" data-width="50px" min="1" placeholder="0" step="1" type="number" value="1" data-value="post.quantity">
                                 <ico class="align-items-center display-flex font-weight-bolder justify-content-center">
                                     <n class="gg-chevron-down"></n>
                                 </ico>
                             </row>
                         </column>
                     </box>
-                    <box class="background-color-a8a6a1 color-fff font-weight-bolder padding-20px text-align-center" data-display="none">
+                    <box class="background-color-a8a6a1 color-fff font-weight-bolder padding-20px text-align-center">
                         <label class="text-transform-uppercase">
                             <span>Add To Cart</span>
                             <input type="submit">

@@ -33,6 +33,23 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
             vp
         }) : null;
 
+        //PLACEHOLDERS
+        if (vp) {
+            var el = $(dom.body.all('[data-value="cart.quantity"]'));
+            if (el.length > 0) {
+                var cart = localStorage.getItem('cart');
+                if (cart) {
+                    var json = JSON.parse(cart);
+                    var quantity = json.length > 1 ? json.reduce(function(a, b) {
+                        return a.quantity + b.quantity
+                    }) : (json.length === 1 ? json[0].quantity.toString() : null); console.log(quantity)
+                    quantity ? el.html(quantity > 99 ? '99+' : quantity.toString()) : null;
+                }
+            }
+
+            $(vp.all('[data-value="page.name"]')).html(vp.dataset.title);
+        }
+
         //MEDIA FEED
         var feeds = vp.all('[data-media]');
         if (feeds.length > 0) {
@@ -189,16 +206,12 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
         var merch = vp.find('[data-merch]');
         if (merch) {
             var got = route.GOT;
-            var slug = got.splice(merch.dataset.merch, got.length - 1).join('/');
+            var slug = got.splice(merch.dataset.merch, merch.dataset.merch + 1).join('/');
             var parent = rout.ed.dir(slug)[0];
-            console.log(190, parent, slug);
+            //console.log(190, parent, slug);
 
             var d = await ajax("/raw/merch/" + parent + "/merch.json");
-            //.then(async function(d) {
-
             var data = JSON.parse(d);
-            //var ancestor = data.filter(row=>rout.ed.dir(row.slug).length === 1);
-
             //console.log(201, slug, data, "/raw/merch/" + parent + "/merch.json");
 
             //ANCESTOR
@@ -234,7 +247,6 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
             var attr = [];
             var variant = false;
             var dimensions = json && json.dimensions;
-            //console.log(237, json, dimensions);
             if (dimensions && dimensions.length > 0) {
                 var template = box.lastElementChild;
 
@@ -326,12 +338,13 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
             }
 
             //DESCENDANT
-            0 < 1 ? console.log(395, {
+            0 > 1 ? console.log(395, {
                 attr,
                 dir: rout.ed.dir(slug),
                 slug,
                 ancestor
             }) : null;
+            window.descendant = null;
             if (rout.ed.dir(slug).length > 1) {
                 if (0 < 1) {
                     ancestor.sort((a,b)=>b.slug.localeCompare(a.slug));
@@ -398,7 +411,7 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                     }
                 }
                 try {
-                    var res = 0 > 1 ? await github.repos.contents({
+                    var res = window.descendant = 0 > 1 ? await github.repos.contents({
                         owner: user.login,
                         repo: get[1],
                         path: "/raw/merch/" + parent + "/" + attr.join('_') + "/merch.json"
@@ -406,27 +419,32 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                         accept: "application/vnd.github.raw",
                         cache: "reload"
                     }) : window.ancestor.find(row=>row.slug === slug);
-                    res ? null : res = json;
+                    //res ? null : res = json;
 
-                    0 < 1 ? console.log(474, {
+                    0 > 1 ? console.log(474, {
+                        descendant,
                         slug,
                         res,
                         json
                     }) : null;
 
-                    var variant = true;
+                    if (res) {
 
-                    json.category = res.category ? res.category : json.category ? json.category : null;
-                    json.description = res.description ? res.description : null;
-                    json.images = res.images ? res.images : (json.images ? json.images : []);
-                    json.details = res.details ? res.details : (json.details ? json.details : null);
-                    json.about = res.about ? res.about : (json.about ? json.about : null);
-                    json.pricing = res.pricing;
-                    json.quantity = res.quantity ? res.quantity : null;
-                    json.tags = res.tags ? res.tags : null;
-                    0 < 1 ? console.log(464, {
-                        json
-                    }) : null;
+                        var variant = true;
+
+                        json.category = res.category ? res.category : json.category ? json.category : null;
+                        json.description = res.description ? res.description : null;
+                        json.images = res.images ? res.images : (json.images ? json.images : []);
+                        json.details = res.details ? res.details : (json.details ? json.details : null);
+                        json.about = res.about ? res.about : (json.about ? json.about : null);
+                        json.pricing = res.pricing;
+                        json.quantity = res.quantity ? res.quantity : null;
+                        json.tags = res.tags ? res.tags : null;
+                        0 > 1 ? console.log(464, {
+                            json
+                        }) : null;
+
+                    }
                 } catch (e) {
                     console.log(316, 'error mvc.v DESCENDANT', {
                         e,
@@ -434,20 +452,10 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                     });
                 }
             }
-
             var descendants = ancestor.filter(function(row) {
                 var dir = rout.ed.dir(row.slug);
                 return dir.length > 1 && dir[0] === rout.ed.dir(json.slug)[0];
             });
-
-            var product = null;
-            if (rout.ed.dir(slug).length === 1) {
-                product = ancestor;
-            } else {
-                product = descendants.find(o=>o.slug === slug);
-                product = product ? product : ancestor;
-                console.log();
-            }
 
             var prices = [];
             descendants.forEach(function(row) {
@@ -455,7 +463,7 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                 price ? prices.push(price) : null;
             });
 
-            0 < 1 ? console.log({
+            0 > 1 ? console.log({
                 data,
                 json,
                 slug,
@@ -464,15 +472,19 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                 prices
             }) : null;
 
+            //IMAGES
             var image = merch.find('[data-value="post.image"]');
             json.images && json.images.length > 0 ? image.src = json.images[0] : null;
 
+            //TITLE
             var title = $(merch.all('[placeholder="Title"]'));
             json.title ? title.html(json.title) : null;
 
+            //HREF
             var href = $(merch.all('[data-value="post.href"]'));
             ancestor.slug ? href.attr('data-href', route.page.replace('*', ancestor.slug)) : null;
 
+            //PRICING
             var pricing = $(merch.all('[data-value="post.pricing"]'));
             if (json.pricing) {
                 pricing ? pricing.html("$" + json.pricing.ListPrice) : null;
@@ -483,6 +495,7 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                 //console.log(pricing);                
             }
 
+            //DESCRIPTION
             var description = merch.find('[data-value="post.description"]');
             if (json.description) {
                 description.textContent = json.description;
@@ -490,17 +503,51 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                 description.closest('box').dataset.display = "none";
             }
 
-            var details = merch.find('[data-value="post.details"]');
+            //DETAILS
+            var details = merch.find('[data-value="post.details"]').closest('box');
             if (json.details) {
-                details.html(json.details)
+                //console.log(json.details);
+                var keys = Object.keys(json.details);
+                var column = details.find('[data-value="post.details"]').closest('box').find('column');
+                column.innerHTML = "";
+                //console.log(493, keys);
+                if (keys.length > 0) {
+                    var template = details.find('template');
+                    //console.log(495, template);
+                    var d = 0;
+                    do {
+                        var detail = template.content.firstElementChild.cloneNode(true);
+                        //console.log(499, value);
+
+                        var name = detail.firstElementChild.find('[placeholder="Name"]');
+                        name.textContent = keys[d];
+
+                        var value = detail.lastElementChild.find('[placeholder="Value"]');
+                        value.textContent = Object.values(json.details)[d];
+
+                        column.insertAdjacentHTML('beforeend', detail.outerHTML);
+                        d++;
+                    } while (d < keys.length)
+                }
+                details.closest('box').classList.remove('display-none');
             } else {
-                details.closest('box').dataset.display = "none";
+                details.find('[data-value="post.details"]').innerHTML = "";
+                details.closest('box').classList.add('display-none');
             }
 
-            //})
+            //CHECKOUT
+            var checkout = merch.find('[type="submit"]').closest('box');
+            var quantity = merch.find('[data-value="post.quantity"]').closest('box');
+            if (descendant && attr && dimensions && attr.length === Object.keys(dimensions).length) {
+                checkout.classList.remove('display-none');
+                quantity.classList.remove('display-none');
+            } else {
+                checkout.classList.add('display-none');
+                quantity.classList.add('display-none');
+            }
         }
 
-        //CART
+        //CART        
         var vp = dom.body.find('[data-view="cart"]');
         if (vp) {
             var column = vp.find('block column');
@@ -517,6 +564,8 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                         if (is.json(json)) {
                             json = JSON.parse(json);
                             var el = template.content.firstElementChild.cloneNode(true);
+                            el.dataset.slug = row.slug
+                            el.find('box').dataset.href = row.href;
                             el.find('picture img').src = json.images[0];
                             el.find('[placeholder="Title"]').textContent = json.title;
                             el.find('[type="number"]').setAttribute('value', row.quantity);
@@ -547,6 +596,17 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
 window.mvc.c ? null : (window.mvc.c = controller = {});
 
 controller.cart = {};
+controller.cart.delete = slug=>{
+    var table = localStorage.getItem('cart');
+    if (table) {
+        var cart = JSON.parse(table);
+        console.log(slug, cart);
+        cart = cart.filter(o=>o.slug !== slug);
+        console.log(slug, cart);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        window.location.pathname.router();
+    }
+}
 controller.cart.update = obj=>{
     //console.log(obj);
     var cart = localStorage.getItem('cart');
@@ -573,14 +633,17 @@ controller.product.cart = event=>{
     event.preventDefault();
     var form = event.target;
     var dir = rout.ed.dir(route.path);
+    var href = route.path;
     var slug = dir.splice(form.closest('[data-merch]').dataset.merch).join('/');
     var quantity = parseInt(form.find('[data-value="post.quantity"]').value);
     0 > 1 ? console.log("controller.product.cart", {
+        href,
         slug,
         quantity
     }) : null;
     if (slug && quantity > 0) {
         var obj = {
+            href,
             quantity,
             slug
         };

@@ -61,24 +61,31 @@
             </row>
             <row>
                 <box class="margin-left-20px" data-href="/cart">
-                    <section>
-                        <ico>
+                    <row class="align-items-center gap-5px justify-content-center">
+                        <ico data-width="30px">
                             <n class="gg-shopping-cart"></n>
                         </ico>
-                    </section>
+                        <text class="font-weight-bolder" data-value="cart.quantity"></text>
+                    </row>
                 </box>
             </row>
         </card>
     </row>
 </header>
 <main>
-    <page class="width-100pct" data-fetch="raw/pages/page.html" data-page="/"></page>
-    <page class="width-100pct" data-fetch="raw/pages/page.about.html" data-page="/about"></page>
-    <page class="width-100pct" data-fetch="raw/pages/page.cart.html" data-page="/cart"></page>
-    <page class="width-100pct" data-fetch="raw/pages/page.contact.html" data-page="/contact"></page>
-    <page class="width-100pct" data-fetch="raw/pages/page.lookbook.html" data-page="/lookbook"></page>
-    <page class="width-100pct" data-fetch="raw/pages/page.shop.html" data-page="/shop"></page>
-    <pages class="width-100pct" data-fetch="raw/pages/page.shop.merch.product.html" data-page="/shop/merch/*"></pages>
+    <page class="width-100pct" data-fetch="raw/pages/page.html" data-page="/" data-title="Home"></page>
+    <page class="width-100pct" data-fetch="raw/pages/page.about.html" data-page="/about" data-title="About"></page>
+    <page class="width-100pct" data-fetch="raw/pages/page.cart.html" data-page="/cart" data-title="Cart"></page>
+    <page class="width-100pct" data-fetch="raw/pages/page.contact.html" data-page="/contact" data-title="Contact"></page>
+    <page class="width-100pct" data-fetch="raw/pages/page.lookbook.html" data-page="/lookbook" dtaa-title="Lookbook"></page>
+    <page class="width-100pct" data-fetch="raw/pages/page.shop.html" data-page="/shop" data-ttle="Shop"></page>
+    <page class="width-100pct" data-fetch="raw/pages/page.shop.category.html" data-page="/shop/mac/" data-title="Mac"></page>
+    <page class="width-100pct" data-fetch="raw/pages/page.shop.category.html" data-page="/shop/ipad/" data-title="iPad"></page>
+    <page class="width-100pct" data-fetch="raw/pages/page.shop.category.html" data-page="/shop/iphone/" data-title="iPhone"></page>
+    <page class="width-100pct" data-fetch="raw/pages/page.shop.category.html" data-page="/shop/watch/" data-title="Watch"></page>
+    <page class="width-100pct" data-fetch="raw/pages/page.shop.category.html" data-page="/shop/airpods/" data-title="AirPods"></page>
+    <page class="width-100pct" data-fetch="raw/pages/page.shop.category.html" data-page="/shop/tv-home/" data-title="TV & Home"></page>
+    <pages class="width-100pct" data-fetch="raw/pages/page.shop.merch.product.html" data-page="/shop/merch/*" data-title="Product"></pages>
 </main>
 <footer class="align-items-center justify-content-center padding-y-3pt3vmax">
     <column>

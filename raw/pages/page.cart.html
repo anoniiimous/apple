@@ -1,7 +1,45 @@
 <blocks>
     <block class="padding-4vw" data-view="cart">
+        <column class="gap-20px"></column>
+        <column class="empty-state">
+            <card>
+                <section>
+                    <box class="display-inline-flex gap-20px">
+                        <header>
+                            <text class="font-size-24px font-weight-bolder">Shopping Cart</text>
+                        </header>
+                        <section>
+                            <text>You have nothing in your shopping cart.</text>
+                        </section>
+                        <footer>
+                            <text class="background-color-a8a6a1 color-fff font-weight-bolder padding-20px" data-href="/shop">Continue Shopping</text>
+                        </footer>
+                    </box>
+                </section>
+            </card>
+        </column>
+        <footer class="justify-content-flex-end full-state-subsequent">
+            <card class="-dw960px-width-100pct width-50pct">
+                <header class="display-flex flex-1 flex-direction-row justify-content-space-between">
+                    <box class="flex-1 font-weight-bolder padding-y-20px">
+                        <row class="align-items-center justify-content-space-between">
+                            <text class="font-size-13px">Subtotal</text>
+                            <text class="font-size-24px" placeholder="$0.00"></text>
+                        </row>
+                    </box>
+                </header>
+                <footer>
+                    <box class="background-color-a8a6a1 color-fff flex-1 font-weight-bolder padding-20px text-align-center">
+                        <label class="text-transform-uppercase">
+                            <span>Checkout</span>
+                            <input type="submit">
+                        </label>
+                    </box>
+                </footer>
+            </card>
+        </footer>
         <template>
-            <card class="display-flex flex-direction-row gap-20px">
+            <card class="border-bottom-1px-solid border-color-ccc display-flex flex-direction-row gap-20px padding-y-20px">
                 <row>
                     <box>
                         <section>
@@ -11,7 +49,7 @@
                         </section>
                     </box>
                 </row>
-                <row class="flex-1 gap-20px" data-640px-columns="1" data-columns="2">
+                <row class="flex-1 gap-20px position-relative" data-640px-columns="1" data-columns="2">
                     <box>
                         <column>
                             <text class="font-weight-bolder" placeholder="Title"></text>
@@ -32,7 +70,7 @@
                             <text class="line-height-20px" placeholder="$0.00"></text>
                         </row>
                     </box>
-                    <box class="position-absolute top-0 right-0">
+                    <box class="position-absolute top-0 right-0" data-tap="controller.cart.delete(event.target.closest('card').dataset.slug)">
                         <row>
                             <ico data-height="20px" data-width="20px">
                                 <n class="gg-close"></n>
@@ -42,23 +80,5 @@
                 </row>
             </card>
         </template>
-        <column class="gap-20px"></column>
-        <column class="empty-state">
-            <card>
-                <section>
-                    <box class="display-inline-flex gap-20px">
-                        <header>
-                            <text class="font-size-24px font-weight-bolder">Shopping Cart</text>
-                        </header>
-                        <section>
-                            <text>You have nothing in your shopping cart.</text>
-                        </section>
-                        <footer>
-                            <text class="background-color-a8a6a1 color-fff font-weight-bolder padding-20px">Continue Shopping</text>
-                        </footer>
-                    </box>
-                </section>
-            </card>
-        </column>
     </block>
 </blocks>

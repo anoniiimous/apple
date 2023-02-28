@@ -4,6 +4,34 @@ window.on.contextmenu = ()=>{}
 ;
 
 window.on.key = {};
+window.on.key.up = {};
+window.on.key.up.auto = {
+    height: (target)=>{
+        target.style.height = 0;
+        target.style.height = (target.scrollHeight) + "px";
+    },
+    width: (target) => {
+        target.style.width = 0;
+        target.style.width = (target.scrollWidth) + "px";
+    }
+};
+window.on.key.down = {};
+window.on.key.down.card = {
+    holder: (target)=>{
+        const text = target.parentNode.previousElementSibling;
+        text.className = "background-color-fff color-bbb height-18px line-height-18px padding-x-20px position-absolute";
+        text.dataset.transform = "translate3d(0,-50%,0)";
+    }
+};
+window.on.key.down.setup = {
+    app: (event)=>{
+        if (event.keyCode == 13) {
+            event.preventDefault();
+            return false;
+        }
+    }
+}
+
 window.on.touch = {};
 
 window.on.touch = {
@@ -465,53 +493,5 @@ window.on.focus.out.card = {
         }
     }
 };
-
-window.on.key = {};
-window.on.key.down = {};
-window.on.key.down.card = {
-    holder: (target)=>{
-        const text = target.parentNode.previousElementSibling;
-        text.className = "background-color-fff color-bbb height-18px line-height-18px padding-x-20px position-absolute";
-        text.dataset.transform = "translate3d(0,-50%,0)";
-    }
-};
-window.on.key.down.setup = {
-    app: (event)=>{
-        if (event.keyCode == 13) {
-            event.preventDefault();
-            return false;
-        }
-    }
-}
-
-window.on.key.up = {};
-window.on.key.up.card = {
-    holder: event=>{
-        const target = event.target;
-        var key = event.key;
-        var value = event.target.value;
-        var firstname = ''
-          , lastname = '';
-
-        var parts = event.target.value.trim().split(' ');
-        firstname = parts.length > 2 ? parts[0] : parts[0];
-        lastname = parts.length > 1 ? parts[parts.length - 1] : null;
-
-        const text = target.parentNode.previousElementSibling;
-        if (lastname) {
-            target.classList.remove('color-ff3b30');
-            text.classList.add('color-bbb')
-            text.classList.remove('color-ff3b30')
-        } else {
-            target.classList.add('color-ff3b30');
-            text.classList.remove('color-bbb')
-            text.classList.add('color-ff3b30')
-        }
-
-        //byId('preview-card').find('.card-holder :first-child').textContent = firstname;
-        //byId('preview-card').find('.card-holder :last-child').textContent = lastname;
-    }
-};
-window.on.key.up.setup = {};
 
 window.on["submit"] = {};
