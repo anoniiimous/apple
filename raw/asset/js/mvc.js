@@ -19,6 +19,8 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
 
         window.GET = window.GET ? GET : rout.ed.dir(dom.body.dataset.path);
 
+        window.stripe ? null : window.stripe = Stripe('pk_test_51MgfiILTcSrYA7XXgGmjTr0X2mIMpSUyLuv6OSHe1yqTKItG1S9q0woJQMJUQOfPrkibYyiUkGWfKZPrTcGCn5tD00wrawQleV');
+
         window.webmanifest = JSON.parse(await ajax('/site.webmanifest'));
         //console.log(webmanifest);
         dom.body.find('[data-value="webmanifest.name"]').textContent = webmanifest.name;
@@ -42,12 +44,13 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                     var json = JSON.parse(cart);
                     var quantity = json.length > 1 ? json.reduce(function(a, b) {
                         return a.quantity + b.quantity
-                    }) : (json.length === 1 ? json[0].quantity.toString() : null); console.log(quantity)
+                    }) : (json.length === 1 ? json[0].quantity.toString() : null);
                     quantity ? el.html(quantity > 99 ? '99+' : quantity.toString()) : null;
                 }
             }
 
             $(vp.all('[data-value="page.name"]')).html(vp.dataset.title);
+            ;
         }
 
         //MEDIA FEED
@@ -72,7 +75,12 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                             accept: "application/vnd.github.raw"
                         });
                     } else {
-                        posts = JSON.parse(await ajax('raw/merch/merch.json'));
+                        try {
+                            var res = await ajax('raw/merch/merch.json')
+                            posts = JSON.parse(res);
+                        } catch (e) {
+                            console.log(e);
+                        }
                     }
 
                     var ancestors = posts.filter(row=>rout.ed.dir(row.slug).length === 1);
@@ -95,11 +103,11 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                                     return dir.length > 1 && dir[0] === post.slug
                                 });
 
-                                console.log(57, {
+                                0 > 1 ? console.log(57, {
                                     post,
                                     descendants,
                                     posts
-                                });
+                                }) : null;
 
                                 elem.dataset.display = "flex";
                                 elem.dataset.href = "/shop/merch/" + post.slug;
@@ -134,11 +142,11 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
 
                     }
 
-                    console.log(115, {
+                    0 > 1 ? console.log(115, {
                         feed,
                         media,
                         posts
-                    });
+                    }) : null;
                 }
 
                 if (media === "pages") {
@@ -556,6 +564,7 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
             var cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : null;
             if (cart && cart.length > 0) {
                 var template = vp.find('block template');
+                var prices = [];
                 var c = 0;
                 do {
                     var row = cart[c];
@@ -569,6 +578,7 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                             el.find('picture img').src = json.images[0];
                             el.find('[placeholder="Title"]').textContent = json.title;
                             el.find('[type="number"]').setAttribute('value', row.quantity);
+                            json.pricing.ListPrice = parseInt(json.pricing.ListPrice) + 0.25;
                             el.find('[placeholder="$0.00"]').textContent = '$' + json.pricing.ListPrice;
                             column.insertAdjacentHTML('beforeend', el.outerHTML);
                             console.log(369, {
@@ -576,6 +586,7 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                                 json,
                                 row
                             });
+                            prices.push(json.pricing);
                         }
                     } catch (e) {
                         console.log(381, {
@@ -584,6 +595,11 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                     }
                     c++;
                 } while (c < cart.length);
+
+                var subtotal = prices.reduce(function(a, b) {
+                    return a.ListPrice + b.ListPrice
+                })
+                vp.find('[data-value="cart.subtotal"]').textContent = "$" + subtotal.toFixed(2);
             }
         }
 
