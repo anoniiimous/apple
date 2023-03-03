@@ -544,7 +544,7 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
             //CHECKOUT
             var checkout = merch.find('[type="submit"]').closest('box');
             var quantity = merch.find('[data-value="post.quantity"]').closest('box');
-            if (descendant && attr && dimensions && attr.length === Object.keys(dimensions).length) {
+            if (descendants.length === 0 || (descendant && attr && dimensions && attr.length === Object.keys(dimensions).length)) {
                 checkout.classList.remove('display-none');
                 quantity.classList.remove('display-none');
             } else {
@@ -567,9 +567,11 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                 do {
                     var row = cart[c];
                     try {
-                        var json = await ajax('/raw/merch/' + row.slug + '/merch.json');
+                        var parent = rout.ed.dir(row.slug)[0];
+                        var json = await ajax('/raw/merch/' + parent + '/merch.json');
                         if (is.json(json)) {
-                            json = JSON.parse(json);
+                            json = JSON.parse(json).find(o=>o.slug === row.slug);
+                            console.log(573, json);
                             var el = template.content.firstElementChild.cloneNode(true);
                             el.dataset.slug = row.slug
                             el.find('box').dataset.href = row.href;
@@ -578,7 +580,7 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                             el.find('[type="number"]').setAttribute('value', row.quantity);
                             el.find('[placeholder="$0.00"]').textContent = '$' + json.pricing.ListPrice;
                             column.insertAdjacentHTML('beforeend', el.outerHTML);
-                            0 > 1 ? console.log(581, {
+                            0 < 1 ? console.log(581, {
                                 el,
                                 json,
                                 row
@@ -596,13 +598,17 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                     c++;
                 } while (c < cart.length);
 
-                var subtotal = order.reduce(function(a, b) {
-                    var aa = parseInt(a.pricing.ListPrice) * a.quantity;
-                    var bb = parseInt(b.pricing.ListPrice) * b.quantity;
+                console.log(order);
+                var subtotal = order.length > 1 ? order.reduce(function(a, b) {
+                    var aa = a.pricing.ListPrice * 100 * a.quantity;
+                    var bb = b.pricing.ListPrice * 100 * b.quantity;
                     return aa + bb;
-                })
-                //console.log(subtotal, order);
-                vp.find('[data-value="cart.subtotal"]').textContent = "$" + subtotal.toFixed(2);
+                }) : order[0].pricing.ListPrice * 100 * order[0].quantity;
+                console.log({
+                    subtotal,
+                    order
+                });
+                vp.find('[data-value="cart.subtotal"]').textContent = "$" + (subtotal / 100).toFixed(2);
             }
         }
 
@@ -620,10 +626,11 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                 var c = 0;
                 do {
                     var row = cart[c];
+                    var parent = rout.ed.dir(row.slug)[0];
                     try {
-                        var json = await ajax('/raw/merch/' + row.slug + '/merch.json');
+                        var json = await ajax('/raw/merch/' + parent + '/merch.json');
                         if (is.json(json)) {
-                            json = JSON.parse(json);
+                            json = JSON.parse(json).find(o=>o.slug === row.slug);
                             var el = template.content.firstElementChild.cloneNode(true);
                             el.dataset.slug = row.slug
                             el.dataset.href = row.href;
@@ -650,13 +657,13 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                     c++;
                 } while (c < cart.length);
 
-                var subtotal = order.reduce(function(a, b) {
+                var subtotal = order.length > 1 ? order.reduce(function(a, b) {
                     var aa = parseInt(a.pricing.ListPrice) * a.quantity;
                     var bb = parseInt(b.pricing.ListPrice) * b.quantity;
                     return aa + bb;
-                })
+                }) : order[0].pricing.ListPrice * 100 * order[0].quantity;
                 //console.log(subtotal, order);
-                vp.find('[data-value="checkout.subtotal"]').textContent = "$" + subtotal.toFixed(2);
+                vp.find('[data-value="checkout.subtotal"]').textContent = "$" + (subtotal / 100).toFixed(2);
 
                 //PAYMENT INTENT
                 try {
@@ -673,6 +680,7 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                                 data: JSON.stringify({
                                     amount: subtotal,
                                     currency: 'usd',
+                                    livemode: stripe_pk.content.split('_')[1] === 'live',
                                     stripe_user_id: stripe_uid.content
                                 }),
                                 dataType: 'POST',
@@ -683,7 +691,7 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                                 stripe_pk: stripe_pk.content,
                                 options
                             }) : null;
-                            window.stripe ? null : window.stripe = Stripe(stripe_pk.content, options);
+                            window.stripe ? null : window.stripe = Stripe("pk_live_51MgwRSGknMg4Op7wZctEC7wRMIayH6gdWrOKqCxaX8TIwxvEyadOJMHTPuXs3WKfF2B0205sxKuIUleG8QCWYH2r00ir81SA2X", options);
                         }
                     }
                     if (window.stripe) {
@@ -814,10 +822,10 @@ controller.cart.order = card=>{
         address.find('[placeholder="ZIP Code"]').value.length > 0 ? billing_details.address.postal_code = address.find('[placeholder="ZIP Code"]').value : null;
         //address.find('[placeholder="Address 1"]').value.length > 0 ? billing_details.address.state = '' : null;
         fields.contact.email ? billing_details.email = contact.find('[placeholder="Email Address"]').value : fields.contact.email;
-        billing_details.name = payment.find('[placeholder="First Name"]').value + " " + payment.find('[placeholder="Last Name"]').value;        
+        billing_details.name = payment.find('[placeholder="First Name"]').value + " " + payment.find('[placeholder="Last Name"]').value;
         fields.contact.phone ? billing_details.phone = contact.find('[placeholder="Phone Number"]') : null;
         console.log(803, billing_details);
-        
+
         0 < 1 ? stripe.confirmCardPayment(clientSecret, {
             payment_method: {
                 card,
