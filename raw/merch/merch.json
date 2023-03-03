@@ -140,5 +140,11 @@
             "Carrier": "Unlocked"
         },
         "slug": "iphone-11/size-64gb_color-black_carrier-unlocked"
+    },
+    {
+        "category": "Baby",
+        "dimensions": [],
+        "slug": "donate-fund",
+        "title": "Donate Fund"
     }
 ]
