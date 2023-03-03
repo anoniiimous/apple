@@ -142,9 +142,47 @@
         "slug": "iphone-11/size-64gb_color-black_carrier-unlocked"
     },
     {
+        "description": "The HomePod is a smart speaker developed by Apple Inc. Designed to work with the Apple Music subscription service, the HomePod incorporates beamforming and eight speakers and is sold in two colors: white and space gray. It is sold alongside the HomePod Mini, a smaller and less expensive variant introduced in 2020.",
+        "title": "HomePod",
         "category": "Electronics",
-        "dimensions": [],
-        "slug": "homepod",
-        "title": "HomePod"
+        "images": [
+            "/raw/merch/homepod/image.0.jpeg"
+        ],
+        "details": {},
+        "about": [],
+        "pricing": {
+            "ListPrice": "0.75"
+        },
+        "dimensions": [
+            {
+                "name": "Size",
+                "values": [
+                    "64GB",
+                    "128GB",
+                    "256GB"
+                ]
+            },
+            {
+                "name": "Color",
+                "values": [
+                    "Black",
+                    "Green",
+                    "Purple",
+                    "Red",
+                    "White",
+                    "Yellow"
+                ]
+            },
+            {
+                "name": "Carrier",
+                "values": [
+                    "AT&T",
+                    "T-Mobile",
+                    "Unlocked",
+                    "Verizon"
+                ]
+            }
+        ],
+        "slug": "homepod"
     }
 ]
