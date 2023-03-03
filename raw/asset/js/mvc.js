@@ -656,15 +656,45 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                 })
                 console.log(subtotal, order);
                 vp.find('[data-value="checkout.subtotal"]').textContent = "$" + subtotal.toFixed(2);
-            }
 
-            window.metaStripe = document.head.find('meta[name="stripe_publishable_key"]');
-            if (metaStripe) {
-                window.stripe ? null : window.stripe = Stripe(metaStripe.content);
-            }
-            if (window.stripe) {
-                //var elements = window.stripe.elements();
-                //var paymentElement = elements.create('payment');
+                //PAYMENT INTENT
+                try {
+
+                    var stripe_pk = document.head.find('meta[name="stripe_publishable_key"]');
+                    if (stripe_pk) {
+                        var options = null;
+                        var stripe_uid = document.head.find('meta[name="stripe_user_id"]');
+                        if (stripe_uid) {
+                            options = {
+                                stripeAccount: stripe_uid.content
+                            };
+                            var json = await ajax('https://stripe.dompad.workers.dev/v1/payment_intents', {
+                                data: JSON.stringify({
+                                    amount: subtotal,
+                                    currency: 'usd',
+                                    stripe_user_id: stripe_uid.content
+                                }),
+                                dataType: 'POST',
+                                mode: "cors"
+                            });
+                            var res = JSON.parse(json);
+                            console.log({
+                                stripe_pk: stripe_pk.content,
+                                options
+                            });
+                            window.stripe ? null : window.stripe = Stripe(stripe_pk.content, options);
+                        }
+                    }
+                    if (window.stripe) {
+                        console.log('stripe.payment_intent', res.client_secret);
+                        var elements = stripe.elements({
+                            clientSecret: res.client_secret
+                        });
+                        var paymentElement = elements.create('payment');
+                    }
+                } catch (e) {
+                    console.log(686, 'error', e);
+                }
             }
         }
 
