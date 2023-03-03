@@ -25,7 +25,7 @@ Array.prototype.addClass = function(name) {
 }
 
 Array.prototype.has = function(that) {
-    return that.every(v => this.includes(v));
+    return that.every(v=>this.includes(v));
 }
 
 Array.prototype.removeClass = function(name) {
@@ -121,7 +121,7 @@ Array.prototype.text = function(html) {
     var that = [];
     var vals = Object.values(this);
     if (vals.length > 0) {
-        for (var i = vals.length; i--;) {
+        for (var i = vals.length; i--; ) {
             var val = vals[i]
             if (html && html.length > 0) {
                 that[i] = this[i].textContent = html;
@@ -288,6 +288,10 @@ window.domain = ()=>window.location.hostname.split('.')[window.location.hostname
 window.is = {
     iframe: (window.self !== window.top),
     ip: /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(window.location.host.split(':')[0]),
+    email: str=>{
+        return str ? /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/gi.test(str) : false;
+    }
+    ,
     json: str=>{
         try {
             JSON.parse(str);
@@ -366,6 +370,14 @@ function ajax(url, settings) {
         );
     }
     );
+}
+
+function truth(obj) {
+    for (var o in obj)
+        if (!obj[o])
+            return false;
+
+    return true;
 }
 
 function download(file) {

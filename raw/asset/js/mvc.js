@@ -578,11 +578,11 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                             el.find('[type="number"]').setAttribute('value', row.quantity);
                             el.find('[placeholder="$0.00"]').textContent = '$' + json.pricing.ListPrice;
                             column.insertAdjacentHTML('beforeend', el.outerHTML);
-                            console.log(369, {
+                            0 > 1 ? console.log(581, {
                                 el,
                                 json,
                                 row
-                            });
+                            }) : null;
                             order.push({
                                 pricing: json.pricing,
                                 quantity: row.quantity
@@ -601,7 +601,7 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                     var bb = parseInt(b.pricing.ListPrice) * b.quantity;
                     return aa + bb;
                 })
-                console.log(subtotal, order);
+                //console.log(subtotal, order);
                 vp.find('[data-value="cart.subtotal"]').textContent = "$" + subtotal.toFixed(2);
             }
         }
@@ -609,6 +609,7 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
         //CHECKOUT     
         var vp = dom.body.find('[data-view="checkout"]');
         if (vp) {
+            var form = vp.find('form');
             var column = vp.find('block column');
             column.innerHTML = "";
 
@@ -631,11 +632,11 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                             el.find('[type="number"]').setAttribute('value', row.quantity);
                             el.find('[placeholder="$0.00"]').textContent = '$' + json.pricing.ListPrice;
                             column.insertAdjacentHTML('beforeend', el.outerHTML);
-                            console.log(369, {
+                            0 > 1 ? console.log(635, {
                                 el,
                                 json,
                                 row
-                            });
+                            }) : null;
                             order.push({
                                 pricing: json.pricing,
                                 quantity: row.quantity
@@ -654,7 +655,7 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                     var bb = parseInt(b.pricing.ListPrice) * b.quantity;
                     return aa + bb;
                 })
-                console.log(subtotal, order);
+                //console.log(subtotal, order);
                 vp.find('[data-value="checkout.subtotal"]').textContent = "$" + subtotal.toFixed(2);
 
                 //PAYMENT INTENT
@@ -678,19 +679,65 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                                 mode: "cors"
                             });
                             var res = JSON.parse(json);
-                            console.log({
+                            0 > 1 ? console.log({
                                 stripe_pk: stripe_pk.content,
                                 options
-                            });
+                            }) : null;
                             window.stripe ? null : window.stripe = Stripe(stripe_pk.content, options);
                         }
                     }
                     if (window.stripe) {
-                        console.log('stripe.payment_intent', res.client_secret);
-                        var elements = stripe.elements({
+                        //console.log('stripe.payment_intent', res.client_secret);
+                        vp.find('input[name="payment_intent_client_secret"]').value = res.client_secret;
+                        window.elements = stripe.elements({
                             clientSecret: res.client_secret
                         });
-                        var paymentElement = elements.create('payment');
+
+                        var styles = {
+                            base: {
+                                fontFamily: 'Arial',
+                                lineHeight: '50px',
+                                fontSize: '16px',
+                                '::placeholder': {
+                                    color: '#8e8e8e',
+                                },
+                                ':-webkit-autofill': {
+                                    color: '#e39f48',
+                                },
+                            },
+                            invalid: {
+                                color: '#ff3b30'
+                            },
+                        };
+
+                        var address = elements.create('address', {
+                            display: {
+                                name: 'split'
+                            },
+                            mode: 'shipping',
+                            style: styles
+                        });
+                        //address.mount(vp.find('[data-value="checkout.address"]'));
+
+                        window.cardNumber = elements.create('cardNumber', {
+                            style: styles
+                        });
+                        cardNumber.mount(vp.find('[data-value="checkout.cardNumber"]'));
+
+                        var cardExpiry = elements.create('cardExpiry', {
+                            style: styles
+                        });
+                        cardExpiry.mount(vp.find('[data-value="checkout.cardExpiry"]'));
+
+                        var cardCvc = elements.create('cardCvc', {
+                            style: styles
+                        });
+                        cardCvc.mount(vp.find('[data-value="checkout.cardCvc"]'));
+
+                        form.addEventListener('submit', function(event) {
+                            event.preventDefault();
+                            controller.cart.order(cardNumber);
+                        });
                     }
                 } catch (e) {
                     console.log(686, 'error', e);
@@ -721,8 +768,80 @@ controller.cart.delete = slug=>{
         window.location.pathname.router();
     }
 }
-controller.cart.order = event=>{
-    event.preventDefault();
+controller.cart.order = card=>{
+    var form = event.target;
+    var clientSecret = form.find('input[name="payment_intent_client_secret"]').value;
+    var contact = form.all('card')[1].all('box')[0];
+    var address = form.all('card')[1].all('box')[1];
+    var payment = form.all('card')[1].all('box')[2];
+    var fields = {
+        contact: {
+            email: is.email(contact.find('[placeholder="Email Address"]').value),
+            phone: contact.find('[placeholder="Phone Number"]').value.length > 0
+        },
+        address: {
+            firstName: address.find('[placeholder="First Name"]').value.length > 0,
+            lastName: address.find('[placeholder="Last Name"]').value.length > 0,
+            address1: address.find('[placeholder="Address 1"]').value.length > 0,
+            zipCode: address.find('[placeholder="ZIP Code"]').value.length > 0,
+            city: address.find('[placeholder="City"]').value.length > 0
+        },
+        payment: {
+            firstName: payment.find('[placeholder="First Name"]').value.length > 0,
+            lastName: payment.find('[placeholder="Last Name"]').value.length > 0,
+            cardNumber: payment.find('[data-value="checkout.cardNumber"]').classList.contains('StripeElement--complete'),
+            cardExp: payment.find('[data-value="checkout.cardExpiry"]').classList.contains('StripeElement--complete'),
+            cardCvc: payment.find('[data-value="checkout.cardCvc"]').classList.contains('StripeElement--complete')
+        }
+    };
+    var valid = {
+        contact: fields.contact.email || fields.contact.phone,
+        address: truth(fields.address),
+        payment: truth(fields.payment)
+    };
+    console.log({
+        fields,
+        valid,
+        truth: truth(valid)
+    });
+    if (truth(valid)) {
+        var billing_details = {};
+        billing_details.address = {};
+        address.find('[placeholder="City"]').value.length > 0 ? billing_details.address.city = address.find('[placeholder="City"]').value : null;
+        //address.find('[placeholder="Country"]').value.length > 0 ? billing_details.address.country = '' : null;
+        address.find('[placeholder="Address 1"]').value.length > 0 ? billing_details.address.line1 = address.find('[placeholder="Address 1"]').value : null;
+        address.find('[placeholder="Address 2"]').value.length > 0 ? billing_details.address.line2 = address.find('[placeholder="Address 2"]').value : null;
+        address.find('[placeholder="ZIP Code"]').value.length > 0 ? billing_details.address.postal_code = address.find('[placeholder="ZIP Code"]').value : null;
+        //address.find('[placeholder="Address 1"]').value.length > 0 ? billing_details.address.state = '' : null;
+        fields.contact.email ? billing_details.email = contact.find('[placeholder="Email Address"]').value : fields.contact.email;
+        billing_details.name = payment.find('[placeholder="First Name"]').value + " " + payment.find('[placeholder="Last Name"]').value;        
+        fields.contact.phone ? billing_details.phone = contact.find('[placeholder="Phone Number"]') : null;
+        console.log(803, billing_details);
+        
+        0 < 1 ? stripe.confirmCardPayment(clientSecret, {
+            payment_method: {
+                card,
+                billing_details
+            }
+        }).then(function(result) {
+            if (result.error) {
+                // Show error to your customer (for example, insufficient funds)
+                console.log(result.error.message);
+            } else {
+                // The payment has been processed!
+                if (result.paymentIntent.status === 'succeeded') {
+                    console.log(774, result);
+                    localStorage.removeItem('cart');
+                    ('/cart/checkout/order').router();
+                    // Show a success message to your customer
+                    // There's a risk of the customer closing the window before callback
+                    // execution. Set up a webhook or plugin to listen for the
+                    // payment_intent.succeeded event that handles any business critical
+                    // post-payment actions.
+                }
+            }
+        }) : null;
+    }
 }
 controller.cart.update = obj=>{
     //console.log(obj);
@@ -814,11 +933,11 @@ controller.product.traits = async(target)=>{
             var dir1 = rout.ed.dir(route.path);
             var dir2 = rout.ed.dir(route.page);
             url = route.page.replace('*', dir1[dir2.length - 1] + "/" + matrix);
-            console.log(url);
+            //console.log(url);
         }
         var vp = target.closest('pages');
 
-        0 < 1 ? console.log({
+        0 > 1 ? console.log({
             route,
             url,
             matrix,

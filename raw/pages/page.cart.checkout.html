@@ -1,6 +1,6 @@
 <blocks>
-    <block class="-dw480px-padding-10px align-items-center padding-4vw" data-view="checkout">
-        <form class="-dw960px-align-items-stretch -dw960px-flex-direction-column align-items-flex-start display-flex flex-direction-row gap-20px max-width-100pct" onsubmit="controller.cart.order(event)">
+    <block class="-dw480px-padding-10px -dw960px-align-items-stretch align-items-center padding-4vw" data-view="checkout">
+        <form class="-dw960px-align-items-stretch -dw960px-flex-direction-column align-items-flex-start display-flex flex-direction-row gap-20px max-width-100pct">
             <card class="-dw960px-flex-1 -dw960px-width-auto background-color-fff border-1px-solid box-sizing-border-box border-color-ccc border-radius-10px gap-20px padding-20px width-320px">
                 <header>
                     <box>
@@ -34,6 +34,7 @@
                     <box class="background-color-000 border-radius-5px color-fff padding-10px text-align-center">
                         <label>
                             <text class="font-weight-bolder" data-value="checkout.subtotal" placeholder="$0.00">Place Order</text>
+                            <input name="payment_intent_client_secret" type="hidden">
                             <input type="submit">
                         </label>
                     </box>
@@ -72,7 +73,7 @@
                         </header>
                         <column class="gap-10px">
                             <field class="display-flex">
-                                <input class="border-1px-solid border-color-ccc border-radius-5px flex-1 line-height-50px padding-x-10px" placeholder="Email address" type="email">
+                                <input class="border-1px-solid border-color-ccc border-radius-5px flex-1 line-height-50px padding-x-10px" placeholder="Email Address" type="email">
                             </field>
                             <field class="display-flex">
                                 <input class="border-1px-solid border-color-ccc border-radius-5px flex-1 line-height-50px padding-x-10px" placeholder="Phone Number" type="text">
@@ -84,6 +85,13 @@
                             <text class="font-size-20px font-weight-bolder">Address</text>
                         </header>
                         <column class="gap-10px">
+                            <field class="display-flex" data-display="none">
+                                <label class="flex-1" data-value="checkout.address"></label>
+                            </field>
+                            <field class="display-flex gap-10px" data-480px-columns="1" data-columns="2">
+                                <input class="border-1px-solid border-color-ccc border-radius-5px line-height-50px padding-x-10px" placeholder="First Name" type="text">
+                                <input class="border-1px-solid border-color-ccc border-radius-5px line-height-50px padding-x-10px" placeholder="Last Name" type="text">
+                            </field>
                             <field class="display-flex">
                                 <input class="border-1px-solid border-color-ccc border-radius-5px flex-1 line-height-50px padding-x-10px" placeholder="Address 1" type="text">
                             </field>
@@ -94,7 +102,7 @@
                                 <input class="border-1px-solid border-color-ccc border-radius-5px line-height-50px padding-x-10px" placeholder="ZIP Code" type="text">
                                 <input class="border-1px-solid border-color-ccc border-radius-5px flex-1 line-height-50px padding-x-10px" placeholder="City" type="text">
                                 <dropdown class="border-1px-solid border-color-ccc border-radius-5px display-flex line-height-50px padding-x-10px position-relative">
-                                    <row class="align-items-center flex-1 justify-content-center" data-dropdown data-ignore>
+                                    <row class="align-items-center flex-1 gap-5px justify-content-center" data-dropdown data-ignore>
                                         <text class="display-flex flex-1" placeholder="State"></text>
                                         <ico data-width="20px">
                                             <n class="gg-chevron-down"></n>
@@ -119,11 +127,11 @@
                                 <input class="border-1px-solid border-color-ccc border-radius-5px line-height-50px padding-x-10px" placeholder="Last Name" type="text">
                             </field>
                             <field class="display-flex">
-                                <input class="border-1px-solid border-color-ccc border-radius-5px flex-1 line-height-50px padding-x-10px" placeholder="Card Number" type="text">
+                                <label class="border-1px-solid border-color-ccc border-radius-5px flex-1 line-height-50px padding-x-10px" data-value="checkout.cardNumber" placeholder="Card Number"></label>
                             </field>
                             <field class="display-flex gap-10px" data-columns="2">
-                                <input class="border-1px-solid border-color-ccc border-radius-5px line-height-50px padding-x-10px" placeholder="Expiration Date" type="text">
-                                <input class="border-1px-solid border-color-ccc border-radius-5px line-height-50px padding-x-10px" placeholder="Security Code" type="text">
+                                <label class="border-1px-solid border-color-ccc border-radius-5px line-height-50px padding-x-10px" data-value="checkout.cardExpiry" placeholder="Expiration Date"></label>
+                                <label class="border-1px-solid border-color-ccc border-radius-5px line-height-50px padding-x-10px" data-value="checkout.cardCvc" placeholder="Security Code"></label>
                             </field>
                         </column>
                     </box>
