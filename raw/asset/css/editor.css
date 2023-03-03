@@ -71,7 +71,7 @@ body > header:hover, body block:hover, body > footer:hover {
 body > footer card:hover, body > header card:hover, body card:hover {
     outline: 4px solid #32cd32;
     outline-offset: 0px;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
 }
 
 body > footer card box:hover, body > header card box:hover, body card box:hover {

@@ -19,8 +19,6 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
 
         window.GET = window.GET ? GET : rout.ed.dir(dom.body.dataset.path);
 
-        window.stripe ? null : window.stripe = Stripe('pk_test_51MgfiILTcSrYA7XXgGmjTr0X2mIMpSUyLuv6OSHe1yqTKItG1S9q0woJQMJUQOfPrkibYyiUkGWfKZPrTcGCn5tD00wrawQleV');
-
         window.webmanifest = JSON.parse(await ajax('/site.webmanifest'));
         //console.log(webmanifest);
         dom.body.find('[data-value="webmanifest.name"]').textContent = webmanifest.name;
@@ -564,7 +562,7 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
             var cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : null;
             if (cart && cart.length > 0) {
                 var template = vp.find('block template');
-                var prices = [];
+                var order = [];
                 var c = 0;
                 do {
                     var row = cart[c];
@@ -578,7 +576,6 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                             el.find('picture img').src = json.images[0];
                             el.find('[placeholder="Title"]').textContent = json.title;
                             el.find('[type="number"]').setAttribute('value', row.quantity);
-                            json.pricing.ListPrice = parseInt(json.pricing.ListPrice) + 0.25;
                             el.find('[placeholder="$0.00"]').textContent = '$' + json.pricing.ListPrice;
                             column.insertAdjacentHTML('beforeend', el.outerHTML);
                             console.log(369, {
@@ -586,7 +583,10 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                                 json,
                                 row
                             });
-                            prices.push(json.pricing);
+                            order.push({
+                                pricing: json.pricing,
+                                quantity: row.quantity
+                            });
                         }
                     } catch (e) {
                         console.log(381, {
@@ -596,10 +596,75 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                     c++;
                 } while (c < cart.length);
 
-                var subtotal = prices.reduce(function(a, b) {
-                    return a.ListPrice + b.ListPrice
+                var subtotal = order.reduce(function(a, b) {
+                    var aa = parseInt(a.pricing.ListPrice) * a.quantity;
+                    var bb = parseInt(b.pricing.ListPrice) * b.quantity;
+                    return aa + bb;
                 })
+                console.log(subtotal, order);
                 vp.find('[data-value="cart.subtotal"]').textContent = "$" + subtotal.toFixed(2);
+            }
+        }
+
+        //CHECKOUT     
+        var vp = dom.body.find('[data-view="checkout"]');
+        if (vp) {
+            var column = vp.find('block column');
+            column.innerHTML = "";
+
+            var cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : null;
+            if (cart && cart.length > 0) {
+                var template = vp.find('block template');
+                var order = [];
+                var c = 0;
+                do {
+                    var row = cart[c];
+                    try {
+                        var json = await ajax('/raw/merch/' + row.slug + '/merch.json');
+                        if (is.json(json)) {
+                            json = JSON.parse(json);
+                            var el = template.content.firstElementChild.cloneNode(true);
+                            el.dataset.slug = row.slug
+                            el.dataset.href = row.href;
+                            el.find('picture img').src = json.images[0];
+                            el.find('[placeholder="Title"]').textContent = json.title;
+                            el.find('[type="number"]').setAttribute('value', row.quantity);
+                            el.find('[placeholder="$0.00"]').textContent = '$' + json.pricing.ListPrice;
+                            column.insertAdjacentHTML('beforeend', el.outerHTML);
+                            console.log(369, {
+                                el,
+                                json,
+                                row
+                            });
+                            order.push({
+                                pricing: json.pricing,
+                                quantity: row.quantity
+                            });
+                        }
+                    } catch (e) {
+                        console.log(381, {
+                            e
+                        });
+                    }
+                    c++;
+                } while (c < cart.length);
+
+                var subtotal = order.reduce(function(a, b) {
+                    var aa = parseInt(a.pricing.ListPrice) * a.quantity;
+                    var bb = parseInt(b.pricing.ListPrice) * b.quantity;
+                    return aa + bb;
+                })
+                console.log(subtotal, order);
+                vp.find('[data-value="checkout.subtotal"]').textContent = "$" + subtotal.toFixed(2);
+            }
+
+            window.metaStripe = document.head.find('meta[name="stripe_publishable_key"]');
+            if (metaStripe) {
+                window.stripe ? null : window.stripe = Stripe(metaStripe.content);
+            }
+            if (window.stripe) {
+                //var elements = window.stripe.elements();
+                //var paymentElement = elements.create('payment');
             }
         }
 
@@ -612,6 +677,9 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
 window.mvc.c ? null : (window.mvc.c = controller = {});
 
 controller.cart = {};
+controller.cart.checkout = async(target)=>{
+    ('/cart/checkout').router();
+}
 controller.cart.delete = slug=>{
     var table = localStorage.getItem('cart');
     if (table) {
@@ -622,6 +690,9 @@ controller.cart.delete = slug=>{
         localStorage.setItem('cart', JSON.stringify(cart));
         window.location.pathname.router();
     }
+}
+controller.cart.order = event=>{
+    event.preventDefault();
 }
 controller.cart.update = obj=>{
     //console.log(obj);

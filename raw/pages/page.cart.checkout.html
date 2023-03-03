@@ -1,0 +1,134 @@
+<blocks>
+    <block class="-dw480px-padding-10px align-items-center padding-4vw" data-view="checkout">
+        <form class="-dw960px-align-items-stretch -dw960px-flex-direction-column align-items-flex-start display-flex flex-direction-row gap-20px max-width-100pct" onsubmit="controller.cart.order(event)">
+            <card class="-dw960px-flex-1 -dw960px-width-auto background-color-fff border-1px-solid box-sizing-border-box border-color-ccc border-radius-10px gap-20px padding-20px width-320px">
+                <header>
+                    <box>
+                        <section>
+                            <text class="font-size-20px font-weight-bolder">Order Summary</text>
+                        </section>
+                    </box>
+                </header>
+                <column class="gap-20px"></column>
+                <footer class="display-flex flex-direction-column gap-10px">
+                    <box>
+                        <row class="justify-content-space-between">
+                            <text>Items</text>
+                            <text data-value="checkout.items" placeholder="$0.00"></text>
+                        </row>
+                        <row class="justify-content-space-between">
+                            <text>Shipping</text>
+                            <text data-value="checkout.shipping" placeholder="$0.00"></text>
+                        </row>
+                        <row class="justify-content-space-between">
+                            <text>Tax</text>
+                            <text data-value="checkout.tax" placeholder="$0.00"></text>
+                        </row>
+                    </box>
+                    <box class="color-ff3b30 font-size-20px font-weight-bolder">
+                        <row class="justify-content-space-between">
+                            <text>Subtotal</text>
+                            <text data-value="checkout.subtotal" placeholder="$0.00"></text>
+                        </row>
+                    </box>
+                    <box class="background-color-000 border-radius-5px color-fff padding-10px text-align-center">
+                        <label>
+                            <text class="font-weight-bolder" data-value="checkout.subtotal" placeholder="$0.00">Place Order</text>
+                            <input type="submit">
+                        </label>
+                    </box>
+                </footer>
+                <template>
+                    <box class="flex-direction-row gap-5px">
+                        <column>
+                            <picture class="background-color-f7f7f7 height-50px width-50px">
+                                <img class="object-fit-contain">
+                            </picture>
+                        </column>
+                        <column class="flex-1">
+                            <text class="font-weight-bolder" placeholder="Title"></text>
+                            <text data-display="none" placeholder="Attributes"></text>
+                        </column>
+                        <column class="align-items-flex-end gap-5px">
+                            <text class="font-weight-bolder line-height-20px" placeholder="$0.00"></text>
+                            <field class="border-1px-solid border-color-ccc border-radius-5px display-inline-flex flex-direction-row line-height-20px margin-right-auto">
+                                <ico data-height="20px" data-width="20px">
+                                    <n class="gg-chevron-up"></n>
+                                </ico>
+                                <input class="height-20px text-align-center width-50px" placeholder="0" type="number">
+                                <ico data-height="20px" data-width="20px">
+                                    <n class="gg-chevron-down"></n>
+                                </ico>
+                            </field>
+                        </column>
+                    </box>
+                </template>
+            </card>
+            <card class="flex-1">
+                <column class="gap-20px">
+                    <box class="border-1px-solid border-color-ccc border-radius-10px gap-20px padding-20px">
+                        <header>
+                            <text class="font-size-20px font-weight-bolder">Contact</text>
+                        </header>
+                        <column class="gap-10px">
+                            <field class="display-flex">
+                                <input class="border-1px-solid border-color-ccc border-radius-5px flex-1 line-height-50px padding-x-10px" placeholder="Email address" type="email">
+                            </field>
+                            <field class="display-flex">
+                                <input class="border-1px-solid border-color-ccc border-radius-5px flex-1 line-height-50px padding-x-10px" placeholder="Phone Number" type="text">
+                            </field>
+                        </column>
+                    </box>
+                    <box class="border-1px-solid border-color-ccc border-radius-10px gap-20px padding-20px">
+                        <header>
+                            <text class="font-size-20px font-weight-bolder">Address</text>
+                        </header>
+                        <column class="gap-10px">
+                            <field class="display-flex">
+                                <input class="border-1px-solid border-color-ccc border-radius-5px flex-1 line-height-50px padding-x-10px" placeholder="Address 1" type="text">
+                            </field>
+                            <field class="display-flex">
+                                <input class="border-1px-solid border-color-ccc border-radius-5px flex-1 line-height-50px padding-x-10px" placeholder="Address 2" type="text">
+                            </field>
+                            <field class="-dw640px-flex-direction-column display-flex flex-direction-row gap-10px">
+                                <input class="border-1px-solid border-color-ccc border-radius-5px line-height-50px padding-x-10px" placeholder="ZIP Code" type="text">
+                                <input class="border-1px-solid border-color-ccc border-radius-5px flex-1 line-height-50px padding-x-10px" placeholder="City" type="text">
+                                <dropdown class="border-1px-solid border-color-ccc border-radius-5px display-flex line-height-50px padding-x-10px position-relative">
+                                    <row class="align-items-center flex-1 justify-content-center" data-dropdown data-ignore>
+                                        <text class="display-flex flex-1" placeholder="State"></text>
+                                        <ico data-width="20px">
+                                            <n class="gg-chevron-down"></n>
+                                        </ico>
+                                    </row>
+                                    <column class="-hd-width-100pct- background-color-ccc border-radius-10px box-shadow-0-6px-1px-0 color-000 font-weight-bolder margin-auto padding-x-20px position-absolute right-0 width-160px" data-display="none" data-hidden="tap" data-hd-width="calc(100% - 40px)" data-top="calc(100% - 5px)">
+                                        <text data-href="/new/">Create a project</text>
+                                        <text data-href="/new/import/">Import a repository</text>
+                                        <text data-href="/new/upload/">Upload a backup</text>
+                                    </column>
+                                </dropdown>
+                            </field>
+                        </column>
+                    </box>
+                    <box class="border-1px-solid border-color-ccc border-radius-10px gap-20px padding-20px">
+                        <header>
+                            <text class="font-size-20px font-weight-bolder">Payment</text>
+                        </header>
+                        <column class="gap-10px">
+                            <field class="display-flex gap-10px" data-480px-columns="1" data-columns="2">
+                                <input class="border-1px-solid border-color-ccc border-radius-5px line-height-50px padding-x-10px" placeholder="First Name" type="text">
+                                <input class="border-1px-solid border-color-ccc border-radius-5px line-height-50px padding-x-10px" placeholder="Last Name" type="text">
+                            </field>
+                            <field class="display-flex">
+                                <input class="border-1px-solid border-color-ccc border-radius-5px flex-1 line-height-50px padding-x-10px" placeholder="Card Number" type="text">
+                            </field>
+                            <field class="display-flex gap-10px" data-columns="2">
+                                <input class="border-1px-solid border-color-ccc border-radius-5px line-height-50px padding-x-10px" placeholder="Expiration Date" type="text">
+                                <input class="border-1px-solid border-color-ccc border-radius-5px line-height-50px padding-x-10px" placeholder="Security Code" type="text">
+                            </field>
+                        </column>
+                    </box>
+                </column>
+            </card>
+        </form>
+    </block>
+</blocks>
