@@ -697,7 +697,7 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                                 stripe_pk: stripe_pk.content,
                                 options
                             }) : null;
-                            window.stripe ? null : window.stripe = Stripe(config[livemode ? 'live' : 'test'], options);
+                            window.stripe ? null : window.stripe = Stripe(stripe_pk.content, options);
                         }
                     }
                     if (window.stripe) {
@@ -747,11 +747,6 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                             style: styles
                         });
                         cardCvc.mount(vp.find('[data-value="checkout.cardCvc"]'));
-
-                        form.addEventListener('submit', function(event) {
-                            event.preventDefault();
-                            controller.cart.order(cardNumber);
-                        });
                     }
                 } catch (e) {
                     console.log(686, 'error', e);
@@ -782,7 +777,8 @@ controller.cart.delete = slug=>{
         window.location.pathname.router();
     }
 }
-controller.cart.order = card=>{
+controller.cart.order = event=>{
+    event.preventDefault();
     var form = event.target;
     var clientSecret = form.find('input[name="payment_intent_client_secret"]').value;
     var contact = form.all('card')[1].all('box')[0];
@@ -831,6 +827,8 @@ controller.cart.order = card=>{
         billing_details.name = payment.find('[placeholder="First Name"]').value + " " + payment.find('[placeholder="Last Name"]').value;
         fields.contact.phone ? billing_details.phone = contact.find('[placeholder="Phone Number"]') : null;
         console.log(803, billing_details);
+
+        var card = window.elements.getElement('cardNumber');
 
         0 < 1 ? stripe.confirmCardPayment(clientSecret, {
             payment_method: {
