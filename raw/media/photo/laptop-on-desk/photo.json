@@ -1,5 +1,8 @@
 {
     "format": "photo",
     "slug": "laptop-on-desk",
-    "title": "Laptop on Desk"
+    "title": "Laptop on Desk",
+    "tags": [
+        "office"
+    ]
 }
