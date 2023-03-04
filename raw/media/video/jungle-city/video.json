@@ -2,5 +2,10 @@
     "format": "video",
     "slug": "jungle-city",
     "title": "Jungle City",
-    "description": "Outside broad day with it."
+    "description": "Outside broad day with it.",
+    "tags": [
+        "outside",
+        "trees",
+        "cars"
+    ]
 }
