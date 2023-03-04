@@ -4,5 +4,15 @@
         "slug": "hand-washing",
         "title": "Hand Washing",
         "description": "How to wash hands thoroughly."
+    },
+    {
+        "format": "video",
+        "slug": "jungle-city",
+        "title": "Jungle City",
+        "description": "Outside broad day with it.",
+        "tags": [
+            "trees",
+            "cars"
+        ]
     }
 ]
