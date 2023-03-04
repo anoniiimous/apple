@@ -670,6 +670,11 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
 
                     var stripe_pk = document.head.find('meta[name="stripe_publishable_key"]');
                     if (stripe_pk) {
+                        var config = {
+                            live: "pk_live_51MgwRSGknMg4Op7wZctEC7wRMIayH6gdWrOKqCxaX8TIwxvEyadOJMHTPuXs3WKfF2B0205sxKuIUleG8QCWYH2r00ir81SA2X",
+                            test: "pk_test_51MgwRSGknMg4Op7wXGxVQMnETp4FPKTS3VRJ6msnCl9j0QChLfp8tf9jGeyWbNlK3y9qsDunBERqgk20Llq8JeXZ00LWxzFhXh"
+                        }
+                        var livemode = stripe_pk.content.split('_')[1] === 'live';
                         var options = null;
                         var stripe_uid = document.head.find('meta[name="stripe_user_id"]');
                         if (stripe_uid) {
@@ -680,7 +685,7 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                                 data: JSON.stringify({
                                     amount: subtotal,
                                     currency: 'usd',
-                                    livemode: stripe_pk.content.split('_')[1] === 'live',
+                                    livemode,
                                     stripe_user_id: stripe_uid.content
                                 }),
                                 dataType: 'POST',
@@ -688,10 +693,11 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                             });
                             var res = JSON.parse(json);
                             0 > 1 ? console.log({
+                                livemode,
                                 stripe_pk: stripe_pk.content,
                                 options
                             }) : null;
-                            window.stripe ? null : window.stripe = Stripe("pk_live_51MgwRSGknMg4Op7wZctEC7wRMIayH6gdWrOKqCxaX8TIwxvEyadOJMHTPuXs3WKfF2B0205sxKuIUleG8QCWYH2r00ir81SA2X", options);
+                            window.stripe ? null : window.stripe = Stripe(config[livemode ? 'live' : 'test'], options);
                         }
                     }
                     if (window.stripe) {
