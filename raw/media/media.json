@@ -3,7 +3,10 @@
         "format": "video",
         "slug": "hand-washing",
         "title": "Hand Washing",
-        "description": "How to wash hands thoroughly."
+        "description": "How to wash hands thoroughly.",
+        "tags": [
+            "handwashing"
+        ]
     },
     {
         "format": "audio",
