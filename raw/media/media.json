@@ -9,12 +9,6 @@
         ]
     },
     {
-        "format": "audio",
-        "slug": "cap-music",
-        "title": "Cap Music",
-        "description": "Track 01\nDJ Mute"
-    },
-    {
         "format": "photo",
         "slug": "laptop-on-desk",
         "title": "Laptop on Desk",
