@@ -18,11 +18,5 @@
         "slug": "/shop",
         "title": "Shop",
         "visibility": true
-    },
-    {
-        "page": "page.shop.merch.wildcard.html",
-        "slug": "/shop/merch/*",
-        "title": "Product",
-        "visibility": false
     }
 ]
