@@ -6,5 +6,10 @@
     {
         "page": "/about/",
         "path": "/about/"
+    },
+    {
+        "page": "/about",
+        "title": "About",
+        "visibility": false
     }
 ]
