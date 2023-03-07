@@ -15,7 +15,7 @@
         "page": "page.about.us.html",
         "slug": "/about/us",
         "title": "About Us",
-        "visibility": false
+        "visibility": true
     },
     {
         "page": "page.shop.merch.wildcard.html",
