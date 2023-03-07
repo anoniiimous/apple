@@ -1,11 +1,5 @@
 [
     {
-        "page": "page.html",
-        "slug": "/",
-        "title": "Home",
-        "visibility": true
-    },
-    {
         "page": "page.about.html",
         "slug": "/about",
         "title": "About",
