@@ -17,5 +17,10 @@
         "slug": "/shop/merch/*",
         "title": "Products",
         "visibility": false
+    },
+    {
+        "slug": "/shop",
+        "title": "Shop",
+        "visibility": false
     }
 ]
