@@ -16,11 +16,5 @@
         "slug": "/shop/merch/*",
         "title": "Product Page",
         "visibility": true
-    },
-    {
-        "page": "page.shop.html",
-        "slug": "/shop",
-        "title": "Shop",
-        "visibility": true
     }
 ]
