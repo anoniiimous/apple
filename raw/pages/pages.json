@@ -1,21 +1,7 @@
 [
     {
-        "page": "/",
-        "path": "/"
-    },
-    {
-        "page": "/about/",
-        "path": "/about/"
-    },
-    {
-        "page": "/about",
-        "title": "About",
-        "visibility": false
-    },
-    {
-        "page": "/about",
-        "title": "About Me",
-        "visibility": false
+        "slug": "/",
+        "route": "/"
     },
     {
         "slug": "/about",
