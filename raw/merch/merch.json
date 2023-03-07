@@ -184,5 +184,11 @@
             }
         ],
         "slug": "homepod"
+    },
+    {
+        "category": "Cell Phones & Accesories",
+        "dimensions": [],
+        "slug": "iphone-12",
+        "title": "iPhone 12"
     }
 ]
