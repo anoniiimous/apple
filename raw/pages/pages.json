@@ -12,5 +12,10 @@
         "slug": "/about/us",
         "title": "About Us",
         "visibility": false
+    },
+    {
+        "slug": "/shop/merch/*",
+        "title": "Products",
+        "visibility": false
     }
 ]
