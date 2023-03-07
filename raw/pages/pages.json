@@ -12,12 +12,6 @@
         "visibility": false
     },
     {
-        "page": "page.about.us.html",
-        "slug": "/about/us",
-        "title": "About Us",
-        "visibility": true
-    },
-    {
         "page": "page.shop.merch.wildcard.html",
         "slug": "/shop/merch/*",
         "title": "Product Page",
