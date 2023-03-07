@@ -18,15 +18,15 @@
         "visibility": false
     },
     {
+        "page": "page.shop.merch.wildcard.html",
+        "slug": "/shop/merch/*",
+        "title": "Product Page",
+        "visibility": false
+    },
+    {
         "page": "page.shop.html",
         "slug": "/shop",
         "title": "Shop",
         "visibility": true
     },
-    {
-        "page": "page.shop.merch.wildcard.html",
-        "slug": "/shop/merch/*",
-        "title": "Product Page",
-        "visibility": false
-    }
 ]
