@@ -7,5 +7,10 @@
         "slug": "/about",
         "title": "About",
         "visibility": false
+    },
+    {
+        "slug": "/about/us",
+        "title": "About Us",
+        "visibility": false
     }
 ]
