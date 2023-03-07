@@ -1,20 +1,24 @@
 [
     {
+        "page": "page.html",
         "slug": "/",
         "title": "Home",
         "visibility": true
     },
     {
+        "page": "page.about.html",
         "slug": "/about",
         "title": "About",
         "visibility": false
     },
     {
+        "page": "page.about.us.html",
         "slug": "/about/us",
         "title": "About Us",
         "visibility": false
     },
     {
+        "page": "page.shop.html",
         "slug": "/shop",
         "title": "Shop",
         "visibility": true
