@@ -16,5 +16,10 @@
         "page": "/about",
         "title": "About Me",
         "visibility": false
+    },
+    {
+        "slug": "/about",
+        "title": "About Me",
+        "visibility": false
     }
 ]
