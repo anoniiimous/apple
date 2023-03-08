@@ -5,9 +5,7 @@
         "pages": false,
         "slug": "/",
         "title": "Home",
-        "visibility": true
-    },
-    {
+        "visibility": true,
         "general": {
             "main": true,
             "page": "page.shop.merch._.html",
