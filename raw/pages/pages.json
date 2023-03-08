@@ -8,17 +8,12 @@
         "visibility": true
     },
     {
-        "general": {
-            "main": true,
-            "page": "page.shop.html",
-            "pages": false,
-            "slug": "/shop",
-            "title": "Shop",
-            "visibility": true
-        },
+        "main": true,
         "page": "page.shop.html",
+        "pages": false,
         "slug": "/shop",
-        "title": "Shop"
+        "title": "Shop",
+        "visibility": true
     },
     {
         "main": true,
