@@ -1,5 +1,5 @@
 {
-    "main": true,
+    "main": false,
     "page": "page.index.html.html",
     "slug": "/index.html",
     "title": "Home",
