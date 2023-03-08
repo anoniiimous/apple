@@ -1,6 +1,6 @@
 [
     {
-        "main": false,
+        "main": true,
         "page": "page.html",
         "slug": "/",
         "title": "Home",
