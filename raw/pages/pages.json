@@ -44,6 +44,7 @@
             "visibility": true
         },
         "page": "page.shop.merch._.html",
-        "slug": "/shop/merch/*"
+        "slug": "/shop/merch/*",
+        "title": "Product Page",
     }
 ]
