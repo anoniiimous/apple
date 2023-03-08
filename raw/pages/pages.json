@@ -1,16 +1,8 @@
 [
     {
-        "general": {
-            "main": true,
-            "page": "page.html",
-            "pages": true,
-            "slug": "/",
-            "title": "Product Page",
-            "visibility": true
-        },
         "page": "page.html",
         "slug": "/",
-        "title": "Product Page"
+        "title": "Home"
     },
     {
         "main": true,
