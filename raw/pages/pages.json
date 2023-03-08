@@ -24,6 +24,7 @@
         "visibility": false
     },
     {
+        "main": false,
         "page": "page.login.html",
         "slug": "/login",
         "title": "Login",
