@@ -19,7 +19,7 @@
         "visibility": true
     },
     {
-        "main": false,
+        "main": true,
         "page": "page.about.html",
         "slug": "/about",
         "title": "About",
