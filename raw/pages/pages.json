@@ -35,7 +35,7 @@
         "slug": "/login",
         "title": "Log In",
         "visibility": true
-    },
+    },    
     {
         "general": {
             "main": true,
@@ -44,6 +44,6 @@
             "visibility": true
         },
         "page": "page.shop.merch._.html",
-        "slug": "/shop/merch/*"
-    }
+        "slug": "/shop/merch/*",
+    },
 ]
