@@ -13,11 +13,17 @@
         "title": "Home"
     },
     {
-        "main": true,
+        "general": {
+            "main": true,
+            "page": "page.shop.html",
+            "pages": false,
+            "slug": "/shop",
+            "title": "Shop",
+            "visibility": true
+        },
         "page": "page.shop.html",
         "slug": "/shop",
-        "title": "Shop",
-        "visibility": true
+        "title": "Shop"
     },
     {
         "general": {
