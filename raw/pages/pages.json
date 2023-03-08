@@ -5,12 +5,12 @@
             "page": "page.html",
             "pages": true,
             "slug": "/",
-            "title": "Product Page",
+            "title": "Home",
             "visibility": true
         },
         "page": "page.html",
         "slug": "/",
-        "title": "Product Page"
+        "title": "Home"
     },
     {
         "general": {
