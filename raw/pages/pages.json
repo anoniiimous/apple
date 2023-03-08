@@ -1,5 +1,13 @@
 [
     {
+        "general": {
+            "main": true,
+            "page": "page.html",
+            "pages": false,
+            "slug": "/",
+            "title": "Home",
+            "visibility": false
+        },
         "page": "page.html",
         "slug": "/",
         "title": "Home"

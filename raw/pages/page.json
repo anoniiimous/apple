@@ -2,12 +2,12 @@
     "general": {
         "main": true,
         "page": "page.html",
-        "pages": true,
+        "pages": false,
         "slug": "/",
-        "title": "Product Page",
-        "visibility": true
+        "title": "Home",
+        "visibility": false
     },
     "page": "page.html",
     "slug": "/",
-    "title": "Product Page"
+    "title": "Home"
 }
