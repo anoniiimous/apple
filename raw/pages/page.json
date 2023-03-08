@@ -1,13 +1,12 @@
 {
-    "general": {
-        "main": true,
-        "page": "page.html",
-        "pages": true,
-        "slug": "/",
-        "title": "Home",
-        "visibility": true
-    },
+    "main": true,
     "page": "page.html",
+    "pages": true,
+    "seo": {
+        "description": "",
+        "title": ""
+    },
     "slug": "/",
-    "title": "Home"
+    "title": "Home",
+    "visibility": true
 }
