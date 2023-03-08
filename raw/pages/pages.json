@@ -29,5 +29,12 @@
         "slug": "/login",
         "title": "Log In",
         "visibility": true
+    },
+    {
+        "main": true,
+        "page": "page.index.html.html",
+        "slug": "/index.html",
+        "title": "Home",
+        "visibility": true
     }
 ]
