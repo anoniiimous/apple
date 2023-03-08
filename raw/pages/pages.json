@@ -33,11 +33,17 @@
         "title": "About"
     },
     {
-        "main": false,
+        "general": {
+            "main": false,
+            "page": "page.login.html",
+            "pages": false,
+            "slug": "/login",
+            "title": "Log In",
+            "visibility": true
+        },
         "page": "page.login.html",
         "slug": "/login",
-        "title": "Log In",
-        "visibility": true
+        "title": "Log In"
     },
     {
         "general": {
