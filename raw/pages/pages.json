@@ -22,11 +22,5 @@
         "slug": "/about",
         "title": "About",
         "visibility": false
-    },
-    {
-        "page": "page.about.us._.html",
-        "slug": "/about/us/*",
-        "title": "About Us",
-        "visibility": false
     }
 ]
