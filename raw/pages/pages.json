@@ -52,12 +52,6 @@
         "title": "Log In"
     },
     {
-        "general": {
-            "main": true,
-            "pages": true,
-            "title": "Product Page",
-            "visibility": true
-        },
         "page": "page.shop.merch._.html",
         "slug": "/shop/merch/*",
         "title": "Product Page"
