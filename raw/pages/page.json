@@ -1,7 +1,7 @@
 {
-    "main": false,
+    "main": true,
     "page": "page.html",
-    "pages": true,
+    "pages": false,
     "slug": "/",
     "title": "Home",
     "visibility": true
