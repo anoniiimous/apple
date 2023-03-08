@@ -27,7 +27,7 @@
         "main": false,
         "page": "page.login.html",
         "slug": "/login",
-        "title": "Login",
+        "title": "Log In",
         "visibility": true
     }
 ]
