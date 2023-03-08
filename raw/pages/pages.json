@@ -6,7 +6,7 @@
         "visibility": true
     },
     {
-        "page": "page.shop.merch.wildcard.html",
+        "page": "page.shop.merch._.html",
         "slug": "/shop/merch/*",
         "title": "Product Page",
         "visibility": true
