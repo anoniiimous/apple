@@ -3,14 +3,14 @@
         "general": {
             "main": true,
             "page": "page.html",
-            "pages": false,
+            "pages": true,
             "slug": "/",
-            "title": "Home",
-            "visibility": false
+            "title": "Product Page",
+            "visibility": true
         },
         "page": "page.html",
         "slug": "/",
-        "title": "Home"
+        "title": "Product Page"
     },
     {
         "general": {
