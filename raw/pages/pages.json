@@ -13,6 +13,7 @@
         "visibility": true
     },
     {
+        "main": true,
         "page": "page.shop.html",
         "slug": "/shop",
         "title": "Shop",
