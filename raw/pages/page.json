@@ -1,8 +1,13 @@
 {
-    "main": true,
+    "general": {
+        "main": true,
+        "page": "page.html",
+        "pages": true,
+        "slug": "/",
+        "title": "Product Page",
+        "visibility": true
+    },
     "page": "page.html",
-    "pages": false,
     "slug": "/",
-    "title": "Home",
-    "visibility": true
+    "title": "Product Page"
 }

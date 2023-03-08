@@ -1,19 +1,16 @@
 [
     {
-        "main": true,
-        "page": "page.html",
-        "pages": false,
-        "slug": "/",
-        "title": "Home",
-        "visibility": true,
         "general": {
             "main": true,
-            "page": "page.shop.merch._.html",
+            "page": "page.html",
             "pages": true,
-            "slug": "/shop/merch/*",
+            "slug": "/",
             "title": "Product Page",
             "visibility": true
-        }
+        },
+        "page": "page.html",
+        "slug": "/",
+        "title": "Product Page"
     },
     {
         "main": true,
@@ -35,7 +32,7 @@
         "slug": "/login",
         "title": "Log In",
         "visibility": true
-    },    
+    },
     {
         "general": {
             "main": true,
