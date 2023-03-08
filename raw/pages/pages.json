@@ -45,6 +45,6 @@
         },
         "page": "page.shop.merch._.html",
         "slug": "/shop/merch/*",
-        "title": "Product Page",
+        "title": "Product Page"
     }
 ]
