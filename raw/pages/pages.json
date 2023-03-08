@@ -21,17 +21,12 @@
         "title": "Shop"
     },
     {
-        "general": {
-            "main": true,
-            "page": "page.about.html",
-            "pages": false,
-            "slug": "/about",
-            "title": "About",
-            "visibility": false
-        },
+        "main": true,
         "page": "page.about.html",
+        "pages": false,
         "slug": "/about",
-        "title": "About"
+        "title": "About",
+        "visibility": false
     },
     {
         "general": {
