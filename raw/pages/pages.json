@@ -35,5 +35,15 @@
         "slug": "/login",
         "title": "Log In",
         "visibility": true
+    },
+    {
+        "general": {
+            "main": true,
+            "pages": true,
+            "title": "Product Page",
+            "visibility": true
+        },
+        "page": "page.shop.merch._.html",
+        "slug": "/shop/merch/*"
     }
 ]

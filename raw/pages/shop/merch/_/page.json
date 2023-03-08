@@ -1,10 +1,10 @@
 {
-    "page": "page.shop.merch._.html",
     "general": {
         "main": true,
         "pages": true,
-        "slug": "/shop/merch/*",
         "title": "Product Page",
         "visibility": true
-    }
+    },
+    "page": "page.shop.merch._.html",
+    "slug": "/shop/merch/*"
 }
