@@ -16,5 +16,11 @@
         "slug": "/shop",
         "title": "Shop",
         "visibility": true
+    },
+    {
+        "page": "page.about.html",
+        "slug": "/about",
+        "title": "About",
+        "visibility": true
     }
 ]
