@@ -3,7 +3,6 @@
         "main": true,
         "page": "page.html",
         "pages": true,
-        "seo": null,
         "slug": "/",
         "title": "Home",
         "visibility": true
