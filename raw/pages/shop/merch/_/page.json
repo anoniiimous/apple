@@ -1,8 +1,10 @@
 {
-    "main": true,
-    "page": "page.shop.merch._.html",
-    "pages": true,
-    "slug": "/shop/merch/*",
-    "title": "Product Page",
-    "visibility": true
+    "general": {
+        "main": true,
+        "page": "page.shop.merch._.html",
+        "pages": true,
+        "slug": "/shop/merch/*",
+        "title": "Product Page",
+        "visibility": true
+    }
 }
