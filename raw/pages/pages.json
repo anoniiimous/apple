@@ -22,5 +22,11 @@
         "slug": "/about",
         "title": "About",
         "visibility": false
+    },
+    {
+        "page": "page.login.html",
+        "slug": "/login",
+        "title": "Login",
+        "visibility": true
     }
 ]
