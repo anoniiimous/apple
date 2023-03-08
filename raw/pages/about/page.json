@@ -1,7 +1,13 @@
 {
-    "main": true,
+    "general": {
+        "main": true,
+        "page": "page.about.html",
+        "pages": false,
+        "slug": "/about",
+        "title": "About",
+        "visibility": false
+    },
     "page": "page.about.html",
     "slug": "/about",
-    "title": "About",
-    "visibility": false
+    "title": "About"
 }
