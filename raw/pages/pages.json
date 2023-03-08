@@ -2,6 +2,7 @@
     {
         "main": false,
         "page": "page.html",
+        "pages": true,
         "slug": "/",
         "title": "Home",
         "visibility": true
