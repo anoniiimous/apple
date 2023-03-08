@@ -2,10 +2,7 @@
     "main": true,
     "page": "page.html",
     "pages": true,
-    "seo": {
-        "description": "",
-        "title": ""
-    },
+    "seo": null,
     "slug": "/",
     "title": "Home",
     "visibility": true
