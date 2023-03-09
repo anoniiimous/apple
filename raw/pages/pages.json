@@ -31,19 +31,5 @@
         "slug": "/login",
         "title": "Log In",
         "visibility": true
-    },
-    {
-        "image": "image.png",
-        "main": true,
-        "noindex": true,
-        "page": "page.shop.merch._.html",
-        "pages": true,
-        "seo": {
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam facilisis vel tortor ut pellentesque.",
-            "title": "Shop Merch"
-        },
-        "slug": "/shop/merch/*",
-        "title": "Product Page",
-        "visibility": true
     }
 ]
