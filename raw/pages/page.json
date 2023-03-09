@@ -1,5 +1,6 @@
 {
     "main": true,
+    "noindex": false,
     "page": "page.html",
     "pages": true,
     "slug": "/",
