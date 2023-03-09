@@ -10,18 +10,6 @@ window.onload = ()=>{
     init();
 }
 
-is.iframe ? null : window.onpopstate = (event)=>{
-    if (event.state) {
-        console.log(event.state);
-        var state = is.local(window.location.protocol) ? event.state.replace(/^#+/, '') : event.state;
-        event.state.length > 0 ? event.state.router() : null;
-    } else {
-        if (document.location) {//console.log({place});
-        }
-    }
-    //console.log(event, "location: " + document.location + ", state: " + JSON.stringify(state));
-}
-
 async function init() {
     console.log("Initializing...");
 
@@ -103,7 +91,7 @@ async function init() {
         }
     });
 
-    window.addEventListener("message", (e)=>{
+    window.addEventListener("message", function(e) {
         var event = e.data[0]
         var data = e.data[1];
         if (is.iframe === false) {
@@ -123,8 +111,19 @@ async function init() {
                 href.router();
             }
         }
+    })
+
+    window.is.iframe ? null : window.onpopstate = function(event) {
+        if (event.state) {
+            console.log(event.state);
+            var state = is.local(window.location.protocol) ? event.state.replace(/^#+/, '') : event.state;
+            event.state.length > 0 ? event.state.router() : null;
+        } else {
+            if (document.location) {//console.log({place});
+            }
+        }
+        //console.log(event, "location: " + document.location + ", state: " + JSON.stringify(state));
     }
-    )
 
     //ROUTE
     var go = false;

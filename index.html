@@ -1,4 +1,5 @@
-<html><head>
+<html>
+    <head>
         <title>Apple</title>
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -11,26 +12,89 @@
         <meta name="theme-color" content="#f26c4f">
         <meta content="pk_test_51MhgsvAaZPhy2mUxENR4iqlEWO4RztjDLovcKPKZZxpDeNiw4FgsPX7reUUKJBrzif5NSfTVgjzlF3lH14glPecI00IvwnCWqR" name="stripe_publishable_key">
         <meta name="stripe_user_id" content="acct_1MhgsvAaZPhy2mUx">
+        <base href="/">
         <script>
+            var host = window.location.host;
+            var domains = host.split('.');
+            var subdomain = domains[domains.length - 3];
+            var domain = domains[domains.length - 2];
+            var tld = domains[domains.length - 1];
+            if (domain === "github" && tld === "tld") {
+                host = "dompad." + domain + '.' + tld;
+            }
+            if (domain === "dompad" && tld === "io") {
+                host = "dompad.io";
+            }
+
+            var scripts = [{
+                async: '',
+                src: window.location.protocol + "//" + host + "/raw/asset/js/mvc.js"
+            }, {
+                async: '',
+                src: window.location.protocol + "//" + host + "/raw/asset/js/modal.js"
+            }, {
+                async: '',
+                src: window.location.protocol + "//" + host + "/raw/asset/js/on.js"
+            }, {
+                async: '',
+                src: window.location.protocol + "//" + host + "/raw/asset/js/router.js"
+            }, {
+                async: '',
+                src: window.location.protocol + "//" + host + "/raw/asset/js/touch.js"
+            }, {
+                async: '',
+                src: window.location.protocol + "//" + host + "/raw/asset/js/vanilla.js"
+            }, {
+                async: '',
+                src: "raw/style/framework.js"
+            }, {
+                async: '',
+                src: "https://js.stripe.com/v3/"
+            }, {
+                defer: '',
+                src: "index.js"
+            }];
+            if (scripts.length > 0) {
+                var s = 0;
+                do {
+                    var row = scripts[s];
+                    var script = document.createElement('script');
+                    row.hasOwnProperty('async') ? script.setAttribute('async', row.async) : null;
+                    row.hasOwnProperty('defer') ? script.setAttribute('defer', row.defer) : null;
+                    script.src = row.src;
+                    document.head.appendChild(script);
+                    s++;
+                } while (s < scripts.length);
+            }
+
+            var links = [{
+                href: "index.css"
+            }, {
+                href: "raw/style/theme.css"
+            }, {
+                href: "https://cdn.jsdelivr.net/npm/css.gg/icons/all.css"
+            }];
+            if (tld === "tld") {
+                links.push({
+                    href: window.location.protocol + "//" + host + "/raw/asset/css/editor.css"
+                });
+            }
+            if (links.length > 0) {
+                var l = 0;
+                do {
+                    var row = links[l];
+                    var link = document.createElement('link');
+                    link.href = row.href;
+                    link.rel = "stylesheet";
+                    document.head.appendChild(link);
+                    l++;
+                } while (l < links.length);
+            }
+
             window.boot = window.location.pathname + window.location.search + window.location.hash;
         </script>
-        <base href="/">
-        <link href="index.css" rel="stylesheet">
-        <link href="raw/asset/css/editor.css" rel="stylesheet">
-        <link href="raw/style/theme.css" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/css.gg/icons/all.css" rel="stylesheet">
-        <script src="raw/asset/js/mvc.js"></script>
-        <script src="raw/asset/js/modal.js"></script>
-        <script src="raw/asset/js/on.js"></script>
-        <script src="raw/asset/js/router.js"></script>
-        <script src="raw/asset/js/touch.js"></script>
-        <script src="raw/asset/js/vanilla.js"></script>
-        <script src="raw/style/framework.js"></script>
-        <script src="https://js.stripe.com/v3/"></script>
-        <script src="index.js"></script>
     </head>
     <body>
         <boot id="boot"></boot>
-    
-
-</body></html>
+    </body>
+</html>
