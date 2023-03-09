@@ -23,5 +23,18 @@
         "slug": "/",
         "title": "Home",
         "visibility": false
+    },
+    {
+        "image": "image.png",
+        "main": true,
+        "noindex": false,
+        "page": "page.shop.merch._.html",
+        "pages": true,
+        "seo": {
+            "title": "Shop Merch"
+        },
+        "slug": "/shop/merch/*",
+        "title": "Product Page",
+        "visibility": false
     }
 ]
