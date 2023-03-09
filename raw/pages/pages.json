@@ -22,5 +22,14 @@
         "slug": "/login",
         "title": "Log In",
         "visibility": true
+    },
+    {
+        "main": true,
+        "noindex": false,
+        "page": "page.html",
+        "pages": false,
+        "slug": "/",
+        "title": "Test",
+        "visibility": false
     }
 ]
