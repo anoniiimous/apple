@@ -32,7 +32,7 @@
         "visibility": true
     },
     {
-        "image": "image.jpeg",
+        "image": "image.",
         "main": true,
         "noindex": true,
         "page": "page.shop.merch._.html",
