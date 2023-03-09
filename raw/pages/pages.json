@@ -3,10 +3,10 @@
         "main": true,
         "noindex": false,
         "page": "page.html",
-        "pages": true,
+        "pages": false,
         "slug": "/",
-        "title": "Home",
-        "visibility": true
+        "title": "Test",
+        "visibility": false
     },
     {
         "main": true,
