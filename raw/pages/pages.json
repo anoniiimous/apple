@@ -33,8 +33,13 @@
     },
     {
         "main": true,
+        "noindex": true,
         "page": "page.shop.merch._.html",
         "pages": true,
+        "seo": {
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam facilisis vel tortor ut pellentesque. Integer volutpat massa sit amet odio finibus, eget finibus ligula pretium. Etiam sed dapibus erat, ac aliquam ex. Quisque id erat lectus. Pellentesque tortor mauris, viverra at vestibulum eu, malesuada vel sapien. Maecenas vitae porta lectus, ac ultricies dui. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla semper dolor augue, in rhoncus ex rutrum sed. Curabitur eget commodo felis, at cursus elit.",
+            "title": "Shop Merch"
+        },
         "slug": "/shop/merch/*",
         "title": "Product Page",
         "visibility": true
