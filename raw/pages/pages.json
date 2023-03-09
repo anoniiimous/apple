@@ -16,14 +16,6 @@
         "visibility": false
     },
     {
-        "main": false,
-        "page": "page.login.html",
-        "pages": false,
-        "slug": "/login",
-        "title": "Log In",
-        "visibility": true
-    },
-    {
         "main": true,
         "noindex": false,
         "page": "page.html",

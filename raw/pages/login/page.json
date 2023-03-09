@@ -1,8 +1,0 @@
-{
-    "main": false,
-    "page": "page.login.html",
-    "pages": false,
-    "slug": "/login",
-    "title": "Log In",
-    "visibility": true
-}
