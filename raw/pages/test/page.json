@@ -1,9 +1,0 @@
-{
-    "main": true,
-    "noindex": true,
-    "page": "page.test.html",
-    "pages": true,
-    "slug": "/test",
-    "title": "Test",
-    "visibility": false
-}
