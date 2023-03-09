@@ -1,9 +1,0 @@
-{
-    "main": true,
-    "noindex": false,
-    "page": "page.about.us.html",
-    "pages": false,
-    "slug": "/about/us",
-    "title": "About Us",
-    "visibility": false
-}
