@@ -1,0 +1,9 @@
+{
+    "stripe": {
+        "publishable_key": {
+            "live": "",
+            "test": "pk_test_51MhgsvAaZPhy2mUxENR4iqlEWO4RztjDLovcKPKZZxpDeNiw4FgsPX7reUUKJBrzif5NSfTVgjzlF3lH14glPecI00IvwnCWqR"
+        },
+        "user_id": "acct_1MhgsvAaZPhy2mUx"
+    }
+}
