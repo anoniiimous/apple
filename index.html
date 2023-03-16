@@ -36,6 +36,9 @@
 
             var scripts = [{
                 async: '',
+                src: protocol + "//" + host + "/" + "raw/asset/js/github.js"
+            }, {
+                async: '',
                 src: protocol + "//" + host + "/" + "raw/asset/js/mvc.js"
             }, {
                 async: '',
@@ -99,7 +102,17 @@
                 } while (l < links.length);
             }
 
-            window.boot = window.location.pathname + window.location.search + window.location.hash;
+            if (window.self === window.top) {
+                window.boot = window.location.pathname + window.location.search + window.location.hash;
+            } else {
+                const base = document.createElement("base");
+                base.href = window.parent.location.protocol + "//" + window.parent.location.host;
+                document.head.appendChild(base);
+                var pathname = window.parent.location.pathname;
+                var dir = window.parent.rout.ed.dir(pathname);
+                dir.splice(0, 4);
+                window.boot = window.parent.rout.ed.url(dir);
+            }
         </script>
     </head>
     <body>
