@@ -28,25 +28,28 @@
             if (domain === "pages" && tld === "dev") {
                 host = "dompad.pages.dev";
             }
+            if (window.self !== window.top) {
+                host = window.parent.location.host;
+            }
 
             var scripts = [{
                 async: '',
-                src: window.location.protocol + "//" + host + "/raw/asset/js/mvc.js"
+                src: window.location.protocol + "//" + host + "/" + "raw/asset/js/mvc.js"
             }, {
                 async: '',
-                src: window.location.protocol + "//" + host + "/raw/asset/js/modal.js"
+                src: window.location.protocol + "//" + host + "/" + "raw/asset/js/modal.js"
             }, {
                 async: '',
-                src: window.location.protocol + "//" + host + "/raw/asset/js/on.js"
+                src: window.location.protocol + "//" + host + "/" + "raw/asset/js/on.js"
             }, {
                 async: '',
-                src: window.location.protocol + "//" + host + "/raw/asset/js/router.js"
+                src: window.location.protocol + "//" + host + "/" + "raw/asset/js/router.js"
             }, {
                 async: '',
-                src: window.location.protocol + "//" + host + "/raw/asset/js/touch.js"
+                src: window.location.protocol + "//" + host + "/" + "raw/asset/js/touch.js"
             }, {
                 async: '',
-                src: window.location.protocol + "//" + host + "/raw/asset/js/vanilla.js"
+                src: window.location.protocol + "//" + host + "/" + "raw/asset/js/vanilla.js"
             }, {
                 async: '',
                 src: "raw/style/framework.js"
