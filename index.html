@@ -15,6 +15,7 @@
         <base href="/">
         <script>
             var host = window.location.host;
+            var protocol = window.location.protocol;
             var domains = host.split('.');
             var subdomain = domains[domains.length - 3];
             var domain = domains[domains.length - 2];
@@ -30,17 +31,18 @@
             }
             if (window.self !== window.top) {
                 host = window.parent.location.host;
+                protocol = window.parent.location.protocol;
             }
 
             var scripts = [{
                 async: '',
-                src: window.location.protocol + "//" + host + "/" + "raw/asset/js/mvc.js"
+                src: protocol + "//" + host + "/" + "raw/asset/js/mvc.js"
             }, {
                 async: '',
-                src: window.location.protocol + "//" + host + "/" + "raw/asset/js/modal.js"
+                src: protocol + "//" + host + "/" + "raw/asset/js/modal.js"
             }, {
                 async: '',
-                src: window.location.protocol + "//" + host + "/" + "raw/asset/js/on.js"
+                src: protocol + "//" + host + "/" + "raw/asset/js/on.js"
             }, {
                 async: '',
                 src: window.location.protocol + "//" + host + "/" + "raw/asset/js/router.js"
