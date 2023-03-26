@@ -124,11 +124,11 @@
     }
 
     @media (max-width: 960px) {
-        .-dw960px-display-flex, [data-960px-display="flex"] {
+        .-dw960px-display-flex, [data-dw960px-display="flex"] {
             display: flex;
         }
 
-        .-dw960px-display-none, [data-960px-display="none"] {
+        .-dw960px-display-none, [data-dw960px-display="none"] {
             display: none;
         }
     }
@@ -550,19 +550,19 @@
     }
 
     @media (max-width: 768px) {
-        [data-768px-columns="1"] {
+        [data-dw768px-columns="1"] {
             grid-template-columns: repeat(1, minmax(0, 1fr));
         }
     }
 
     @media (max-width: 640px) {
-        [data-640px-columns="1"] {
+        [data-dw640px-columns="1"] {
             grid-template-columns: repeat(1, minmax(0, 1fr));
         }
     }
 
     @media (max-width: 480px) {
-        [data-480px-columns="1"] {
+        [data-dw480px-columns="1"] {
             grid-template-columns: repeat(1, minmax(0, 1fr));
         }
     }
