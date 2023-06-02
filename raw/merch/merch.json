@@ -100,47 +100,45 @@
         "slug": "iphone-11/size-64gb_color-purple_carrier-unlocked"
     },
     {
-        "description": "The HomePod is a smart speaker developed by Apple Inc. Designed to work with the Apple Music subscription service, the HomePod incorporates beamforming and eight speakers and is sold in two colors: white and space gray. It is sold alongside the HomePod Mini, a smaller and less expensive variant introduced in 2020.",
-        "title": "HomePod",
-        "category": "Electronics",
+        "description": "This device is in EXCELLENT cosmetic condition, it is 100% fully functional as tested by our expert technicians and passed an industry leading 65-point inspection. The device may have minor cosmetic wear such as minimal light scratches on the screen and minor imperfections on sides and/or back. The device has been thoroughly inspected, cleaned and refurbished (if necessary) at our manufacturer approved repair center. Includes New OEM A/C Adapter & Data Cable. Devices do not include a SIM card, headphones, original box or the original manufacturer's warranty. This GSM UNLOCKED device is being sold for use with only GSM Carrier networks such as, T-Mobile and AT&T.  Please check with your carrier for compatibility prior to purchasing.",
+        "title": "iPhone 11",
+        "category": "Cell Phones & Accesories",
         "images": [
-            "/raw/merch/homepod/image.0.jpeg"
+            "/raw/merch/iphone-11/image.0.jpeg",
+            "/raw/merch/iphone-11/image.1.jpeg",
+            "/raw/merch/iphone-11/image.2.jpeg"
         ],
-        "details": {},
-        "about": [],
-        "pricing": {
-            "ListPrice": "299.99"
+        "tags": [
+            "Apple",
+            "iPhone11"
+        ],
+        "details": {
+            "Brand": "Apple",
+            "Model Name": "iPhone 11",
+            "Wireless Carrier": "Unlocked",
+            "OS": "iOS",
+            "Memory Storage Capacity": "64GB",
+            "Connectivity Technologies": "Bluetooth, Wi-Fi, USB, NFC",
+            "Color": "Black",
+            "Screen Size": "6.1 inches",
+            "Wireless Network Technology": "GSM, CDMA"
         },
-        "dimensions": [
-            {
-                "name": "Size",
-                "values": [
-                    "64GB",
-                    "128GB",
-                    "256GB"
-                ]
-            },
-            {
-                "name": "Color",
-                "values": [
-                    "Black",
-                    "Green",
-                    "Purple",
-                    "Red",
-                    "White",
-                    "Yellow"
-                ]
-            },
-            {
-                "name": "Carrier",
-                "values": [
-                    "AT&T",
-                    "T-Mobile",
-                    "Unlocked",
-                    "Verizon"
-                ]
-            }
+        "about": [
+            "This phone is unlocked and compatible with any carrier of choice on GSM and CDMA networks (e.g. AT&T, T-Mobile, Sprint, Verizon, US Cellular, Cricket, Metro, Tracfone, Mint Mobile, etc.).",
+            "Tested for battery health and guaranteed to have a minimum battery capacity of 80%.",
+            "Successfully passed a full diagnostic test which ensures like-new functionality and removal of any prior-user personal information.",
+            "The device does not come with headphones or a SIM card. It does include a generic (Mfi certified) charger and charging cable.",
+            "Inspected and guaranteed to have minimal cosmetic damage, which is not noticeable when the device is held at arm's length."
         ],
-        "slug": "homepod"
+        "pricing": {
+            "ListPrice": "327.00"
+        },
+        "quantity": 3,
+        "attributes": {
+            "Size": "64GB",
+            "Color": "Black",
+            "Carrier": "Unlocked"
+        },
+        "slug": "iphone-11/size-64gb_color-black_carrier-unlocked"
     }
 ]
