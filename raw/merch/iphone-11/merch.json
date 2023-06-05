@@ -92,6 +92,7 @@
         "pricing": {
             "ListPrice": "328.00"
         },
+        "quantity": 3,
         "attributes": {
             "Size": "64GB",
             "Color": "Purple",
@@ -133,7 +134,7 @@
         "pricing": {
             "ListPrice": "327.00"
         },
-        "quantity": 0,
+        "quantity": 7,
         "attributes": {
             "Size": "64GB",
             "Color": "Black",
