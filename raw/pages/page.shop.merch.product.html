@@ -72,7 +72,7 @@
                         <column class="gap-20px" data-value="post.traits"></column>
                         <template>
                             <column class="padding-y-20px">
-                                <field class="border-bottom-1px-solid display-flex height-36px line-height-36px width-50pct">
+                                <field class="display-flex height-36px line-height-36px width-50pct">
                                     <row class="align-items-center justify-content-center width-100pct">
                                         <text class="flex-1" placeholder="Attribute"></text>
                                     </row>
@@ -103,17 +103,28 @@
                         <header>
                             <text class="text-transform-uppercase">Quantity</text>
                         </header>
-                        <column class="align-items-flex-start gap-20px">
+                        <row class="align-items-center gap-20px justify-content-flex-start">
                             <row class="align-items-center border-1px-solid border-radius-5px display-flex justify-content-center line-height-50px overflow-hidden" data-tap="controller.product.quantity(event.target)">
                                 <ico class="align-items-center display-flex font-weight-bolder justify-content-center">
                                     <n class="gg-chevron-up"></n>
                                 </ico>
-                                <input class="flex-1 font-size-18px height-36px text-align-center" css-width="50px" min="1" placeholder="0" step="1" type="number" value="1" data-value="post.quantity">
+                                <input class="flex-1 font-size-18px height-36px text-align-center" css-width="50px" data-value="post.max" min="1" placeholder="0" step="1" type="number" value="1">
                                 <ico class="align-items-center display-flex font-weight-bolder justify-content-center">
                                     <n class="gg-chevron-down"></n>
                                 </ico>
                             </row>
-                        </column>
+                            <row>
+                                <text>
+                                    <span placeholder="0 " data-value="post.quantity"></span>
+                                    <span>available</span>
+                                </text>
+                                <text class="padding-x-5px" css-display="none">
+                                    <span>/</span>
+                                    <span placeholder=" 0 "></span>
+                                    <span>sold</span>
+                                </text>
+                            </row>
+                        </row>
                     </box>
                     <box class="background-color-a8a6a1 color-fff font-weight-bolder padding-20px text-align-center">
                         <label class="text-transform-uppercase">
