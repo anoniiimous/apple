@@ -92,6 +92,7 @@
         "pricing": {
             "ListPrice": "328.00"
         },
+        "quantity": 3,
         "attributes": {
             "Size": "64GB",
             "Color": "Purple",
@@ -133,7 +134,7 @@
         "pricing": {
             "ListPrice": "327.00"
         },
-        "quantity": 3,
+        "quantity": 8,
         "attributes": {
             "Size": "64GB",
             "Color": "Black",
@@ -155,33 +156,12 @@
         },
         "dimensions": [
             {
-                "name": "Size",
-                "values": [
-                    "64GB",
-                    "128GB",
-                    "256GB"
-                ]
-            },
-            {
                 "name": "Color",
                 "values": [
-                    "Black",
-                    "Green",
-                    "Purple",
-                    "Red",
-                    "White",
-                    "Yellow"
+                    "Midnight",
+                    "White"
                 ]
             },
-            {
-                "name": "Carrier",
-                "values": [
-                    "AT&T",
-                    "T-Mobile",
-                    "Unlocked",
-                    "Verizon"
-                ]
-            }
         ],
         "slug": "homepod"
     }
