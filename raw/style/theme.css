@@ -105,6 +105,12 @@
 }
 
 @media {
+    .box-sizing-border-box {
+        box-sizing: border-box;
+    }
+}
+
+@media {
     .color-ff3b30 {
         color: #ff3b30;
     }
