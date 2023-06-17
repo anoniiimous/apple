@@ -44,6 +44,10 @@
     .background-color-000 {
         background-color: #000;
     }
+
+    .background-color-557b97 {
+        background-color: #557b97;
+    }
     
     .background-color-a8a6a1 {
         background-color: #a8a6a1;
@@ -215,6 +219,10 @@
         gap: 20px;
     }
 
+    .gap-30px {
+        gap: 30px;
+    }
+
     .gap-50px {
         gap: 50px;
     }
@@ -258,6 +266,10 @@
         height: 36px;
     }
 
+    .height-40px, [css-height="40px"] {
+        height: 40px;
+    }
+
     .height-50px, [css-height="50px"] {
         height: 50px;
     }
@@ -268,6 +280,10 @@
 
     .height-120px, [css-height="120px"] {
         height: 120px;
+    }
+
+    .height-475px, [css-height="475px"] {
+        height: 475px;
     }
 
     @media (max-width: 960px) {
@@ -315,6 +331,10 @@
     .margin-bottom-20px {
         margin-bottom: 20px;
     }
+    
+    .margin-bottom-55px {
+        margin-bottom: 55px;
+    }
 }
 
 @media {
@@ -351,6 +371,17 @@
 }
 
 @media {
+    .margin-top-55px {
+        margin-top: 55px;
+    }
+}
+
+@media {
+    .margin-y-15px {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    
     .margin-y-20px {
         margin-top: 20px;
         margin-bottom: 20px;
@@ -370,6 +401,10 @@
 @media {
     .min-height-100pct {
         min-height: 100%;
+    }
+    
+    .min-height-240px {
+        min-height: 240px;
     }
 }
 
@@ -416,6 +451,14 @@
         padding-top: 100%;
     }
 
+    .padding-top-55px {
+        padding-top: 55px;
+    }
+
+    .padding-top-80px {
+        padding-top: 80px;
+    }
+
     .padding-x-10px {
         padding-left: 10px;
         padding-right: 10px;
@@ -424,6 +467,11 @@
     .padding-x-20px {
         padding-left: 20px;
         padding-right: 20px;
+    }
+
+    .padding-x-55px {
+        padding-left: 55px;
+        padding-right: 55px;
     }
 
     .padding-y-20px {
@@ -520,8 +568,16 @@
         width: 320px;
     }
 
+    .width-480px, [css-width="480px"] {
+        width: 480px;
+    }
+
     .width-960px, [css-width="960px"] {
         width: 960px;
+    }
+
+    .width-1080px, [css-width="1080px"] {
+        width: 1080px;
     }
 
     @media (max-width: 960px) {
