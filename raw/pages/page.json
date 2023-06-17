@@ -1,9 +1,1 @@
-{
-    "main": true,
-    "noindex": false,
-    "page": "page.html",
-    "pages": false,
-    "slug": "/",
-    "title": "Home",
-    "visibility": false
-}
+{"main":true,"noindex":false,"page":"page.html","pages":false,"slug":"/","title":"Home","visibility":false}

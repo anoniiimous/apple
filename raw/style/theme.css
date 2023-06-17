@@ -224,6 +224,23 @@
     }
 }
 
+/*COLUMNS*/
+@media screen {
+    .display-grid, [css-columns], [css-grid-template-columns] {
+        display: grid;
+    }
+
+    .grid-template-columns-4, [css-columns="4"], [css-grid-template-columns="4"], [css-grid-template-columns="repeat(4, minmax(0, 1fr))"] {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    @media (max-width: 768px) {
+        .dw768px-grid-template-columns, [css-dw768px-columns="1"], [css-dw768px-grid-template-columns="repeat(1, minmax(0, 1fr))"], [css-tablet-columns="1"] {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+    }
+}
+
 @media {
     .height-0 {
         height: 0;
