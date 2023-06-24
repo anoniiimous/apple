@@ -41,7 +41,7 @@
 }
 
 @media {
-    .background-color-000 {
+    .background-color-000, [css-background-color="#000"] {
         background-color: #000;
     }
 
